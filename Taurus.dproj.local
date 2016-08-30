@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/08/27 17:18:26.000.082,=C:\Users\Nanda\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/08/27 17:41:10.000.565,C:\Users\Nanda\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\uTaurus.dfm</Transaction>
+    <Transaction>2016/08/27 17:41:10.000.565,C:\Users\Nanda\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\uTaurus.pas</Transaction>
+    <Transaction>2016/08/27 17:41:18.000.798,C:\Users\Nanda\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Nanda\Documents\Projetos\PARCERIA\Taurus.dproj</Transaction>
+    <Transaction>2016/08/27 17:44:14.000.805,=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas</Transaction>
+    <Transaction>2016/08/27 17:45:44.000.688,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\u_empresa.pas</Transaction>
+    <Transaction>2016/08/27 17:45:44.000.688,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\u_empresa.dfm</Transaction>
+    <Transaction>2016/08/27 22:18:12.000.125,=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit1.pas</Transaction>
+    <Transaction>2016/08/27 22:53:09.000.195,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit1.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\dmPrincipal.dfm</Transaction>
+    <Transaction>2016/08/27 22:53:09.000.195,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit1.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\dmPrincipal.pas</Transaction>
+    <Transaction>2016/08/28 09:57:47.737,=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas</Transaction>
+    <Transaction>2016/08/28 10:16:55.147,C:\Users\Nanda\Documents\Projetos\PARCERIA\u_pesq_empresa.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.dfm</Transaction>
+    <Transaction>2016/08/28 10:16:55.147,C:\Users\Nanda\Documents\Projetos\PARCERIA\u_pesq_empresa.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas</Transaction>
+    <Transaction>2016/08/28 10:48:53.710,=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas</Transaction>
+    <Transaction>2016/08/28 13:40:11.304,C:\Users\Nanda\Documents\Projetos\PARCERIA\u_clientes.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas</Transaction>
+    <Transaction>2016/08/28 13:40:11.304,C:\Users\Nanda\Documents\Projetos\PARCERIA\u_clientes.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
