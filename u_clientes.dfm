@@ -241,10 +241,8 @@ object fClientes: TfClientes
     ActivePage = tsFisica
     Align = alClient
     TabOrder = 2
-    ExplicitHeight = 459
     object tsJuridica: TTabSheet
       Caption = 'Pessoa F'#237'sica'
-      ExplicitHeight = 427
       object lbl2: TLabel
         Left = 85
         Top = 20
@@ -1025,7 +1023,6 @@ object fClientes: TfClientes
         object ts3: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
-          ExplicitHeight = 187
         end
         object ts4: TTabSheet
           Caption = 'Dados de Cobran'#231'a'
@@ -1239,7 +1236,6 @@ object fClientes: TfClientes
     object tsFisica: TTabSheet
       Caption = 'Pessoa Jur'#237'dica'
       ImageIndex = 1
-      ExplicitHeight = 427
       object lbl4: TLabel
         Left = 84
         Top = 31
@@ -1827,20 +1823,27 @@ object fClientes: TfClientes
         Top = 370
         Width = 1260
         Height = 219
-        ActivePage = ts1
+        ActivePage = ts2
         Align = alBottom
         TabOrder = 19
-        ExplicitLeft = 3
-        ExplicitTop = 368
-        ExplicitWidth = 1266
         object ts2: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
-          ExplicitHeight = 557
+          object DBGrid1: TDBGrid
+            Left = 11
+            Top = 3
+            Width = 422
+            Height = 181
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -13
+            TitleFont.Name = 'Segoe UI Semibold'
+            TitleFont.Style = [fsBold]
+          end
         end
         object ts1: TTabSheet
           Caption = 'Dados de Cobran'#231'a'
-          ExplicitHeight = 557
           object lbl32: TLabel
             Left = 88
             Top = 19
@@ -2053,13 +2056,13 @@ object fClientes: TfClientes
     MaxBlobSize = -1
     Params = <
       item
-        DataType = ftString
-        Name = 'cnpj'
+        DataType = ftUnknown
+        Name = 'cnpjcpf'
         ParamType = ptInput
       end>
     SQL.Strings = (
-      'Select * from empresa'
-      'where cnpj = :cnpj')
+      'Select * from clientes'
+      'where cnpj_cpf = :cnpjcpf')
     SQLConnection = dm_Principal.Taurus
     Left = 408
     Top = 96

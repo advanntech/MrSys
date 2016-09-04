@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.FMTBcd, Vcl.StdCtrls, Vcl.DBCtrls,
   Vcl.Mask, Vcl.ComCtrls, Datasnap.Provider, Data.DB, Datasnap.DBClient,
-  Data.SqlExpr, Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+  Data.SqlExpr, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfClientes = class(TForm)
@@ -186,6 +186,7 @@ type
     dbedtbairro2: TDBEdit;
     cbb5: TComboBox;
     cbb6: TComboBox;
+    DBGrid1: TDBGrid;
     procedure imgSairClick(Sender: TObject);
   private
     { Private declarations }
