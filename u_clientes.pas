@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.FMTBcd, Vcl.StdCtrls, Vcl.DBCtrls,
   Vcl.Mask, Vcl.ComCtrls, Datasnap.Provider, Data.DB, Datasnap.DBClient,
-  Data.SqlExpr, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
+  Data.SqlExpr, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
+  ACBrBase, ACBrSocket, ACBrCEP, uPesqCPNJ;
 
 type
   TfClientes = class(TForm)
@@ -18,33 +19,10 @@ type
     btnSalvar: TButton;
     btnExcluir: TButton;
     btnCancelar: TButton;
-    qrEmpresa: TSQLQuery;
+    qrClientes: TSQLQuery;
     dsEmpresa: TDataSource;
-    cdsEmpresa: TClientDataSet;
-    cdsEmpresacnpj: TStringField;
-    cdsEmpresatipo: TStringField;
-    cdsEmpresarazao_social: TStringField;
-    cdsEmpresafantasia: TStringField;
-    cdsEmpresaramoatividade: TStringField;
-    cdsEmpresaresponsavel: TStringField;
-    cdsEmpresanumero: TStringField;
-    cdsEmpresacomplemento: TStringField;
-    cdsEmpresabairro: TStringField;
-    cdsEmpresaid_uf: TIntegerField;
-    cdsEmpresaid_cidade: TIntegerField;
-    cdsEmpresacep: TStringField;
-    cdsEmpresaie: TStringField;
-    cdsEmpresaim: TStringField;
-    cdsEmpresaie_substituto: TStringField;
-    cdsEmpresacnae: TStringField;
-    cdsEmpresacrt: TStringField;
-    cdsEmpresasubstituto_tributario: TStringField;
-    cdsEmpresaaliquota_simples: TFloatField;
-    cdsEmpresatelefone: TStringField;
-    cdsEmpresafax: TStringField;
-    cdsEmpresaemail: TStringField;
-    cdsEmpresaendereco: TStringField;
-    dspEmpresa: TDataSetProvider;
+    cdsClientes: TClientDataSet;
+    dspClientes: TDataSetProvider;
     qrEstados: TSQLQuery;
     qrEstadosuf: TStringField;
     qrCidades: TSQLQuery;
@@ -54,7 +32,7 @@ type
     tsJuridica: TTabSheet;
     tsFisica: TTabSheet;
     lbl2: TLabel;
-    edtCnpj: TMaskEdit;
+    edtCpf: TMaskEdit;
     lbl3: TLabel;
     edtRazaoSocial: TDBEdit;
     lbl10: TLabel;
@@ -79,14 +57,13 @@ type
     edtComplemento: TDBEdit;
     lbl13: TLabel;
     edtCEP: TDBEdit;
-    imgPesquisar: TImage;
-    Label22: TLabel;
+    imgPesqCliente: TImage;
     Label27: TLabel;
     Label28: TLabel;
     DBEdit19: TDBEdit;
     DBEdit20: TDBEdit;
     DBCheckBox1: TDBCheckBox;
-    Image4: TImage;
+    imgPesqCep: TImage;
     Label34: TLabel;
     DBEdit26: TDBEdit;
     grpDadosPessoais: TGroupBox;
@@ -94,7 +71,6 @@ type
     DBEdit15: TDBEdit;
     DBComboBox1: TDBComboBox;
     Label29: TLabel;
-    Label30: TLabel;
     lbl6: TLabel;
     dbedttelefone: TDBEdit;
     lbl8: TLabel;
@@ -111,57 +87,55 @@ type
     img2: TImage;
     img3: TImage;
     lbl4: TLabel;
-    medt1: TMaskEdit;
-    img4: TImage;
+    edtCNPJ: TMaskEdit;
+    imgPesqCliente2: TImage;
     lbl5: TLabel;
     dbedtrazao_social: TDBEdit;
     lbl14: TLabel;
-    dbedtcep: TDBEdit;
+    edtCep2: TDBEdit;
     lbl16: TLabel;
-    dbedtcomplemento: TDBEdit;
+    edtComplementoJur: TDBEdit;
     lbl20: TLabel;
-    dbedtie: TDBEdit;
+    edtIeJur: TDBEdit;
     lbl21: TLabel;
-    dbedttelefone3: TDBEdit;
+    edtTelefoneJur: TDBEdit;
     lbl22: TLabel;
-    dbedtfax: TDBEdit;
-    dbedtim: TDBEdit;
+    edtImJur: TDBEdit;
     lbl23: TLabel;
     lbl24: TLabel;
-    dbedtbairro: TDBEdit;
+    edtBairroJur: TDBEdit;
     lbl25: TLabel;
-    dbedtendereco: TDBEdit;
+    edtEnderecoJur: TDBEdit;
     lbl26: TLabel;
-    dbedtie1: TDBEdit;
-    dbedtnumero1: TDBEdit;
+    edtFantasia: TDBEdit;
+    edtNumeroJur: TDBEdit;
     lbl28: TLabel;
-    cbb1: TComboBox;
+    cbbCidadeJur: TComboBox;
     lbl29: TLabel;
-    cbb2: TComboBox;
+    cbbUFJur: TComboBox;
     lbl30: TLabel;
-    DBCheckBox2: TDBCheckBox;
+    chkContIcmsJur: TDBCheckBox;
     lbl31: TLabel;
-    dbedtemail: TDBEdit;
+    edtEmailJur: TDBEdit;
     grp2: TGroupBox;
     img5: TImage;
     img6: TImage;
     img7: TImage;
-    img8: TImage;
-    DBCheckBox3: TDBCheckBox;
+    imgPesqCep2: TImage;
+    chkSimplesJur: TDBCheckBox;
     lbl27: TLabel;
-    dbedtie2: TDBEdit;
     pgcComplento: TPageControl;
     ts2: TTabSheet;
     ts1: TTabSheet;
     lbl32: TLabel;
-    img9: TImage;
+    imgPesqCepCob2: TImage;
     lbl33: TLabel;
     lbl34: TLabel;
     lbl35: TLabel;
     lbl36: TLabel;
     lbl37: TLabel;
     lbl38: TLabel;
-    dbedtcep1: TDBEdit;
+    edtCepCob2: TDBEdit;
     dbedtendereco1: TDBEdit;
     dbedtnumero: TDBEdit;
     dbedtcomplemento1: TDBEdit;
@@ -172,14 +146,14 @@ type
     ts3: TTabSheet;
     ts4: TTabSheet;
     lbl39: TLabel;
-    img10: TImage;
+    imgPesqCepCob: TImage;
     lbl40: TLabel;
     lbl41: TLabel;
     lbl42: TLabel;
     lbl43: TLabel;
     lbl44: TLabel;
     lbl45: TLabel;
-    dbedtcep2: TDBEdit;
+    edtCepCob: TDBEdit;
     dbedtendereco2: TDBEdit;
     dbedtnumero2: TDBEdit;
     dbedtcomplemento2: TDBEdit;
@@ -187,7 +161,55 @@ type
     cbb5: TComboBox;
     cbb6: TComboBox;
     DBGrid1: TDBGrid;
+    chkSimples: TDBCheckBox;
+    cdsClientescpf_cnpj: TStringField;
+    cdsClientestipo: TStringField;
+    cdsClientesnome: TStringField;
+    cdsClientesfantasia: TStringField;
+    cdsClientescontato: TStringField;
+    cdsClientescep: TStringField;
+    cdsClientesendereco: TStringField;
+    cdsClientesnumero: TStringField;
+    cdsClientesidUF: TIntegerField;
+    cdsClientesidCidade: TIntegerField;
+    cdsClientesdddfone: TStringField;
+    cdsClientesfone: TStringField;
+    cdsClientesdddcel: TStringField;
+    cdsClientescelular: TStringField;
+    cdsClientesemail: TStringField;
+    cdsClientesie: TStringField;
+    cdsClientesim: TStringField;
+    cdsClientesrg: TStringField;
+    cdsClientescontrib_icms: TIntegerField;
+    cdsClientessimples_nacional: TIntegerField;
+    cdsClientescep_cobranca: TStringField;
+    cdsClientesendereco_cobranca: TStringField;
+    cdsClientesbairro_cobranca: TStringField;
+    cdsClientesidUf_cobranca: TIntegerField;
+    cdsClientesifCidade_cobranca: TIntegerField;
+    cdsClientesestado_civil: TStringField;
+    cdsClientespai: TStringField;
+    cdsClientesmae: TStringField;
+    cdsClientesconjude: TStringField;
+    cdsClientestrabalho: TStringField;
+    cdsClientesnaturalidade: TStringField;
+    cdsClientesdependentes: TIntegerField;
+    ACBrCEP1: TACBrCEP;
+    imgPespCNPJ: TImage;
+    Image2: TImage;
+    edtContato: TDBEdit;
+    edtDddTelJur: TDBEdit;
+    edtCelularJur: TDBEdit;
+    edtDddCel: TDBEdit;
+    Label1: TLabel;
+    edtCNAE: TDBEdit;
     procedure imgSairClick(Sender: TObject);
+    procedure imgPesqCepClick(Sender: TObject);
+    procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
+    procedure imgPesqCepCobClick(Sender: TObject);
+    procedure imgPesqCep2Click(Sender: TObject);
+    procedure imgPesqCepCob2Click(Sender: TObject);
+    procedure imgPespCNPJClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -200,6 +222,66 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfClientes.ACBrCEP1BuscaEfetuada(Sender: TObject);
+var i : Integer;
+begin
+  for i := 0 to ACBrCEP1.Enderecos.Count -1 do
+  begin
+    edtCEP.Text := ACBrCEP1.Enderecos[i].CEP;
+    edtEndereco.Text := ACBrCEP1.Enderecos[i].Tipo_Logradouro + ' ' + ACBrCEP1.Enderecos[i].Logradouro;
+    cbbUF.Text := ACBrCEP1.Enderecos[i].UF;
+    cbbCidades.Text := ACBrCEP1.Enderecos[i].Municipio;
+    edtBairro.Text := ACBrCEP1.Enderecos[i].Bairro;
+  end;
+end;
+
+procedure TfClientes.imgPespCNPJClick(Sender: TObject);
+begin
+  if ActiveControl = edtCnpj then
+  begin
+    Application.CreateForm(TfPesqCNPJ,fPesqCNPJ);
+    fPesqCNPJ.ShowModal;
+    if fPesqCNPJ.cnpj <> '' then
+    begin
+       edtCnpj.text := fPesqCNPJ.cnpj;
+       edtRazaoSocial.Text := fPesqCNPJ.razaosocial;
+       edtFantasia.Text := fPesqCNPJ.fantasia;
+       edtEnderecoJur.Text := fPesqCNPJ.endereco;
+       edtNumeroJur.Text := fPesqCNPJ.numero;
+       edtBairroJur.Text := fPesqCNPJ.bairro;
+       edtComplementoJur.Text := fPesqCNPJ.complemento;
+       cbbUFJur.Text := fPesqCNPJ.uf;
+       cbbCidadeJur.Text := fPesqCNPJ.cidade;
+       edtTelefoneJur.Text := fPesqCNPJ.telefone;
+       edtCNAE.Text := fPesqCNPJ.cnae;
+       edtCep2.Text := fPesqCNPJ.cep;
+       edtEmailJur.Text := fPesqCNPJ.email;
+    end;
+    fPesqCNPJ.release;
+    fPesqCNPJ := nil;
+   end;
+end;
+
+procedure TfClientes.imgPesqCep2Click(Sender: TObject);
+begin
+  ACBrCEP1.BuscarPorCEP(edtCEP2.Text)
+end;
+
+procedure TfClientes.imgPesqCepClick(Sender: TObject);
+begin
+  ACBrCEP1.BuscarPorCEP(edtCEP.Text)
+end;
+
+procedure TfClientes.imgPesqCepCob2Click(Sender: TObject);
+begin
+  ACBrCEP1.BuscarPorCEP(edtCepCob2.Text)
+end;
+
+procedure TfClientes.imgPesqCepCobClick(Sender: TObject);
+begin
+  ACBrCEP1.BuscarPorCEP(edtCepCob.Text)
+end;
 
 procedure TfClientes.imgSairClick(Sender: TObject);
 begin

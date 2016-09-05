@@ -6,7 +6,9 @@ uses
   u_empresa in 'u_empresa.pas' {fEmpresa},
   dmPrincipal in 'dmPrincipal.pas' {dm_Principal: TDataModule},
   u_pesq_empresa in 'u_pesq_empresa.pas' {fPesqEmpresa},
-  u_clientes in 'u_clientes.pas' {fClientes};
+  u_clientes in 'u_clientes.pas' {fClientes},
+  uFormaPagRec in 'uFormaPagRec.pas' {fFormaPagRec},
+  uPesqCPNJ in 'uPesqCPNJ.pas' {fPesqCNPJ};
 
 {$R *.res}
 
@@ -18,5 +20,7 @@ begin
   Application.CreateForm(Tdm_Principal, dm_Principal);
   Application.CreateForm(TfPesqEmpresa, fPesqEmpresa);
   Application.CreateForm(TfClientes, fClientes);
+  Application.CreateForm(TfFormaPagRec, fFormaPagRec);
+  Application.CreateForm(TfPesqCNPJ, fPesqCNPJ);
   Application.Run;
 end.

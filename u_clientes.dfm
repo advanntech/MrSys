@@ -11,125 +11,95 @@ object fClientes: TfClientes
   Font.Name = 'Segoe UI Semibold'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 17
-  object Label22: TLabel
-    Left = 329
-    Top = 36
-    Width = 132
-    Height = 21
-    Caption = 'Nome do c'#244'njuge'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI Semibold'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object Label30: TLabel
-    Left = 327
-    Top = 35
-    Width = 132
-    Height = 21
-    Caption = 'Nome do c'#244'njuge'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI Semibold'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
   object pnl1: TPanel
     Left = 0
     Top = 0
     Width = 1268
-    Height = 68
+    Height = 49
     Align = alTop
     BevelKind = bkSoft
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = -6
     object imgSair: TImage
-      Left = 1205
+      Left = 1215
       Top = 1
-      Width = 58
-      Height = 62
+      Width = 48
+      Height = 43
       Align = alRight
       AutoSize = True
       Center = True
       Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D494844520000003A0000
-        003B08060000002AE7998D000000017352474200AECE1CE90000000467414D41
-        0000B18F0BFC6105000000097048597300000EC300000EC301C76FA864000007
-        7F4944415478DAED5A67535457187EE91D417A57A42F0A08022244B0C69244C1
-        4C264E26F9906426E38FC9C7241FE28C9364928C23468D4A468D1040A54AEF6D
-        A9D27BAF39CFD9DDEB2EB0ECBD5B8CC17D661CEFB9DE3D9EE79CB73CEF7BAFC5
-        B7BF3EDDA077001666A2BB0C66A2BB0D66A2BB0D66A2C682AD8D15ED7575627F
-        1CC9CACA52B8BFB6B64E6353F334313347CB2B6BFF4FA25EEECE14B3DF97827D
-        DCC9638F13595858687D7663638346A7E6A87768821A3B07696472F6ED271A1A
-        E049C93121E4E7E9AAF71C03A35354D6D04D5D03636F1F516F7682594911E4EF
-        B967DB7F5F595D63263A4F8B4BABC23D7B3B6B727771241B6BAB6D7FD33F3249
-        F9156D463B618388C2245363F7518A2C648B79F68F4C514BF71037C9F1E979AD
-        73C0B403BDDD282AC487FCBD34376A9D9975499D9CCA1ABBB989FF274471121F
-        64C45288EF5E8DFB6DBD2354522FA7513D4E02BE9D2ADB4761415E1AF7E5AFC6
-        E97E713DB78C374AD4D6C69A72B2E2C8D7E3B52F4ECE2CD093F2167E82860241
-        EC647224B9393B08F75E31DFCDCDAFD19BAC64A25696967429F3105F8C0A4DF2
-        41FABBBCD5A01DDF0C58CC29461626AD42373BD93B85B5B4BE2EDD0825133DC1
-        824E5C788030AE6CEEA5C2AA76A311DC8CCCC3E1941019288CAB5AFAA8E0659B
-        69898633DFB9981E2B8C6BDBFBF9499A1AA793A328F6809F30BE5754471D7DA3
-        A6216A6F6B4D5F5C4821477B5B3EEE199CA0DB0535064743518B64111D312148
-        E92EF38BCB74E341292D2DAF8A9F432CD16387422999A51100BEF8D3C3329A9E
-        5B34394915F638DBD3E7E793C9DA4A917711D95FD4751997A81D8BB25F7E7494
-        FF0D14D774507963CF8EBFC1C963E7C542CCF3C8D7696CC38145769AD7EF3D17
-        AD9345114D8808A4CCC4707E8DC55CBF5742AB6BDAFF83FDFE1E3CC716567550
-        756B9FCE4560FEF4F850BA5B58C75D421B709A5FB10D77B0B3E1E3A715AD54D3
-        D66F3CA29F9E4914726645530F155577687D36C0CB8D2EB3F483F400FF456EAD
-        EF78A5F5790499534722B91FC225FE28A8E5F24F1BDE4B08A3C4A8207E0DF575
-        F3C94BE310C5EE7D939D2E8C7FCE2B63AA674EEBF3DEEE2E9473228E052FC5AE
-        83ECE3B2166AE8DC4A569D24B0B8BC42B94F6B68786246EBFC504F9FBD7F4498
-        FB87DBCFF8EF0C261A11EC4D178EC9F8F5CCFC22FD78F785CE491564E379A4D6
-        465616EAC7D2863AC95546B27A47922A7C7D298D9C1DECF8F59F4C1AB633D969
-        3051387F8A32DA36CB8728EF45A3CE49019FBD2E949DB53DD9ED48DECEAFA6A1
-        71DD2481F369328A0CF1E6D762A3AF4EA21008E14A91FDBCB68B4A1BE4A216A3
-        8D6C63D7202FCAF52509A0623A7A703FBF6EE919A687CF1A0C27FAF1C9045E46
-        018F4A9BD8890C8A5E908A6C0E236BA724AB0E24FC5C892401F836D412D0C38A
-        0898BCC144AF9E4DE28B05502AB589F087AD645DE90A0B50B636AFC92EAFACD2
-        2D167886C6A725CFA71E3706C7A6E9B747958613554F2D3011988A54A0084031
-        B01952F2A03A225945733E2D865FA37CFBFDB1EE14A39328A2A7AA247BC28249
-        5DC780A445C11FCFA4446DDB2083CF3E2A6DE67E2B0587C202E8E411C5C6750F
-        8E331FAF319CE8D9D468BE58A0BCB19BC9BF4ED10B9285FA725F52915C585AA1
-        82CA36AEB254EA461FB219F10728293A985F238AE3F706134557EF589C425FA2
-        3377E79F5A9124355308482268A0D9E5E5E6CC7C9645633BDDA2623B6467C651
-        889FA285039506B56630D1605F771E35010490EF738B79D36A276C513C8CE42D
-        254915A070AE6449276B696941D7723284EE21E615D3BED1491442FADA9574DE
-        4201E00FF00B6D886411F11C0B141A24590A1999D8DA2CDB8E6CDEF3C61D03DE
-        3E769297D98902AB6BEBF4DDAD225A5B5F379C28F061C6413A10E8C9AF75A923
-        945BC8BD7805B1134915D01356C8451B1A9B9AE327B453B9A6AE8A90EA90F2C4
-        401451900459008DA91B0F4A686A567BD1EDC4C85E64655A3E4B1FC313BADB9E
-        D0C65949E174BFA89EE67620E9E6E2C0BB1C964A6B4159D7D92FAEA5228A28CC
-        101583A79B131FB732D37A204276191BA871C302157214FEFE4B5EB9E8DF8A6E
-        A5A0ED784E99A401B141C05840A33C3B2B4E1863A35B258817495DC04F4E1F16
-        DEAFCC2E2CF11D45DA3035E0F7B028270745630E85F9CD275592E6904414EF49
-        AE9E4D141A54D09910E5A67CBF097D8C9CABD2DBE84240DB2270998C2800B573
-        26255A18832C828294469858E0242F1D3FC88B0215FE6211BF89457EA9D0EBDD
-        8B7A310EA0ED79BFB841AF4A441B50485C4C97918BA3BD704F6A8BD360A2807A
-        930A40D2AE68EAA53256982391EB0BB8456A6C089B3B98AB20157435E54C4614
-        888F08A4E38CB0FA82E61696A9B2B987EA999493D24947174216EA4F89D1413C
-        0FAB6F200A81DA7669559351890288C2483BAE4EF61AF771AA725604F40E4FF2
-        0EC2C4F4BC46B70E4A08EA094126D0C78D493B0F769A961A734CCD2ED0432609
-        11070C85515EEDC3DC926382E93033656DAFEAA500511C56017335C40D8C4E54
-        05D498E8BAC7B0C8AC1E44C402410D7569556B1FD7C9C684493EBF8164F4F774
-        6535A3070533B344FE55EF17A9B0C4CABE31E5A737F28171FE458AA9F0C6BE1C
-        43C379F3075550576F0AE64FE4761BCC44771BCC44771BCC44771BDE19A2FF02
-        45B9FBF4224814EE0000000049454E44AE426082}
+        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000300000
+        003008060000005702F987000000097048597300000EC300000EC301C76FA864
+        000006E94944415478DAED5AF94F9407107D7BC3C2722A779143082082827801
+        155B2FAC1A35E915DBF4F8A1FE37FDB1496B4CDAA431BDAC965A2D6A45510E05
+        0501596E904339E4906BEFDDCECC2E5B9A98946B8B183FB259F27DBBDFCE9B79
+        F3E6CD82E2CB73375C58C387E23580970080999E75AB1DC872004CD073F06A07
+        B21C0063F41CBADA81BC06B0DA81BC06B0DA81BC54009C2E179C4E273D5C502A
+        9550A99450BCEC002C363B6C36075CF4C301FB6B35D069D5B058ED98315B058C
+        4AA98056A38656ADC24A4DCF650150505A6D3627A6CD160407F82121261CE909
+        51080FD60B003F9D066602303D6BC1C0C8043AFB9FA1E7E9284C74CEE0AF1340
+        CB05B264001CFCACD946412891991C8DA29C1404F86BBDD739E31C3C5781039D
+        3B4626A6515ED781E6AE41A9065F77B9960E63C900A628AB61417A1C7F330B71
+        912172AE83326CEC1EC4E0E824AC763BEC0E27715F010355272E2258AA1317E1
+        7EADB1670825E58DF41A0701D72D19C4A2012828F593D32644861B70EA501E02
+        E9C387C7A7505A6544C7C03369561D6556A154781BD741D5E05EE0139B936370
+        60471A8208D4D0D814CE95D662C66445A07E6920160D809B55AFD3E2A3E23CA9
+        4043C700AE5436C364B153503A521DE2F50BE260E00EAAC8E4AC19A1067F9CDC
+        9B8DF8C830743F19C5B9ABB5D0A8D4D0A895BE0520BCB6D870BC280B9B92A2F1
+        A8EB297EBDF9106AEA037F3FED8232C840A666CCC47F153E3EBC0331EB8250DD
+        D88DD2BB2D080EF4C3628BB060004C8749E27DDA8648BCB76F2B0561C137172B
+        A422DCBCCCF759924B0E504F603897AE79996729557AAE71538F4FCD229A823F
+        7DA240EEFFF5850A8C3E9F813F29974F00386830318FDFDF9F838D71EBA501EF
+        B7F4091D98E31CECEEAC44C96E25659439CE9591F96077606F6E2AACF47B8DF1
+        B12817A764824014E76760576622EE353FC6D5EA1602A811D02B0E80B3CB19FB
+        FCE82EFA6013CE96548982B014F2B50D5161D2177CFC56DE80FAB60191480EFA
+        AD6DA928C84E266572E0BB3FEE4AA6FDF87D44C770EAA3D3270B6022493E5352
+        2914D5D0A05B710033260B72D3E251BC3B030FDB077081B81F1CE82FD7B837B8
+        42DB3336A02837C50DE25603AA9ABA71B47033F2B392E4DC656AF6A6CE2732A9
+        994E5C3513813F75308F8660187EBCFE001D7D2342339F00D8B73D0D3B331370
+        8D1A6E8E2672130A86ABF17CDA8CC2EC241CD8992E74EB1B9E20BAADF302AA31
+        F6229432AEF204CF0D6BB25871905EBF2D3D1EA5D5465437F578EFBBC200AC38
+        E1519F92DB8D52059E01DE1BD1C34111313D766F4EC491824C39CFCAF4D35F75
+        A2582154B1F9FC7679A859B825097BB6A6E0767D27AED7B4CAEB7C02E0586126
+        B2526271E94E13EADAFAFF0D80E2B292993311878B7236624F4E8AF7DA859B0D
+        A86BED13CACDF73FFF004826001B71EB4107CAEEB779A9E9330A5DBFD78A3B0F
+        3BBD1FC459B5586DA238C5BB329047BDC056A3AD7708D929715013E7AF5435D3
+        7BBA44B5589D5CDEFB5AE93DE9C8250A5DAE7884DA965E18F43EA0D03401C8A6
+        EC1FA3A66CA4463C7FA3DE0B8067002B07677E4B6A9C9CE3EBDCC42C9FEFE46F
+        927365F7DB514B7DC00DEC9ED82E51A64F69A04591C2FD70ED0139561F353153
+        23CCA0C71727F2C965DA6488B17DF0D37A64349A64F4905B467F26CE37F70C22
+        802C0757620755ED30A917DFE3DB4B77C54EF04EC0D98F2593F7D9919D62B9CF
+        FE5E25CDEF131965A99C25C578F7EDAD328D2F57344B8659C7E992B84FAE102F
+        3575ADFDE44075B28DC9146609268AB0D41ABB87C44670F6799E70751820AB0F
+        AB1B4F759F0C32BE27DB87445A5A7860316DBEFAA55CEC052F27BC4632CDD883
+        CEDF0B381427DC3D34672538C0B1C91924D344FFE4F07679EF998B95BEB5127C
+        B83C4172D678A8F50E8EE3FB3F6BC44A18166A873D769CED3353871D6D596D1B
+        6ED5758A995BECB128009C4D0B351D4BE187077211BB3E045DB4035CA421354E
+        74E001C4FC7D1110AE0CAB149BBAD8F5C138BE270B916106DACC9EE27C5903AD
+        9F6A512B9F02702790EC30352167FC83FDB9880A0F124FF317496B7D7BBF3421
+        EFC2EE35D2AD34FC0D05AF979C75B61BACFB0CB49D6C035B12A6A37E81767CD9
+        00E64030A7B919D91B6526C5C8F9C1B149B4F78E608856CA31AA083730BF86E5
+        3681548A6D450829191FF79A7BA9698DD2170BDD25560CC01C08A604BBCDD4F8
+        08B10F6F44FEF76DDA7A8745BDB87F588235EA555AEAE70EFE70D67595422959
+        4E8C5D8788D04059E47937667B3C4B7AFF78788CFA6554167E3E02FC1627973E
+        032037F1B851E6BF2C37FC2516EDB73CAC78D23295E6A6AF4EABF1588995F96A
+        CB67DF8D4AF3D283035F894CBF30785F02F83F0E4ECC9A064073C3B5A601908A
+        39D734005232C79A0640D6C5FE4A0098A1DFF5AB1DCC520EADC6DD036CD77DF5
+        17209F1FAFC4FF4AAC69007F035047D207B72DCA0A0000000049454E44AE4260
+        82}
       OnClick = imgSairClick
-      ExplicitLeft = 822
-      ExplicitTop = 3
-      ExplicitHeight = 59
+      ExplicitLeft = 1205
+      ExplicitHeight = 48
     end
     object lbl1: TLabel
       Left = 14
-      Top = 13
+      Top = 3
       Width = 213
       Height = 37
       Align = alCustom
@@ -235,14 +205,17 @@ object fClientes: TfClientes
   end
   object pgcCliente: TPageControl
     Left = 0
-    Top = 68
+    Top = 49
     Width = 1268
-    Height = 621
+    Height = 640
     ActivePage = tsFisica
     Align = alClient
     TabOrder = 2
+    ExplicitLeft = -8
+    ExplicitTop = 71
     object tsJuridica: TTabSheet
       Caption = 'Pessoa F'#237'sica'
+      ExplicitHeight = 589
       object lbl2: TLabel
         Left = 85
         Top = 20
@@ -417,8 +390,8 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object imgPesquisar: TImage
-        Left = 311
+      object imgPesqCliente: TImage
+        Left = 351
         Top = 18
         Width = 32
         Height = 32
@@ -467,7 +440,7 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Image4: TImage
+      object imgPesqCep: TImage
         Left = 232
         Top = 80
         Width = 32
@@ -488,6 +461,7 @@ object fClientes: TfClientes
           27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
           ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
           B11E802789EB4A21B25C2E890000000049454E44AE426082}
+        OnClick = imgPesqCepClick
       end
       object Label34: TLabel
         Left = 806
@@ -562,15 +536,54 @@ object fClientes: TfClientes
           D70B60B4A37D0CABB37802681C058473E460BC564BB9D99FBD00744248218EE3
           D8C89A3BE1B0B1216605D7410000000049454E44AE426082}
       end
-      object edtCnpj: TMaskEdit
+      object Image2: TImage
+        Left = 312
+        Top = 18
+        Width = 32
+        Height = 32
+        AutoSize = True
+        Center = True
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+          00200806000000737A7AF40000000473424954080808087C0864880000000970
+          48597300000DD700000DD70142289B780000001974455874536F667477617265
+          007777772E696E6B73636170652E6F72679BEE3C1A0000031B4944415478DAED
+          965B48944114C7E72B0BA30CAC0853280BBAA80516158416B10F3E8584048148
+          49542A54101A5D7C680309A3929E22EDA184AC970A497B880A8582E8C148C488
+          1EAA87DAA522AD2CBB49DBEF3067E163DDCBB75E92C0811F6777E69C99FFCE39
+          33B34E28143213D99C4901FF9D00C771CAC51277F99F0A60E14598062881A750
+          48EC371DCBC554F2FDC0B8086081344C372C7675FBE1369C8602F80899A124B7
+          D4AB8083FAEB5FC0793807419805692ED7BDCC77713C04B461B640313C5721E1
+          D60E37E012B4315FB1C6E461AAF9BE2B690104CFC79431D6A0DFFB30E9300F7E
+          C280CB7D3504E01DBC873DB01F7C300819E15AF12480C5A660AEC3569D587E99
+          145EAEDA6C4D47B82D8019F032C61A7ED638918C800ACC8508BF214889D1B71B
+          E6C229D798ECC033B80F0F59636332023A309B4172F703AE420FDC95B4C013DD
+          9585C69E80684D5238D5D842ED678D39C90808E8B666C277990006F09B3D2CD8
+          716A55E834380BDB610314293520057C048E31479917014DC61692DFD80BA715
+          3AF0F399048DD8524C4B44B7DC0F7254FF4016F3F42512E0D3DCB95B057E4D8C
+          65F1B9CAD80A5F656CE1DD82338C7F665C6A6227C8BD910D3323E669C4AF32AE
+          001521931C06C9DD15D93E9073DDAEA9896C5DB2F5CCF5DB3547BDCE71CFD85A
+          B903DDF8E42714104590D484145F06DC0439566F35CF92AA657092B96A5D3172
+          0A72600DBC06D9FA4FF8A47B12A0DB7908B6C14A980E72428A881972F9C9028F
+          E5232C65EC95F6F768DC3A63EF1411D7CC78B99714A4681D6CD2AE2FC6DE0DF5
+          F8F747F16FC6EC101FC6ABB4AF5A6AC3E5260B1530FEC88B80A3B2A5F006EAA0
+          05BFAF715224B7A49C18398E72F63BE1B8B16FC73E634F421D73B40E8B8D21A0
+          4B73276F7CA3F1D0882951B139DAF501F2890FC48D8B21401E1B796AE57D0F7A
+          11E08A5D6FECA55408D7882F1D8980A477208A0829CC20F199717D3DD680BC07
+          72C6538DCDB33CB383B1FEFD8C8580C85310AD49A0E4B7131E40AFB17F56968C
+          3A052E11E17B204F1794D7F197B17742AA12AB8DBC08BD36442E37F65D580BF2
+          79850A945DA949B4F8A8058C459B1430E102FE02C2E281D0DB713AA400000000
+          49454E44AE426082}
+      end
+      object edtCpf: TMaskEdit
         Left = 118
         Top = 19
-        Width = 190
+        Width = 188
         Height = 25
-        EditMask = '##.###.###/####-##'
-        MaxLength = 18
+        EditMask = '###.###.###-##'
+        MaxLength = 14
         TabOrder = 0
-        Text = '  .   .   /    -  '
+        Text = '   .   .   -  '
       end
       object edtRazaoSocial: TDBEdit
         Left = 118
@@ -1014,12 +1027,13 @@ object fClientes: TfClientes
       end
       object pgc1: TPageControl
         Left = 0
-        Top = 410
+        Top = 429
         Width = 1260
         Height = 179
         ActivePage = ts4
         Align = alBottom
         TabOrder = 19
+        ExplicitTop = 410
         object ts3: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
@@ -1039,7 +1053,7 @@ object fClientes: TfClientes
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object img10: TImage
+          object imgPesqCepCob: TImage
             Left = 242
             Top = 16
             Width = 32
@@ -1060,6 +1074,7 @@ object fClientes: TfClientes
               27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
               ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
               B11E802789EB4A21B25C2E890000000049454E44AE426082}
+            OnClick = imgPesqCepCobClick
           end
           object lbl40: TLabel
             Left = 300
@@ -1141,7 +1156,7 @@ object fClientes: TfClientes
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object dbedtcep2: TDBEdit
+          object edtCepCob: TDBEdit
             Left = 125
             Top = 16
             Width = 111
@@ -1232,10 +1247,26 @@ object fClientes: TfClientes
           end
         end
       end
+      object chkSimples: TDBCheckBox
+        Left = 782
+        Top = 147
+        Width = 189
+        Height = 17
+        Caption = 'Optante Simples Nacional'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 20
+      end
     end
     object tsFisica: TTabSheet
       Caption = 'Pessoa Jur'#237'dica'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 44
       object lbl4: TLabel
         Left = 84
         Top = 31
@@ -1250,9 +1281,9 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object img4: TImage
-        Left = 319
-        Top = 26
+      object imgPesqCliente2: TImage
+        Left = 359
+        Top = 25
         Width = 32
         Height = 32
         AutoSize = True
@@ -1341,11 +1372,11 @@ object fClientes: TfClientes
         ParentFont = False
       end
       object lbl22: TLabel
-        Left = 342
-        Top = 218
-        Width = 28
+        Left = 321
+        Top = 217
+        Width = 50
         Height = 21
-        Caption = 'FAX'
+        Caption = 'Celular'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1408,7 +1439,7 @@ object fClientes: TfClientes
         ParentFont = False
       end
       object lbl28: TLabel
-        Left = 822
+        Left = 833
         Top = 154
         Width = 60
         Height = 21
@@ -1421,7 +1452,7 @@ object fClientes: TfClientes
         ParentFont = False
       end
       object lbl29: TLabel
-        Left = 681
+        Left = 700
         Top = 187
         Width = 73
         Height = 21
@@ -1434,7 +1465,7 @@ object fClientes: TfClientes
         ParentFont = False
       end
       object lbl30: TLabel
-        Left = 575
+        Left = 594
         Top = 187
         Width = 19
         Height = 21
@@ -1448,7 +1479,7 @@ object fClientes: TfClientes
         ParentFont = False
       end
       object lbl31: TLabel
-        Left = 564
+        Left = 575
         Top = 218
         Width = 38
         Height = 21
@@ -1520,7 +1551,7 @@ object fClientes: TfClientes
           D70B60B4A37D0CABB37802681C058473E460BC564BB9D99FBD00744248218EE3
           D8C89A3BE1B0B1216605D7410000000049454E44AE426082}
       end
-      object img8: TImage
+      object imgPesqCep2: TImage
         Left = 243
         Top = 151
         Width = 32
@@ -1541,6 +1572,7 @@ object fClientes: TfClientes
           27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
           ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
           B11E802789EB4A21B25C2E890000000049454E44AE426082}
+        OnClick = imgPesqCep2Click
       end
       object lbl27: TLabel
         Left = 62
@@ -1556,7 +1588,61 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object medt1: TMaskEdit
+      object imgPespCNPJ: TImage
+        Left = 321
+        Top = 25
+        Width = 32
+        Height = 32
+        AutoSize = True
+        Center = True
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+          00200806000000737A7AF40000000473424954080808087C0864880000000970
+          48597300000DD700000DD70142289B780000001974455874536F667477617265
+          007777772E696E6B73636170652E6F72679BEE3C1A0000031B4944415478DAED
+          965B48944114C7E72B0BA30CAC0853280BBAA80516158416B10F3E8584048148
+          49542A54101A5D7C680309A3929E22EDA184AC970A497B880A8582E8C148C488
+          1EAA87DAA522AD2CBB49DBEF3067E163DDCBB75E92C0811F6777E69C99FFCE39
+          33B34E28143213D99C4901FF9D00C771CAC51277F99F0A60E14598062881A750
+          48EC371DCBC554F2FDC0B8086081344C372C7675FBE1369C8602F80899A124B7
+          D4AB8083FAEB5FC0793807419805692ED7BDCC77713C04B461B640313C5721E1
+          D60E37E012B4315FB1C6E461AAF9BE2B690104CFC79431D6A0DFFB30E9300F7E
+          C280CB7D3504E01DBC873DB01F7C300819E15AF12480C5A660AEC3569D587E99
+          145EAEDA6C4D47B82D8019F032C61A7ED638918C800ACC8508BF214889D1B71B
+          E6C229D798ECC033B80F0F59636332023A309B4172F703AE420FDC95B4C013DD
+          9585C69E80684D5238D5D842ED678D39C90808E8B666C277990006F09B3D2CD8
+          716A55E834380BDB610314293520057C048E31479917014DC61692DFD80BA715
+          3AF0F399048DD8524C4B44B7DC0F7254FF4016F3F42512E0D3DCB95B057E4D8C
+          65F1B9CAD80A5F656CE1DD82338C7F665C6A6227C8BD910D3323E669C4AF32AE
+          001521931C06C9DD15D93E9073DDAEA9896C5DB2F5CCF5DB3547BDCE71CFD85A
+          B903DDF8E42714104590D484145F06DC0439566F35CF92AA657092B96A5D3172
+          0A72600DBC06D9FA4FF8A47B12A0DB7908B6C14A980E72428A881972F9C9028F
+          E5232C65EC95F6F768DC3A63EF1411D7CC78B99714A4681D6CD2AE2FC6DE0DF5
+          F8F747F16FC6EC101FC6ABB4AF5A6AC3E5260B1530FEC88B80A3B2A5F006EAA0
+          05BFAF715224B7A49C18398E72F63BE1B8B16FC73E634F421D73B40E8B8D21A0
+          4B73276F7CA3F1D0882951B139DAF501F2890FC48D8B21401E1B796AE57D0F7A
+          11E08A5D6FECA55408D7882F1D8980A477208A0829CC20F199717D3DD680BC07
+          72C6538DCDB33CB383B1FEFD8C8580C85310AD49A0E4B7131E40AFB17F56968C
+          3A052E11E17B204F1794D7F197B17742AA12AB8DBC08BD36442E37F65D580BF2
+          79850A945DA949B4F8A8058C459B1430E102FE02C2E281D0DB713AA400000000
+          49454E44AE426082}
+        OnClick = imgPespCNPJClick
+      end
+      object Label1: TLabel
+        Left = 592
+        Top = 58
+        Width = 41
+        Height = 21
+        Align = alCustom
+        Caption = 'CNAE'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Segoe UI Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object edtCNPJ: TMaskEdit
         Left = 126
         Top = 27
         Width = 190
@@ -1581,7 +1667,7 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 1
       end
-      object dbedtcep: TDBEdit
+      object edtCep2: TDBEdit
         Left = 126
         Top = 151
         Width = 111
@@ -1596,10 +1682,10 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 2
       end
-      object dbedtcomplemento: TDBEdit
+      object edtComplementoJur: TDBEdit
         Left = 126
         Top = 187
-        Width = 165
+        Width = 190
         Height = 24
         DataField = 'complemento'
         DataSource = dsEmpresa
@@ -1611,10 +1697,10 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 3
       end
-      object dbedtie: TDBEdit
+      object edtIeJur: TDBEdit
         Left = 123
         Top = 250
-        Width = 189
+        Width = 193
         Height = 24
         DataField = 'ie'
         DataSource = dsEmpresa
@@ -1626,10 +1712,10 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 4
       end
-      object dbedttelefone3: TDBEdit
-        Left = 124
-        Top = 218
-        Width = 189
+      object edtTelefoneJur: TDBEdit
+        Left = 178
+        Top = 217
+        Width = 138
         Height = 24
         DataField = 'telefone'
         DataSource = dsEmpresa
@@ -1641,22 +1727,7 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 5
       end
-      object dbedtfax: TDBEdit
-        Left = 376
-        Top = 218
-        Width = 170
-        Height = 24
-        DataField = 'fax'
-        DataSource = dsEmpresa
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
-      object dbedtim: TDBEdit
+      object edtImJur: TDBEdit
         Left = 374
         Top = 250
         Width = 171
@@ -1669,9 +1740,9 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
       end
-      object dbedtbairro: TDBEdit
+      object edtBairroJur: TDBEdit
         Left = 376
         Top = 187
         Width = 190
@@ -1684,9 +1755,9 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
       end
-      object dbedtendereco: TDBEdit
+      object edtEnderecoJur: TDBEdit
         Left = 365
         Top = 153
         Width = 420
@@ -1699,9 +1770,9 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 8
       end
-      object dbedtie1: TDBEdit
+      object edtFantasia: TDBEdit
         Left = 126
         Top = 90
         Width = 421
@@ -1714,10 +1785,10 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 9
       end
-      object dbedtnumero1: TDBEdit
-        Left = 888
+      object edtNumeroJur: TDBEdit
+        Left = 899
         Top = 153
         Width = 83
         Height = 24
@@ -1729,23 +1800,23 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 10
       end
-      object cbb1: TComboBox
-        Left = 768
+      object cbbCidadeJur: TComboBox
+        Left = 779
         Top = 186
         Width = 203
         Height = 25
-        TabOrder = 12
+        TabOrder = 11
       end
-      object cbb2: TComboBox
-        Left = 600
+      object cbbUFJur: TComboBox
+        Left = 619
         Top = 186
         Width = 58
         Height = 25
-        TabOrder = 13
+        TabOrder = 12
       end
-      object DBCheckBox2: TDBCheckBox
+      object chkContIcmsJur: TDBCheckBox
         Left = 582
         Top = 254
         Width = 160
@@ -1757,12 +1828,12 @@ object fClientes: TfClientes
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 13
       end
-      object dbedtemail: TDBEdit
-        Left = 608
+      object edtEmailJur: TDBEdit
+        Left = 619
         Top = 218
-        Width = 371
+        Width = 363
         Height = 24
         DataField = 'email'
         DataSource = dsEmpresa
@@ -1772,7 +1843,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 14
       end
       object grp2: TGroupBox
         Left = 1040
@@ -1780,7 +1851,7 @@ object fClientes: TfClientes
         Width = 185
         Height = 230
         Caption = 'Fotografia'
-        TabOrder = 16
+        TabOrder = 15
         object img5: TImage
           Left = 16
           Top = 21
@@ -1789,7 +1860,7 @@ object fClientes: TfClientes
           Center = True
         end
       end
-      object DBCheckBox3: TDBCheckBox
+      object chkSimplesJur: TDBCheckBox
         Left = 764
         Top = 253
         Width = 189
@@ -1801,9 +1872,9 @@ object fClientes: TfClientes
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 16
       end
-      object dbedtie2: TDBEdit
+      object edtContato: TDBEdit
         Left = 126
         Top = 120
         Width = 421
@@ -1816,16 +1887,17 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 18
+        TabOrder = 17
       end
       object pgcComplento: TPageControl
         Left = 0
-        Top = 370
+        Top = 389
         Width = 1260
         Height = 219
-        ActivePage = ts2
+        ActivePage = ts1
         Align = alBottom
-        TabOrder = 19
+        TabOrder = 18
+        ExplicitTop = 370
         object ts2: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
@@ -1857,7 +1929,7 @@ object fClientes: TfClientes
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object img9: TImage
+          object imgPesqCepCob2: TImage
             Left = 242
             Top = 16
             Width = 32
@@ -1878,6 +1950,7 @@ object fClientes: TfClientes
               27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
               ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
               B11E802789EB4A21B25C2E890000000049454E44AE426082}
+            OnClick = imgPesqCepCob2Click
           end
           object lbl33: TLabel
             Left = 300
@@ -1959,7 +2032,7 @@ object fClientes: TfClientes
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object dbedtcep1: TDBEdit
+          object edtCepCob2: TDBEdit
             Left = 125
             Top = 16
             Width = 111
@@ -2050,29 +2123,89 @@ object fClientes: TfClientes
           end
         end
       end
+      object edtDddTelJur: TDBEdit
+        Left = 125
+        Top = 217
+        Width = 51
+        Height = 24
+        DataField = 'telefone'
+        DataSource = dsEmpresa
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 19
+      end
+      object edtCNAE: TDBEdit
+        Left = 644
+        Top = 58
+        Width = 193
+        Height = 24
+        DataField = 'ie'
+        DataSource = dsEmpresa
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 20
+      end
     end
   end
-  object qrEmpresa: TSQLQuery
+  object edtCelularJur: TDBEdit
+    Left = 432
+    Top = 294
+    Width = 138
+    Height = 24
+    DataField = 'telefone'
+    DataSource = dsEmpresa
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+  end
+  object edtDddCel: TDBEdit
+    Left = 379
+    Top = 294
+    Width = 51
+    Height = 24
+    DataField = 'telefone'
+    DataSource = dsEmpresa
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object qrClientes: TSQLQuery
     MaxBlobSize = -1
     Params = <
       item
-        DataType = ftUnknown
-        Name = 'cnpjcpf'
+        DataType = ftString
+        Name = 'cnpj'
         ParamType = ptInput
       end>
     SQL.Strings = (
       'Select * from clientes'
-      'where cnpj_cpf = :cnpjcpf')
+      'where cpf_cnpj = :cpfcnpf')
     SQLConnection = dm_Principal.Taurus
-    Left = 408
-    Top = 96
+    Left = 395
+    Top = 79
   end
   object dsEmpresa: TDataSource
-    DataSet = cdsEmpresa
-    Left = 582
-    Top = 97
+    DataSet = cdsClientes
+    Left = 593
+    Top = 80
   end
-  object cdsEmpresa: TClientDataSet
+  object cdsClientes: TClientDataSet
     Aggregates = <>
     Params = <
       item
@@ -2080,122 +2213,146 @@ object fClientes: TfClientes
         Name = 'cnpj'
         ParamType = ptInput
       end>
-    ProviderName = 'dspEmpresa'
-    Left = 532
-    Top = 97
-    object cdsEmpresacnpj: TStringField
-      FieldName = 'cnpj'
+    ProviderName = 'dspClientes'
+    Left = 535
+    Top = 80
+    object cdsClientescpf_cnpj: TStringField
+      FieldName = 'cpf_cnpj'
       Required = True
-      EditMask = '##.###.###/####-##'
       Size = 18
     end
-    object cdsEmpresatipo: TStringField
+    object cdsClientestipo: TStringField
       FieldName = 'tipo'
-      Size = 1
-    end
-    object cdsEmpresarazao_social: TStringField
-      FieldName = 'razao_social'
-      Size = 100
-    end
-    object cdsEmpresafantasia: TStringField
-      FieldName = 'fantasia'
-      Size = 60
-    end
-    object cdsEmpresaramoatividade: TStringField
-      FieldName = 'ramoatividade'
       Size = 45
     end
-    object cdsEmpresaresponsavel: TStringField
-      FieldName = 'responsavel'
-      Size = 60
+    object cdsClientesnome: TStringField
+      FieldName = 'nome'
+      Size = 100
     end
-    object cdsEmpresanumero: TStringField
+    object cdsClientesfantasia: TStringField
+      FieldName = 'fantasia'
+      Size = 100
+    end
+    object cdsClientescontato: TStringField
+      FieldName = 'contato'
+      Size = 45
+    end
+    object cdsClientescep: TStringField
+      FieldName = 'cep'
+      Size = 10
+    end
+    object cdsClientesendereco: TStringField
+      FieldName = 'endereco'
+      Size = 70
+    end
+    object cdsClientesnumero: TStringField
       FieldName = 'numero'
       Size = 10
     end
-    object cdsEmpresacomplemento: TStringField
-      FieldName = 'complemento'
-      Size = 40
+    object cdsClientesidUF: TIntegerField
+      FieldName = 'idUF'
     end
-    object cdsEmpresabairro: TStringField
-      FieldName = 'bairro'
-      Size = 45
+    object cdsClientesidCidade: TIntegerField
+      FieldName = 'idCidade'
     end
-    object cdsEmpresaid_uf: TIntegerField
-      FieldName = 'id_uf'
-      Required = True
+    object cdsClientesdddfone: TStringField
+      FieldName = 'dddfone'
+      Size = 2
     end
-    object cdsEmpresaid_cidade: TIntegerField
-      FieldName = 'id_cidade'
-      Required = True
+    object cdsClientesfone: TStringField
+      FieldName = 'fone'
+      Size = 9
     end
-    object cdsEmpresacep: TStringField
-      FieldName = 'cep'
-      EditMask = '##.###-###'
-      Size = 10
+    object cdsClientesdddcel: TStringField
+      FieldName = 'dddcel'
+      Size = 2
     end
-    object cdsEmpresaie: TStringField
+    object cdsClientescelular: TStringField
+      FieldName = 'celular'
+      Size = 11
+    end
+    object cdsClientesemail: TStringField
+      FieldName = 'email'
+      Size = 70
+    end
+    object cdsClientesie: TStringField
       FieldName = 'ie'
       Size = 12
     end
-    object cdsEmpresaim: TStringField
+    object cdsClientesim: TStringField
       FieldName = 'im'
-      Size = 11
-    end
-    object cdsEmpresaie_substituto: TStringField
-      FieldName = 'ie_substituto'
       Size = 12
     end
-    object cdsEmpresacnae: TStringField
-      FieldName = 'cnae'
-      Size = 7
+    object cdsClientesrg: TStringField
+      FieldName = 'rg'
+      Size = 11
     end
-    object cdsEmpresacrt: TStringField
-      FieldName = 'crt'
-      Size = 1
+    object cdsClientescontrib_icms: TIntegerField
+      FieldName = 'contrib_icms'
     end
-    object cdsEmpresasubstituto_tributario: TStringField
-      FieldName = 'substituto_tributario'
-      Size = 1
+    object cdsClientessimples_nacional: TIntegerField
+      FieldName = 'simples_nacional'
     end
-    object cdsEmpresaaliquota_simples: TFloatField
-      FieldName = 'aliquota_simples'
+    object cdsClientescep_cobranca: TStringField
+      FieldName = 'cep_cobranca'
+      Size = 10
     end
-    object cdsEmpresatelefone: TStringField
-      FieldName = 'telefone'
-      EditMask = '(##)####-####'
-      Size = 15
+    object cdsClientesendereco_cobranca: TStringField
+      FieldName = 'endereco_cobranca'
+      Size = 70
     end
-    object cdsEmpresafax: TStringField
-      FieldName = 'fax'
-      EditMask = '(##)####-####'
-      Size = 15
-    end
-    object cdsEmpresaemail: TStringField
-      FieldName = 'email'
+    object cdsClientesbairro_cobranca: TStringField
+      FieldName = 'bairro_cobranca'
       Size = 60
     end
-    object cdsEmpresaendereco: TStringField
-      FieldName = 'endereco'
-      Size = 60
+    object cdsClientesidUf_cobranca: TIntegerField
+      FieldName = 'idUf_cobranca'
+    end
+    object cdsClientesifCidade_cobranca: TIntegerField
+      FieldName = 'ifCidade_cobranca'
+    end
+    object cdsClientesestado_civil: TStringField
+      FieldName = 'estado_civil'
+      Size = 15
+    end
+    object cdsClientespai: TStringField
+      FieldName = 'pai'
+      Size = 100
+    end
+    object cdsClientesmae: TStringField
+      FieldName = 'mae'
+      Size = 100
+    end
+    object cdsClientesconjude: TStringField
+      FieldName = 'conjude'
+      Size = 100
+    end
+    object cdsClientestrabalho: TStringField
+      FieldName = 'trabalho'
+      Size = 100
+    end
+    object cdsClientesnaturalidade: TStringField
+      FieldName = 'naturalidade'
+      Size = 70
+    end
+    object cdsClientesdependentes: TIntegerField
+      FieldName = 'dependentes'
     end
   end
-  object dspEmpresa: TDataSetProvider
-    DataSet = qrEmpresa
-    Left = 464
-    Top = 97
+  object dspClientes: TDataSetProvider
+    DataSet = qrClientes
+    Left = 467
+    Top = 80
   end
   object qrEstados: TSQLQuery
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
       'Select uf from estados'
-      'order by uf asc'
-      ''
-      '')
+      'order by uf asc')
     SQLConnection = dm_Principal.Taurus
-    Left = 672
-    Top = 97
+    Left = 675
+    Top = 80
     object qrEstadosuf: TStringField
       FieldName = 'uf'
       Required = True
@@ -2216,8 +2373,8 @@ object fClientes: TfClientes
       'order by nome asc'
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 736
-    Top = 97
+    Left = 739
+    Top = 80
     object qrCidadesnome: TStringField
       FieldName = 'nome'
       Required = True
@@ -2231,7 +2388,15 @@ object fClientes: TfClientes
       ''
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 800
-    Top = 97
+    Left = 803
+    Top = 80
+  end
+  object ACBrCEP1: TACBrCEP
+    ProxyPort = '8080'
+    WebService = wsRepublicaVirtual
+    PesquisarIBGE = True
+    OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
+    Left = 592
+    Top = 184
   end
 end
