@@ -8,7 +8,7 @@ uses
   u_pesq_empresa in 'u_pesq_empresa.pas' {fPesqEmpresa},
   u_clientes in 'u_clientes.pas' {fClientes},
   uFormaPagRec in 'uFormaPagRec.pas' {fFormaPagRec},
-  uPesqCPNJ in 'uPesqCPNJ.pas' {fPesqCNPJ};
+  uPesqCPF in 'uPesqCPF.pas' {fPesqCPF};
 
 {$R *.res}
 
@@ -21,6 +21,6 @@ begin
   Application.CreateForm(TfPesqEmpresa, fPesqEmpresa);
   Application.CreateForm(TfClientes, fClientes);
   Application.CreateForm(TfFormaPagRec, fFormaPagRec);
-  Application.CreateForm(TfPesqCNPJ, fPesqCNPJ);
+  Application.CreateForm(TfPesqCPF, fPesqCPF);
   Application.Run;
 end.

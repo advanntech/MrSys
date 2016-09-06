@@ -59,47 +59,56 @@ object fPesqCNPJ: TfPesqCNPJ
     ParentFont = False
   end
   object lblRazaoSocial: TLabel
-    Left = 178
+    Left = 8
     Top = 239
-    Width = 18
+    Width = 363
     Height = 21
     Align = alCustom
+    Alignment = taCenter
+    BiDiMode = bdRightToLeftReadingOnly
     Caption = '---'
     Font.Charset = ANSI_CHARSET
     Font.Color = clMaroon
     Font.Height = -16
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
+    ParentBiDiMode = False
     ParentFont = False
     Layout = tlCenter
   end
   object lblEndereco: TLabel
-    Left = 178
+    Left = 8
     Top = 272
-    Width = 18
+    Width = 363
     Height = 21
     Align = alCustom
+    Alignment = taCenter
+    BiDiMode = bdRightToLeftReadingOnly
     Caption = '---'
     Font.Charset = ANSI_CHARSET
     Font.Color = clMaroon
     Font.Height = -16
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
+    ParentBiDiMode = False
     ParentFont = False
     Layout = tlCenter
   end
   object lblSituacao: TLabel
-    Left = 178
+    Left = 8
     Top = 299
-    Width = 18
+    Width = 363
     Height = 21
     Align = alCustom
+    Alignment = taCenter
+    BiDiMode = bdRightToLeftReadingOnly
     Caption = '---'
     Font.Charset = ANSI_CHARSET
     Font.Color = clMaroon
     Font.Height = -16
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
+    ParentBiDiMode = False
     ParentFont = False
     Layout = tlCenter
   end
@@ -150,8 +159,6 @@ object fPesqCNPJ: TfPesqCNPJ
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -821
-    ExplicitWidth = 1268
     object imgSair: TImage
       Left = 327
       Top = 1
@@ -248,9 +255,6 @@ object fPesqCNPJ: TfPesqCNPJ
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -821
-    ExplicitTop = 147
-    ExplicitWidth = 1268
     object btnSalvar: TButton
       Left = 277
       Top = 1
@@ -271,7 +275,6 @@ object fPesqCNPJ: TfPesqCNPJ
       StylusHotImageIndex = 4
       TabOrder = 1
       OnClick = btnSalvarClick
-      ExplicitLeft = 1116
     end
     object btnCancelar: TButton
       Left = 326
@@ -293,14 +296,13 @@ object fPesqCNPJ: TfPesqCNPJ
       StylusHotImageIndex = 1
       TabOrder = 0
       OnClick = btnCancelarClick
-      ExplicitLeft = 1214
     end
   end
   object edtCNPJ: TMaskEdit
     Left = 8
     Top = 82
     Width = 128
-    Height = 25
+    Height = 21
     EditMask = '##.###.###/####-##'
     MaxLength = 18
     TabOrder = 2
@@ -310,20 +312,20 @@ object fPesqCNPJ: TfPesqCNPJ
     Left = 192
     Top = 82
     Width = 128
-    Height = 25
+    Height = 21
     TabOrder = 3
     Text = ''
     OnKeyPress = edtCaptchaKeyPress
-  end
-  object ACBrConsultaCNPJ1: TACBrConsultaCNPJ
-    ProxyPort = '8080'
-    PesquisarIBGE = False
-    Left = 280
-    Top = 232
   end
   object tmr1: TTimer
     OnTimer = tmr1Timer
     Left = 56
     Top = 248
+  end
+  object ACBrConsultaCNPJ1: TACBrConsultaCNPJ
+    ProxyPort = '8080'
+    PesquisarIBGE = False
+    Left = 296
+    Top = 242
   end
 end

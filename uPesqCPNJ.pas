@@ -25,8 +25,8 @@ type
     imgPesquisar: TImage;
     edtCaptcha: TMaskEdit;
     Label4: TLabel;
-    ACBrConsultaCNPJ1: TACBrConsultaCNPJ;
     tmr1: TTimer;
+    ACBrConsultaCNPJ1: TACBrConsultaCNPJ;
     procedure btnSalvarClick(Sender: TObject);
     procedure imgPesquisarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
@@ -98,7 +98,7 @@ procedure TfPesqCNPJ.imgPesquisarClick(Sender: TObject);
 begin
   if edtCaptcha.Text <> EmptyStr then
   begin
-    if ACBrConsultaCNPJ1.Consulta(edtCNPJ.Text, edtCaptcha.Text) then
+    if ACBrConsultaCNPJ1.Consulta(edtCNPJ.Text, edtCaptcha.Text, true) then
     begin
       razaosocial := ACBrConsultaCNPJ1.RazaoSocial;
       fantasia    := ACBrConsultaCNPJ1.Fantasia;
@@ -129,58 +129,16 @@ end;
 procedure TfPesqCNPJ.lblLabAtualizarCaptchaClick(Sender: TObject);
 var
   Stream: TMemoryStream;
-//  Jpg: TJPEGImage;
-{$IFDEF DELPHI2009_UP}
-  png: TPngImage;
-{$ENDIF}
+  ImgArq: String;
 begin
   Stream:= TMemoryStream.Create;
   try
     ACBrConsultaCNPJ1.Captcha(Stream);
+    ImgArq := ExtractFilePath(ParamStr(0))+PathDelim+'captch.png';
+    Stream.SaveToFile( ImgArq );
+    Img1.Picture.LoadFromFile( ImgArq );
 
-  {$IFDEF DELPHI2009_UP}
-    //Use esse código quando a imagem do site for do tipo PNG
-    png:= TPngImage.Create;
-    try
-      png.LoadFromStream(Stream);
-      Image1.Picture.Assign(png);
-
-      EditCaptcha.Clear;
-      EditCaptcha.SetFocus;
-    finally
-      png.Free;
-    end;
-  {$ELSE}
-    ShowMessage('Atenção: Seu Delphi não dá suporte nativo a imagens PNG. Queira verificar o código fonte deste exemplo para saber como proceder.');
-    // COMO PROCEDER:
-    //
-    // 1) Caso o site da receita esteja utilizando uma imagem do tipo JPG, você pode utilizar o código comentado abaixo.
-    //    * Comente ou apague o código que trabalha com PNG, incluindo o IFDEF/ENDIF;
-    //    * descomente a declaração da variável jpg
-    //    * descomente o código abaixo;
-    // 2) Caso o site da receita esteja utilizando uma imagem do tipo PNG, você terá que utilizar uma biblioteca de terceiros para
-    //conseguir trabalhar com imagens PNG.
-    //  Neste caso, recomendamos verificar o manual da biblioteca em como fazer a implementação. Algumas sugestões:
-    //    * Procure no Fórum do ACBr sobre os erros que estiver recebendo. Uma das maneiras mais simples está no link abaixo:
-    //      - http://www.projetoacbr.com.br/forum/topic/20087-imagem-png-delphi-7/
-    //    * O exemplo acima utiliza a biblioteca GraphicEX. Mas existem outras bibliotecas, caso prefira:
-    //      - http://synopse.info/forum/viewtopic.php?id=115
-    //      - http://graphics32.org/wiki/
-    //      - http://cc.embarcadero.com/Item/25631
-    //      - Várias outras: http://torry.net/quicksearchd.php?String=png&Title=Yes
-  {$ENDIF}
-
-    //Use esse código quando a imagem do site for do tipo JPG
-    //Jpg:= TJPEGImage.Create;
-    //try
-    //  Jpg.LoadFromStream(Stream);
-    //  Image1.Picture.Assign(Jpg);
-    //   //    EditCaptcha.Clear;
-    //  EditCaptcha.SetFocus;
-    //finally
-    //  Jpg.Free;
-    //end;
-
+    edtCaptcha.Clear;
   finally
     Stream.Free;
   end;
@@ -190,7 +148,6 @@ procedure TfPesqCNPJ.tmr1Timer(Sender: TObject);
 begin
   Tmr1.Enabled:= False;
   lblLabAtualizarCaptchaClick(lblLabAtualizarCaptcha);
-  edtCNPJ.SetFocus;
 end;
 
 end.

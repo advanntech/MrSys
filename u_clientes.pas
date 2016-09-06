@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.FMTBcd, Vcl.StdCtrls, Vcl.DBCtrls,
   Vcl.Mask, Vcl.ComCtrls, Datasnap.Provider, Data.DB, Datasnap.DBClient,
   Data.SqlExpr, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
-  ACBrBase, ACBrSocket, ACBrCEP, uPesqCPNJ;
+  ACBrBase, ACBrSocket, ACBrCEP, uPesqCPNJ, uPesqCPF;
 
 type
   TfClientes = class(TForm)
@@ -39,7 +39,7 @@ type
     edtEndereco: TDBEdit;
     edtBairro: TDBEdit;
     lbl12: TLabel;
-    edtIE: TDBEdit;
+    edtRG: TDBEdit;
     Label4: TLabel;
     lbl17: TLabel;
     edtFone: TDBEdit;
@@ -65,7 +65,7 @@ type
     DBCheckBox1: TDBCheckBox;
     imgPesqCep: TImage;
     Label34: TLabel;
-    DBEdit26: TDBEdit;
+    edtDataNascimento: TDBEdit;
     grpDadosPessoais: TGroupBox;
     Label26: TLabel;
     DBEdit15: TDBEdit;
@@ -136,12 +136,12 @@ type
     lbl37: TLabel;
     lbl38: TLabel;
     edtCepCob2: TDBEdit;
-    dbedtendereco1: TDBEdit;
-    dbedtnumero: TDBEdit;
-    dbedtcomplemento1: TDBEdit;
-    dbedtbairro1: TDBEdit;
-    cbb3: TComboBox;
-    cbb4: TComboBox;
+    edtEnderecoCobJur: TDBEdit;
+    edtNumeroCobJur: TDBEdit;
+    edtComplementoCobJur: TDBEdit;
+    edtBairroCobJur: TDBEdit;
+    cbbUFCobJur: TComboBox;
+    cbbCidadeCobJur: TComboBox;
     pgc1: TPageControl;
     ts3: TTabSheet;
     ts4: TTabSheet;
@@ -186,7 +186,6 @@ type
     cdsClientesendereco_cobranca: TStringField;
     cdsClientesbairro_cobranca: TStringField;
     cdsClientesidUf_cobranca: TIntegerField;
-    cdsClientesifCidade_cobranca: TIntegerField;
     cdsClientesestado_civil: TStringField;
     cdsClientespai: TStringField;
     cdsClientesmae: TStringField;
@@ -210,6 +209,7 @@ type
     procedure imgPesqCep2Click(Sender: TObject);
     procedure imgPesqCepCob2Click(Sender: TObject);
     procedure imgPespCNPJClick(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -234,6 +234,24 @@ begin
     cbbCidades.Text := ACBrCEP1.Enderecos[i].Municipio;
     edtBairro.Text := ACBrCEP1.Enderecos[i].Bairro;
   end;
+end;
+
+procedure TfClientes.Image2Click(Sender: TObject);
+begin
+   if ActiveControl = edtCPF then
+  begin
+    Application.CreateForm(TfPesqCPF,fPesqCPF);
+    fPesqCPF.ShowModal;
+    if fPesqCPF.cpf <> '' then
+    begin
+       edtCpf.text := fPesqCPF.cpf;
+       edtRazaoSocial.Text := fPesqCPF.razaosocial;
+       edtDataNascimento.Text := fPesqCPF.nascimento;
+       edtNumeroJur.Text := fPesqCNPJ.numero;
+    end;
+    fPesqCPF.release;
+    fPesqCPF := nil;
+   end;
 end;
 
 procedure TfClientes.imgPespCNPJClick(Sender: TObject);

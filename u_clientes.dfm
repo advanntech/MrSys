@@ -1,6 +1,7 @@
 object fClientes: TfClientes
   Left = 0
   Top = 0
+  Align = alCustom
   BorderStyle = bsNone
   ClientHeight = 743
   ClientWidth = 1268
@@ -11,7 +12,7 @@ object fClientes: TfClientes
   Font.Name = 'Segoe UI Semibold'
   Font.Style = [fsBold]
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 17
   object pnl1: TPanel
@@ -24,7 +25,6 @@ object fClientes: TfClientes
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
     object imgSair: TImage
       Left = 1215
       Top = 1
@@ -208,14 +208,11 @@ object fClientes: TfClientes
     Top = 49
     Width = 1268
     Height = 640
-    ActivePage = tsFisica
+    ActivePage = tsJuridica
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = -8
-    ExplicitTop = 71
     object tsJuridica: TTabSheet
       Caption = 'Pessoa F'#237'sica'
-      ExplicitHeight = 589
       object lbl2: TLabel
         Left = 85
         Top = 20
@@ -574,6 +571,7 @@ object fClientes: TfClientes
           3A052E11E17B204F1794D7F197B17742AA12AB8DBC08BD36442E37F65D580BF2
           79850A945DA949B4F8A8058C459B1430E102FE02C2E281D0DB713AA400000000
           49454E44AE426082}
+        OnClick = Image2Click
       end
       object edtCpf: TMaskEdit
         Left = 118
@@ -630,7 +628,7 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 3
       end
-      object edtIE: TDBEdit
+      object edtRG: TDBEdit
         Left = 600
         Top = 50
         Width = 189
@@ -793,7 +791,7 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 15
       end
-      object DBEdit26: TDBEdit
+      object edtDataNascimento: TDBEdit
         Left = 888
         Top = 50
         Width = 83
@@ -1033,7 +1031,6 @@ object fClientes: TfClientes
         ActivePage = ts4
         Align = alBottom
         TabOrder = 19
-        ExplicitTop = 410
         object ts3: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
@@ -1265,8 +1262,6 @@ object fClientes: TfClientes
     object tsFisica: TTabSheet
       Caption = 'Pessoa Jur'#237'dica'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 44
       object lbl4: TLabel
         Left = 84
         Top = 31
@@ -1897,7 +1892,6 @@ object fClientes: TfClientes
         ActivePage = ts1
         Align = alBottom
         TabOrder = 18
-        ExplicitTop = 370
         object ts2: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
@@ -2047,7 +2041,7 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 0
           end
-          object dbedtendereco1: TDBEdit
+          object edtEnderecoCobJur: TDBEdit
             Left = 375
             Top = 16
             Width = 420
@@ -2062,7 +2056,7 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 1
           end
-          object dbedtnumero: TDBEdit
+          object edtNumeroCobJur: TDBEdit
             Left = 903
             Top = 16
             Width = 83
@@ -2077,7 +2071,7 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 2
           end
-          object dbedtcomplemento1: TDBEdit
+          object edtComplementoCobJur: TDBEdit
             Left = 124
             Top = 60
             Width = 165
@@ -2092,7 +2086,7 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 3
           end
-          object dbedtbairro1: TDBEdit
+          object edtBairroCobJur: TDBEdit
             Left = 375
             Top = 61
             Width = 190
@@ -2107,14 +2101,14 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 4
           end
-          object cbb3: TComboBox
+          object cbbUFCobJur: TComboBox
             Left = 608
             Top = 55
             Width = 58
             Height = 25
             TabOrder = 5
           end
-          object cbb4: TComboBox
+          object cbbCidadeCobJur: TComboBox
             Left = 783
             Top = 54
             Width = 203
@@ -2307,9 +2301,6 @@ object fClientes: TfClientes
     end
     object cdsClientesidUf_cobranca: TIntegerField
       FieldName = 'idUf_cobranca'
-    end
-    object cdsClientesifCidade_cobranca: TIntegerField
-      FieldName = 'ifCidade_cobranca'
     end
     object cdsClientesestado_civil: TStringField
       FieldName = 'estado_civil'
