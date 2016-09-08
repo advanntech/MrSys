@@ -301,17 +301,17 @@ object fEmpresa: TfEmpresa
     Left = 0
     Top = 0
     Width = 1049
-    Height = 68
+    Height = 60
     Align = alTop
     BevelKind = bkSoft
-    Color = clActiveCaption
+    Color = clRed
     ParentBackground = False
     TabOrder = 0
     object imgSair: TImage
       Left = 986
       Top = 1
       Width = 58
-      Height = 62
+      Height = 54
       Align = alRight
       AutoSize = True
       Center = True
@@ -407,7 +407,7 @@ object fEmpresa: TfEmpresa
     Height = 54
     Align = alBottom
     BevelKind = bkSoft
-    Color = clActiveCaption
+    Color = clRed
     ParentBackground = False
     TabOrder = 21
     object btnNovo: TButton
@@ -451,6 +451,7 @@ object fEmpresa: TfEmpresa
       SelectedImageIndex = 4
       StylusHotImageIndex = 4
       TabOrder = 2
+      OnClick = btnSalvarClick
       OnEnter = imgSalvarClick
     end
     object btnExcluir: TButton
@@ -472,6 +473,7 @@ object fEmpresa: TfEmpresa
       SelectedImageIndex = 2
       StylusHotImageIndex = 2
       TabOrder = 3
+      OnClick = btnExcluirClick
       OnEnter = imgExcluirClick
     end
     object btnCancelar: TButton

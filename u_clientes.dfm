@@ -22,7 +22,7 @@ object fClientes: TfClientes
     Height = 49
     Align = alTop
     BevelKind = bkSoft
-    Color = clActiveCaption
+    Color = clHighlight
     ParentBackground = False
     TabOrder = 0
     object imgSair: TImage
@@ -119,7 +119,7 @@ object fClientes: TfClientes
     Height = 54
     Align = alBottom
     BevelKind = bkSoft
-    Color = clActiveCaption
+    Color = clHighlight
     ParentBackground = False
     TabOrder = 1
     object btnNovo: TButton
@@ -141,6 +141,7 @@ object fClientes: TfClientes
       SelectedImageIndex = 3
       StylusHotImageIndex = 3
       TabOrder = 0
+      OnClick = btnNovoClick
     end
     object btnSalvar: TButton
       Left = 1116
@@ -211,7 +212,7 @@ object fClientes: TfClientes
     ActivePage = tsJuridica
     Align = alClient
     TabOrder = 2
-    object tsJuridica: TTabSheet
+    object tsFisica: TTabSheet
       Caption = 'Pessoa F'#237'sica'
       object lbl2: TLabel
         Left = 85
@@ -294,21 +295,8 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object lbl18: TLabel
-        Left = 335
-        Top = 177
-        Width = 28
-        Height = 21
-        Caption = 'FAX'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI Semibold'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
       object Label3: TLabel
-        Left = 575
+        Left = 583
         Top = 113
         Width = 19
         Height = 21
@@ -348,7 +336,7 @@ object fClientes: TfClientes
         ParentFont = False
       end
       object lbl19: TLabel
-        Left = 557
+        Left = 565
         Top = 177
         Width = 38
         Height = 21
@@ -573,6 +561,19 @@ object fClientes: TfClientes
           49454E44AE426082}
         OnClick = Image2Click
       end
+      object lbl18: TLabel
+        Left = 313
+        Top = 174
+        Width = 50
+        Height = 21
+        Caption = 'Celular'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
       object edtCpf: TMaskEdit
         Left = 118
         Top = 19
@@ -582,14 +583,15 @@ object fClientes: TfClientes
         MaxLength = 14
         TabOrder = 0
         Text = '   .   .   -  '
+        OnExit = edtCpfExit
       end
-      object edtRazaoSocial: TDBEdit
+      object edtNome: TDBEdit
         Left = 118
         Top = 50
         Width = 421
         Height = 24
-        DataField = 'razao_social'
-        DataSource = dsEmpresa
+        DataField = 'nome'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -604,7 +606,7 @@ object fClientes: TfClientes
         Width = 420
         Height = 24
         DataField = 'endereco'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -619,7 +621,7 @@ object fClientes: TfClientes
         Width = 190
         Height = 24
         DataField = 'bairro'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -633,8 +635,8 @@ object fClientes: TfClientes
         Top = 50
         Width = 189
         Height = 24
-        DataField = 'ie'
-        DataSource = dsEmpresa
+        DataField = 'rg'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -643,13 +645,13 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 4
       end
-      object edtFone: TDBEdit
-        Left = 117
-        Top = 177
-        Width = 189
+      object edtFoneFis: TDBEdit
+        Left = 170
+        Top = 175
+        Width = 138
         Height = 24
         DataField = 'telefone'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -658,34 +660,20 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 5
       end
-      object edtFax: TDBEdit
-        Left = 369
-        Top = 177
-        Width = 170
-        Height = 24
-        DataField = 'fax'
-        DataSource = dsEmpresa
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
       object cbbUF: TComboBox
-        Left = 600
+        Left = 608
         Top = 112
         Width = 58
         Height = 25
-        TabOrder = 7
+        TabOrder = 6
+        OnExit = cbbUFExit
       end
       object cbbCidades: TComboBox
         Left = 768
         Top = 112
         Width = 203
         Height = 25
-        TabOrder = 8
+        TabOrder = 7
       end
       object edtNumero: TDBEdit
         Left = 888
@@ -693,7 +681,22 @@ object fClientes: TfClientes
         Width = 83
         Height = 24
         DataField = 'numero'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+      end
+      object edtEmailFis: TDBEdit
+        Left = 608
+        Top = 177
+        Width = 363
+        Height = 24
+        DataField = 'email'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -702,13 +705,13 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 9
       end
-      object edtemail: TDBEdit
-        Left = 600
-        Top = 177
-        Width = 371
+      object edtComplemento: TDBEdit
+        Left = 118
+        Top = 112
+        Width = 165
         Height = 24
-        DataField = 'email'
-        DataSource = dsEmpresa
+        DataField = 'complemento'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -717,13 +720,13 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 10
       end
-      object edtComplemento: TDBEdit
-        Left = 118
-        Top = 112
-        Width = 165
+      object edtCEP: TDBEdit
+        Left = 117
+        Top = 80
+        Width = 111
         Height = 24
-        DataField = 'complemento'
-        DataSource = dsEmpresa
+        DataField = 'cep'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -732,13 +735,13 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 11
       end
-      object edtCEP: TDBEdit
-        Left = 117
-        Top = 80
-        Width = 111
+      object edtImFis: TDBEdit
+        Left = 369
+        Top = 143
+        Width = 171
         Height = 24
-        DataField = 'cep'
-        DataSource = dsEmpresa
+        DataField = 'im'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -747,13 +750,13 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 12
       end
-      object DBEdit19: TDBEdit
-        Left = 369
+      object edtIeFis: TDBEdit
+        Left = 118
         Top = 143
-        Width = 171
+        Width = 189
         Height = 24
-        DataField = 'im'
-        DataSource = dsEmpresa
+        DataField = 'ie'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -762,49 +765,38 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 13
       end
-      object DBEdit20: TDBEdit
-        Left = 118
-        Top = 143
-        Width = 189
-        Height = 24
-        DataField = 'ie'
-        DataSource = dsEmpresa
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 14
-      end
-      object DBCheckBox1: TDBCheckBox
+      object chkContIcmsFis: TDBCheckBox
         Left = 577
         Top = 147
         Width = 160
         Height = 17
         Caption = 'Contribuinte de ICMS'
+        DataField = 'contrib_icms'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 14
+        ValueChecked = '1'
+        ValueUnchecked = '0'
       end
       object edtDataNascimento: TDBEdit
         Left = 888
         Top = 50
         Width = 83
         Height = 24
-        DataField = 'numero'
-        DataSource = dsEmpresa
+        DataField = 'datanascimento'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 15
       end
       object grpDadosPessoais: TGroupBox
         Left = 12
@@ -812,7 +804,7 @@ object fClientes: TfClientes
         Width = 1219
         Height = 128
         Caption = 'Dados Pessoais'
-        TabOrder = 17
+        TabOrder = 16
         object Label26: TLabel
           Left = 51
           Top = 27
@@ -891,26 +883,13 @@ object fClientes: TfClientes
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object lbl9: TLabel
-          Left = 898
-          Top = 23
-          Width = 153
-          Height = 21
-          Caption = 'Possui dependentes?'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object DBEdit15: TDBEdit
+        object edtConjuge: TDBEdit
           Left = 567
           Top = 25
           Width = 282
           Height = 24
-          DataField = 'telefone'
-          DataSource = dsEmpresa
+          DataField = 'conjude'
+          DataSource = dsClientes
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -919,11 +898,13 @@ object fClientes: TfClientes
           ParentFont = False
           TabOrder = 0
         end
-        object DBComboBox1: TDBComboBox
+        object cbbEstadoCivil: TDBComboBox
           Left = 138
           Top = 27
           Width = 145
           Height = 25
+          DataField = 'estado_civil'
+          DataSource = dsClientes
           Items.Strings = (
             'Solteiro(a)'
             'Casado(a)'
@@ -931,13 +912,13 @@ object fClientes: TfClientes
             'Separado(a)')
           TabOrder = 1
         end
-        object dbedttelefone: TDBEdit
+        object edtNomePai: TDBEdit
           Left = 138
           Top = 58
           Width = 282
           Height = 24
-          DataField = 'telefone'
-          DataSource = dsEmpresa
+          DataField = 'pai'
+          DataSource = dsClientes
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -946,13 +927,13 @@ object fClientes: TfClientes
           ParentFont = False
           TabOrder = 2
         end
-        object dbedttelefone2: TDBEdit
+        object edtNomeMae: TDBEdit
           Left = 567
           Top = 55
           Width = 367
           Height = 24
-          DataField = 'telefone'
-          DataSource = dsEmpresa
+          DataField = 'mae'
+          DataSource = dsClientes
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -961,13 +942,13 @@ object fClientes: TfClientes
           ParentFont = False
           TabOrder = 3
         end
-        object dbedttelefone1: TDBEdit
+        object edtTrabalho: TDBEdit
           Left = 138
           Top = 88
           Width = 282
           Height = 24
-          DataField = 'telefone'
-          DataSource = dsEmpresa
+          DataField = 'trabalho'
+          DataSource = dsClientes
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -976,13 +957,13 @@ object fClientes: TfClientes
           ParentFont = False
           TabOrder = 4
         end
-        object DBEdit22: TDBEdit
+        object edtNaturalidade: TDBEdit
           Left = 567
           Top = 85
           Width = 367
           Height = 24
-          DataField = 'telefone'
-          DataSource = dsEmpresa
+          DataField = 'naturalidade'
+          DataSource = dsClientes
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -991,21 +972,17 @@ object fClientes: TfClientes
           ParentFont = False
           TabOrder = 5
         end
-        object rb1: TRadioButton
-          Left = 1062
-          Top = 25
-          Width = 47
-          Height = 17
-          Caption = 'Sim'
+        object grpDependentes: TDBRadioGroup
+          Left = 956
+          Top = 12
+          Width = 185
+          Height = 61
+          Caption = 'Dependentes ?'
+          Columns = 2
+          Items.Strings = (
+            'Sim'
+            'N'#227'o')
           TabOrder = 6
-        end
-        object rb2: TRadioButton
-          Left = 1125
-          Top = 25
-          Width = 46
-          Height = 18
-          Caption = 'N'#227'o'
-          TabOrder = 7
         end
       end
       object grp1: TGroupBox
@@ -1014,7 +991,7 @@ object fClientes: TfClientes
         Width = 185
         Height = 230
         Caption = 'Fotografia'
-        TabOrder = 18
+        TabOrder = 17
         object img1: TImage
           Left = 16
           Top = 21
@@ -1030,7 +1007,7 @@ object fClientes: TfClientes
         Height = 179
         ActivePage = ts4
         Align = alBottom
-        TabOrder = 19
+        TabOrder = 18
         object ts3: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
@@ -1115,7 +1092,7 @@ object fClientes: TfClientes
           end
           object lbl43: TLabel
             Left = 325
-            Top = 59
+            Top = 60
             Width = 44
             Height = 21
             Caption = 'Bairro'
@@ -1128,7 +1105,7 @@ object fClientes: TfClientes
           end
           object lbl44: TLabel
             Left = 583
-            Top = 59
+            Top = 60
             Width = 19
             Height = 21
             Align = alCustom
@@ -1141,8 +1118,8 @@ object fClientes: TfClientes
             ParentFont = False
           end
           object lbl45: TLabel
-            Left = 696
-            Top = 54
+            Left = 703
+            Top = 60
             Width = 73
             Height = 21
             Caption = 'Munic'#237'pio'
@@ -1153,13 +1130,13 @@ object fClientes: TfClientes
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object edtCepCob: TDBEdit
+          object edtCepCobFis: TDBEdit
             Left = 125
             Top = 16
             Width = 111
             Height = 24
-            DataField = 'cep'
-            DataSource = dsEmpresa
+            DataField = 'cep_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -1168,13 +1145,13 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 0
           end
-          object dbedtendereco2: TDBEdit
+          object edtEnderecoCobFis: TDBEdit
             Left = 375
             Top = 16
             Width = 420
             Height = 24
-            DataField = 'endereco'
-            DataSource = dsEmpresa
+            DataField = 'endereco_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -1183,13 +1160,13 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 1
           end
-          object dbedtnumero2: TDBEdit
+          object edtNumeroCobFis: TDBEdit
             Left = 903
             Top = 16
             Width = 83
             Height = 24
-            DataField = 'numero'
-            DataSource = dsEmpresa
+            DataField = 'numero_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -1198,13 +1175,13 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 2
           end
-          object dbedtcomplemento2: TDBEdit
+          object edtComplementoCobFis: TDBEdit
             Left = 124
             Top = 60
             Width = 165
             Height = 24
-            DataField = 'complemento'
-            DataSource = dsEmpresa
+            DataField = 'complemento_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -1213,13 +1190,13 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 3
           end
-          object dbedtbairro2: TDBEdit
+          object edtBairroCobFis: TDBEdit
             Left = 375
-            Top = 61
+            Top = 60
             Width = 190
             Height = 24
-            DataField = 'bairro'
-            DataSource = dsEmpresa
+            DataField = 'bairro_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -1228,38 +1205,88 @@ object fClientes: TfClientes
             ParentFont = False
             TabOrder = 4
           end
-          object cbb5: TComboBox
+          object cbbUfCobFis: TComboBox
             Left = 608
-            Top = 55
+            Top = 60
             Width = 58
             Height = 25
             TabOrder = 5
+            OnExit = cbbUfCobFisExit
           end
-          object cbb6: TComboBox
+          object cbbCidadeCobFis: TComboBox
             Left = 783
-            Top = 54
+            Top = 60
             Width = 203
             Height = 25
             TabOrder = 6
           end
         end
       end
-      object chkSimples: TDBCheckBox
+      object chkSimplesFis: TDBCheckBox
         Left = 782
         Top = 147
         Width = 189
         Height = 17
         Caption = 'Optante Simples Nacional'
+        DataField = 'simples_nacional'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
+        TabOrder = 19
+        ValueChecked = '1'
+        ValueUnchecked = '0'
+      end
+      object edtCelularFis: TDBEdit
+        Left = 420
+        Top = 174
+        Width = 138
+        Height = 24
+        DataField = 'celular'
+        DataSource = dsClientes
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 20
       end
+      object edtDddCelFis: TDBEdit
+        Left = 368
+        Top = 174
+        Width = 50
+        Height = 24
+        DataField = 'telefone'
+        DataSource = dsClientes
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 21
+      end
+      object edtDddFoneFis: TDBEdit
+        Left = 118
+        Top = 175
+        Width = 50
+        Height = 24
+        DataField = 'telefone'
+        DataSource = dsClientes
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 22
+      end
     end
-    object tsFisica: TTabSheet
+    object tsJuridica: TTabSheet
       Caption = 'Pessoa Jur'#237'dica'
       ImageIndex = 1
       object lbl4: TLabel
@@ -1623,20 +1650,6 @@ object fClientes: TfClientes
           49454E44AE426082}
         OnClick = imgPespCNPJClick
       end
-      object Label1: TLabel
-        Left = 592
-        Top = 58
-        Width = 41
-        Height = 21
-        Align = alCustom
-        Caption = 'CNAE'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -16
-        Font.Name = 'Segoe UI Semibold'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
       object edtCNPJ: TMaskEdit
         Left = 126
         Top = 27
@@ -1646,14 +1659,15 @@ object fClientes: TfClientes
         MaxLength = 18
         TabOrder = 0
         Text = '  .   .   /    -  '
+        OnChange = edtCNPJChange
       end
-      object dbedtrazao_social: TDBEdit
+      object edtRazaoSocial: TDBEdit
         Left = 126
         Top = 58
         Width = 421
         Height = 24
-        DataField = 'razao_social'
-        DataSource = dsEmpresa
+        DataField = 'nome'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1662,13 +1676,13 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 1
       end
-      object edtCep2: TDBEdit
+      object edtCepJur: TDBEdit
         Left = 126
-        Top = 151
+        Top = 153
         Width = 111
         Height = 24
         DataField = 'cep'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1683,7 +1697,7 @@ object fClientes: TfClientes
         Width = 190
         Height = 24
         DataField = 'complemento'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1698,7 +1712,7 @@ object fClientes: TfClientes
         Width = 193
         Height = 24
         DataField = 'ie'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1713,7 +1727,7 @@ object fClientes: TfClientes
         Width = 138
         Height = 24
         DataField = 'telefone'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1728,7 +1742,7 @@ object fClientes: TfClientes
         Width = 171
         Height = 24
         DataField = 'im'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1743,7 +1757,7 @@ object fClientes: TfClientes
         Width = 190
         Height = 24
         DataField = 'bairro'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1758,7 +1772,7 @@ object fClientes: TfClientes
         Width = 420
         Height = 24
         DataField = 'endereco'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1772,8 +1786,8 @@ object fClientes: TfClientes
         Top = 90
         Width = 421
         Height = 24
-        DataField = 'ie'
-        DataSource = dsEmpresa
+        DataField = 'fantasia'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1788,7 +1802,7 @@ object fClientes: TfClientes
         Width = 83
         Height = 24
         DataField = 'numero'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1799,17 +1813,18 @@ object fClientes: TfClientes
       end
       object cbbCidadeJur: TComboBox
         Left = 779
-        Top = 186
+        Top = 187
         Width = 203
         Height = 25
         TabOrder = 11
       end
       object cbbUFJur: TComboBox
         Left = 619
-        Top = 186
+        Top = 187
         Width = 58
         Height = 25
         TabOrder = 12
+        OnExit = cbbUFJurExit
       end
       object chkContIcmsJur: TDBCheckBox
         Left = 582
@@ -1817,6 +1832,8 @@ object fClientes: TfClientes
         Width = 160
         Height = 17
         Caption = 'Contribuinte de ICMS'
+        DataField = 'contrib_icms'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1824,6 +1841,8 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 13
+        ValueChecked = '1'
+        ValueUnchecked = '0'
       end
       object edtEmailJur: TDBEdit
         Left = 619
@@ -1831,7 +1850,7 @@ object fClientes: TfClientes
         Width = 363
         Height = 24
         DataField = 'email'
-        DataSource = dsEmpresa
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1861,6 +1880,8 @@ object fClientes: TfClientes
         Width = 189
         Height = 17
         Caption = 'Optante Simples Nacional'
+        DataField = 'simples_nacional'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1868,14 +1889,16 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 16
+        ValueChecked = '1'
+        ValueUnchecked = '0'
       end
       object edtContato: TDBEdit
         Left = 126
         Top = 120
         Width = 421
         Height = 24
-        DataField = 'ie'
-        DataSource = dsEmpresa
+        DataField = 'contato'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -1912,7 +1935,7 @@ object fClientes: TfClientes
           Caption = 'Dados de Cobran'#231'a'
           object lbl32: TLabel
             Left = 88
-            Top = 19
+            Top = 18
             Width = 27
             Height = 21
             Caption = 'CEP'
@@ -1948,7 +1971,7 @@ object fClientes: TfClientes
           end
           object lbl33: TLabel
             Left = 300
-            Top = 19
+            Top = 18
             Width = 69
             Height = 21
             Caption = 'Endere'#231'o'
@@ -1961,7 +1984,7 @@ object fClientes: TfClientes
           end
           object lbl34: TLabel
             Left = 837
-            Top = 19
+            Top = 18
             Width = 60
             Height = 21
             Caption = 'N'#250'mero'
@@ -1988,7 +2011,7 @@ object fClientes: TfClientes
           end
           object lbl36: TLabel
             Left = 325
-            Top = 59
+            Top = 60
             Width = 44
             Height = 21
             Caption = 'Bairro'
@@ -2001,7 +2024,7 @@ object fClientes: TfClientes
           end
           object lbl37: TLabel
             Left = 583
-            Top = 59
+            Top = 60
             Width = 19
             Height = 21
             Align = alCustom
@@ -2015,7 +2038,7 @@ object fClientes: TfClientes
           end
           object lbl38: TLabel
             Left = 696
-            Top = 54
+            Top = 60
             Width = 73
             Height = 21
             Caption = 'Munic'#237'pio'
@@ -2026,13 +2049,13 @@ object fClientes: TfClientes
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object edtCepCob2: TDBEdit
+          object edtCepCobJur: TDBEdit
             Left = 125
             Top = 16
             Width = 111
             Height = 24
-            DataField = 'cep'
-            DataSource = dsEmpresa
+            DataField = 'cep_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -2046,8 +2069,8 @@ object fClientes: TfClientes
             Top = 16
             Width = 420
             Height = 24
-            DataField = 'endereco'
-            DataSource = dsEmpresa
+            DataField = 'endereco_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -2061,8 +2084,8 @@ object fClientes: TfClientes
             Top = 16
             Width = 83
             Height = 24
-            DataField = 'numero'
-            DataSource = dsEmpresa
+            DataField = 'numero_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -2076,8 +2099,8 @@ object fClientes: TfClientes
             Top = 60
             Width = 165
             Height = 24
-            DataField = 'complemento'
-            DataSource = dsEmpresa
+            DataField = 'complemento_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -2088,11 +2111,11 @@ object fClientes: TfClientes
           end
           object edtBairroCobJur: TDBEdit
             Left = 375
-            Top = 61
+            Top = 60
             Width = 190
             Height = 24
-            DataField = 'bairro'
-            DataSource = dsEmpresa
+            DataField = 'bairro_cobranca'
+            DataSource = dsClientes
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -2103,14 +2126,15 @@ object fClientes: TfClientes
           end
           object cbbUFCobJur: TComboBox
             Left = 608
-            Top = 55
+            Top = 60
             Width = 58
             Height = 25
             TabOrder = 5
+            OnExit = cbbUFCobJurExit
           end
           object cbbCidadeCobJur: TComboBox
             Left = 783
-            Top = 54
+            Top = 60
             Width = 203
             Height = 25
             TabOrder = 6
@@ -2122,8 +2146,8 @@ object fClientes: TfClientes
         Top = 217
         Width = 51
         Height = 24
-        DataField = 'telefone'
-        DataSource = dsEmpresa
+        DataField = 'dddfone'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -2132,13 +2156,13 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 19
       end
-      object edtCNAE: TDBEdit
-        Left = 644
-        Top = 58
-        Width = 193
+      object edtDddCelJur: TDBEdit
+        Left = 376
+        Top = 217
+        Width = 50
         Height = 24
-        DataField = 'ie'
-        DataSource = dsEmpresa
+        DataField = 'dddcel'
+        DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -2147,54 +2171,39 @@ object fClientes: TfClientes
         ParentFont = False
         TabOrder = 20
       end
+      object edtCelularJur: TDBEdit
+        Left = 428
+        Top = 217
+        Width = 138
+        Height = 24
+        DataField = 'celular'
+        DataSource = dsClientes
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 21
+      end
     end
-  end
-  object edtCelularJur: TDBEdit
-    Left = 432
-    Top = 294
-    Width = 138
-    Height = 24
-    DataField = 'telefone'
-    DataSource = dsEmpresa
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 3
-  end
-  object edtDddCel: TDBEdit
-    Left = 379
-    Top = 294
-    Width = 51
-    Height = 24
-    DataField = 'telefone'
-    DataSource = dsEmpresa
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 4
   end
   object qrClientes: TSQLQuery
     MaxBlobSize = -1
     Params = <
       item
         DataType = ftString
-        Name = 'cnpj'
+        Name = 'cdg_cliente'
         ParamType = ptInput
       end>
     SQL.Strings = (
       'Select * from clientes'
-      'where cpf_cnpj = :cpfcnpf')
+      'where cdg_cliente = :cdg_cliente')
     SQLConnection = dm_Principal.Taurus
     Left = 395
     Top = 79
   end
-  object dsEmpresa: TDataSource
+  object dsClientes: TDataSource
     DataSet = cdsClientes
     Left = 593
     Top = 80
@@ -2204,17 +2213,12 @@ object fClientes: TfClientes
     Params = <
       item
         DataType = ftString
-        Name = 'cnpj'
+        Name = 'cdg_cliente'
         ParamType = ptInput
       end>
     ProviderName = 'dspClientes'
     Left = 535
     Top = 80
-    object cdsClientescpf_cnpj: TStringField
-      FieldName = 'cpf_cnpj'
-      Required = True
-      Size = 18
-    end
     object cdsClientestipo: TStringField
       FieldName = 'tipo'
       Size = 45
@@ -2281,12 +2285,6 @@ object fClientes: TfClientes
       FieldName = 'rg'
       Size = 11
     end
-    object cdsClientescontrib_icms: TIntegerField
-      FieldName = 'contrib_icms'
-    end
-    object cdsClientessimples_nacional: TIntegerField
-      FieldName = 'simples_nacional'
-    end
     object cdsClientescep_cobranca: TStringField
       FieldName = 'cep_cobranca'
       Size = 10
@@ -2301,6 +2299,9 @@ object fClientes: TfClientes
     end
     object cdsClientesidUf_cobranca: TIntegerField
       FieldName = 'idUf_cobranca'
+    end
+    object cdsClientesidCidade_cobranca: TIntegerField
+      FieldName = 'idCidade_cobranca'
     end
     object cdsClientesestado_civil: TStringField
       FieldName = 'estado_civil'
@@ -2326,8 +2327,41 @@ object fClientes: TfClientes
       FieldName = 'naturalidade'
       Size = 70
     end
-    object cdsClientesdependentes: TIntegerField
+    object cdsClientesdatanascimento: TDateField
+      FieldName = 'datanascimento'
+    end
+    object cdsClientesnumero_cobranca: TStringField
+      FieldName = 'numero_cobranca'
+      Size = 10
+    end
+    object cdsClientescomplemento_cobranca: TStringField
+      FieldName = 'complemento_cobranca'
+      Size = 60
+    end
+    object cdsClientescomplemento: TStringField
+      FieldName = 'complemento'
+      Size = 60
+    end
+    object cdsClientescdg_cliente: TStringField
+      FieldName = 'cdg_cliente'
+      Required = True
+      Size = 18
+    end
+    object cdsClientescontrib_icms: TStringField
+      FieldName = 'contrib_icms'
+      Size = 1
+    end
+    object cdsClientessimples_nacional: TStringField
+      FieldName = 'simples_nacional'
+      Size = 1
+    end
+    object cdsClientesdependentes: TStringField
       FieldName = 'dependentes'
+      Size = 1
+    end
+    object cdsClientesbairro: TStringField
+      FieldName = 'bairro'
+      Size = 60
     end
   end
   object dspClientes: TDataSetProvider
@@ -2387,7 +2421,7 @@ object fClientes: TfClientes
     WebService = wsRepublicaVirtual
     PesquisarIBGE = True
     OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
-    Left = 592
-    Top = 184
+    Left = 504
+    Top = 176
   end
 end

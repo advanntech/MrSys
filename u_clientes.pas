@@ -20,7 +20,7 @@ type
     btnExcluir: TButton;
     btnCancelar: TButton;
     qrClientes: TSQLQuery;
-    dsEmpresa: TDataSource;
+    dsClientes: TDataSource;
     cdsClientes: TClientDataSet;
     dspClientes: TDataSetProvider;
     qrEstados: TSQLQuery;
@@ -29,12 +29,12 @@ type
     qrCidadesnome: TStringField;
     qrAux: TSQLQuery;
     pgcCliente: TPageControl;
-    tsJuridica: TTabSheet;
     tsFisica: TTabSheet;
+    tsJuridica: TTabSheet;
     lbl2: TLabel;
     edtCpf: TMaskEdit;
     lbl3: TLabel;
-    edtRazaoSocial: TDBEdit;
+    edtNome: TDBEdit;
     lbl10: TLabel;
     edtEndereco: TDBEdit;
     edtBairro: TDBEdit;
@@ -42,16 +42,14 @@ type
     edtRG: TDBEdit;
     Label4: TLabel;
     lbl17: TLabel;
-    edtFone: TDBEdit;
-    lbl18: TLabel;
-    edtFax: TDBEdit;
+    edtFoneFis: TDBEdit;
     Label3: TLabel;
     cbbUF: TComboBox;
     cbbCidades: TComboBox;
     edtNumero: TDBEdit;
     lbl15: TLabel;
     lbl11: TLabel;
-    edtemail: TDBEdit;
+    edtEmailFis: TDBEdit;
     lbl19: TLabel;
     Label2: TLabel;
     edtComplemento: TDBEdit;
@@ -60,28 +58,25 @@ type
     imgPesqCliente: TImage;
     Label27: TLabel;
     Label28: TLabel;
-    DBEdit19: TDBEdit;
-    DBEdit20: TDBEdit;
-    DBCheckBox1: TDBCheckBox;
+    edtImFis: TDBEdit;
+    edtIeFis: TDBEdit;
+    chkContIcmsFis: TDBCheckBox;
     imgPesqCep: TImage;
     Label34: TLabel;
     edtDataNascimento: TDBEdit;
     grpDadosPessoais: TGroupBox;
     Label26: TLabel;
-    DBEdit15: TDBEdit;
-    DBComboBox1: TDBComboBox;
+    edtConjuge: TDBEdit;
+    cbbEstadoCivil: TDBComboBox;
     Label29: TLabel;
     lbl6: TLabel;
-    dbedttelefone: TDBEdit;
+    edtNomePai: TDBEdit;
     lbl8: TLabel;
-    dbedttelefone2: TDBEdit;
+    edtNomeMae: TDBEdit;
     lbl7: TLabel;
-    dbedttelefone1: TDBEdit;
+    edtTrabalho: TDBEdit;
     Label23: TLabel;
-    DBEdit22: TDBEdit;
-    lbl9: TLabel;
-    rb1: TRadioButton;
-    rb2: TRadioButton;
+    edtNaturalidade: TDBEdit;
     grp1: TGroupBox;
     img1: TImage;
     img2: TImage;
@@ -90,9 +85,9 @@ type
     edtCNPJ: TMaskEdit;
     imgPesqCliente2: TImage;
     lbl5: TLabel;
-    dbedtrazao_social: TDBEdit;
+    edtRazaoSocial: TDBEdit;
     lbl14: TLabel;
-    edtCep2: TDBEdit;
+    edtCepJur: TDBEdit;
     lbl16: TLabel;
     edtComplementoJur: TDBEdit;
     lbl20: TLabel;
@@ -135,7 +130,7 @@ type
     lbl36: TLabel;
     lbl37: TLabel;
     lbl38: TLabel;
-    edtCepCob2: TDBEdit;
+    edtCepCobJur: TDBEdit;
     edtEnderecoCobJur: TDBEdit;
     edtNumeroCobJur: TDBEdit;
     edtComplementoCobJur: TDBEdit;
@@ -153,16 +148,26 @@ type
     lbl43: TLabel;
     lbl44: TLabel;
     lbl45: TLabel;
-    edtCepCob: TDBEdit;
-    dbedtendereco2: TDBEdit;
-    dbedtnumero2: TDBEdit;
-    dbedtcomplemento2: TDBEdit;
-    dbedtbairro2: TDBEdit;
-    cbb5: TComboBox;
-    cbb6: TComboBox;
+    edtCepCobFis: TDBEdit;
+    edtEnderecoCobFis: TDBEdit;
+    edtNumeroCobFis: TDBEdit;
+    edtComplementoCobFis: TDBEdit;
+    edtBairroCobFis: TDBEdit;
+    cbbUfCobFis: TComboBox;
+    cbbCidadeCobFis: TComboBox;
     DBGrid1: TDBGrid;
-    chkSimples: TDBCheckBox;
-    cdsClientescpf_cnpj: TStringField;
+    chkSimplesFis: TDBCheckBox;
+    ACBrCEP1: TACBrCEP;
+    imgPespCNPJ: TImage;
+    Image2: TImage;
+    edtContato: TDBEdit;
+    edtDddTelJur: TDBEdit;
+    edtDddCelJur: TDBEdit;
+    edtCelularJur: TDBEdit;
+    edtCelularFis: TDBEdit;
+    edtDddCelFis: TDBEdit;
+    lbl18: TLabel;
+    edtDddFoneFis: TDBEdit;
     cdsClientestipo: TStringField;
     cdsClientesnome: TStringField;
     cdsClientesfantasia: TStringField;
@@ -180,28 +185,27 @@ type
     cdsClientesie: TStringField;
     cdsClientesim: TStringField;
     cdsClientesrg: TStringField;
-    cdsClientescontrib_icms: TIntegerField;
-    cdsClientessimples_nacional: TIntegerField;
     cdsClientescep_cobranca: TStringField;
     cdsClientesendereco_cobranca: TStringField;
     cdsClientesbairro_cobranca: TStringField;
     cdsClientesidUf_cobranca: TIntegerField;
+    cdsClientesidCidade_cobranca: TIntegerField;
     cdsClientesestado_civil: TStringField;
     cdsClientespai: TStringField;
     cdsClientesmae: TStringField;
     cdsClientesconjude: TStringField;
     cdsClientestrabalho: TStringField;
     cdsClientesnaturalidade: TStringField;
-    cdsClientesdependentes: TIntegerField;
-    ACBrCEP1: TACBrCEP;
-    imgPespCNPJ: TImage;
-    Image2: TImage;
-    edtContato: TDBEdit;
-    edtDddTelJur: TDBEdit;
-    edtCelularJur: TDBEdit;
-    edtDddCel: TDBEdit;
-    Label1: TLabel;
-    edtCNAE: TDBEdit;
+    cdsClientesdatanascimento: TDateField;
+    cdsClientesnumero_cobranca: TStringField;
+    cdsClientescomplemento_cobranca: TStringField;
+    cdsClientescomplemento: TStringField;
+    cdsClientescdg_cliente: TStringField;
+    cdsClientescontrib_icms: TStringField;
+    cdsClientessimples_nacional: TStringField;
+    cdsClientesdependentes: TStringField;
+    grpDependentes: TDBRadioGroup;
+    cdsClientesbairro: TStringField;
     procedure imgSairClick(Sender: TObject);
     procedure imgPesqCepClick(Sender: TObject);
     procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
@@ -210,10 +214,22 @@ type
     procedure imgPesqCepCob2Click(Sender: TObject);
     procedure imgPespCNPJClick(Sender: TObject);
     procedure Image2Click(Sender: TObject);
+    procedure edtCpfExit(Sender: TObject);
+    procedure edtCNPJChange(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure cbbUFJurExit(Sender: TObject);
+    procedure cbbUFCobJurExit(Sender: TObject);
+    procedure cbbUFExit(Sender: TObject);
+    procedure cbbUfCobFisExit(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure limparJuridica;
+    procedure limparFisica;
+    procedure habilitaCamposJuridica;
+    procedure desabilitaCamposJuridica;
+    procedure habilitaCamposFisica;
+    procedure desabilitaCamposFisica;
   end;
 
 var
@@ -233,6 +249,68 @@ begin
     cbbUF.Text := ACBrCEP1.Enderecos[i].UF;
     cbbCidades.Text := ACBrCEP1.Enderecos[i].Municipio;
     edtBairro.Text := ACBrCEP1.Enderecos[i].Bairro;
+  end;
+end;
+
+procedure TfClientes.edtCNPJChange(Sender: TObject);
+begin
+  if (edtCNPJ.Text <> EmptyStr) then
+  begin
+    edtCpf.Text := EmptyStr;
+
+    cdsClientes.Close;
+    cdsClientes.Params.ParamByName('cdg_cliente').AsString := edtCNPJ.Text;
+    cdsClientes.Open;
+
+    qrEstados.open;
+
+    while not qrEstados.Eof do
+    begin
+      cbbUFJur.Items.Add(qrEstadosuf.AsString);
+      cbbUFCobJur.Items.Add(qrEstadosuf.AsString);
+      qrEstados.Next;
+    end;
+
+    if (cdsClientes.IsEmpty) then
+    begin
+      cdsClientes.Append;
+      cdsClientescdg_cliente.AsString := edtCNPJ.Text;
+    end
+    else
+    begin
+      cdsClientes.Edit;
+    end;
+  end;
+end;
+
+procedure TfClientes.edtCpfExit(Sender: TObject);
+begin
+  if (edtCpf.Text <> EmptyStr) then
+  begin
+    edtCNPJ.Text := EmptyStr;
+
+    cdsClientes.Close;
+    cdsClientes.Params.ParamByName('cdg_cliente').AsString := edtCpf.Text;
+    cdsClientes.Open;
+
+    qrEstados.open;
+
+    while not qrEstados.Eof do
+    begin
+      cbbUF.Items.Add(qrEstadosuf.AsString);
+      cbbUfCobFis.Items.Add(qrEstadosuf.AsString);
+      qrEstados.Next;
+    end;
+
+    if (cdsClientes.IsEmpty) then
+    begin
+      cdsClientes.Append;
+      cdsClientescdg_cliente.AsString := edtCpf.Text;
+    end
+    else
+    begin
+      cdsClientes.Edit;
+    end;
   end;
 end;
 
@@ -272,8 +350,7 @@ begin
        cbbUFJur.Text := fPesqCNPJ.uf;
        cbbCidadeJur.Text := fPesqCNPJ.cidade;
        edtTelefoneJur.Text := fPesqCNPJ.telefone;
-       edtCNAE.Text := fPesqCNPJ.cnae;
-       edtCep2.Text := fPesqCNPJ.cep;
+       edtCepJur.Text := fPesqCNPJ.cep;
        edtEmailJur.Text := fPesqCNPJ.email;
     end;
     fPesqCNPJ.release;
@@ -283,7 +360,7 @@ end;
 
 procedure TfClientes.imgPesqCep2Click(Sender: TObject);
 begin
-  ACBrCEP1.BuscarPorCEP(edtCEP2.Text)
+  ACBrCEP1.BuscarPorCEP(edtCepJur.Text)
 end;
 
 procedure TfClientes.imgPesqCepClick(Sender: TObject);
@@ -293,17 +370,322 @@ end;
 
 procedure TfClientes.imgPesqCepCob2Click(Sender: TObject);
 begin
-  ACBrCEP1.BuscarPorCEP(edtCepCob2.Text)
+  ACBrCEP1.BuscarPorCEP(edtCepCobJur.Text)
 end;
 
 procedure TfClientes.imgPesqCepCobClick(Sender: TObject);
 begin
-  ACBrCEP1.BuscarPorCEP(edtCepCob.Text)
+  ACBrCEP1.BuscarPorCEP(edtCepCobFis.Text)
 end;
 
 procedure TfClientes.imgSairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfClientes.limparFisica;
+begin
+  edtCpf.Clear;
+  edtNome.Clear;
+  edtEndereco.Clear;
+  edtBairro.Clear;
+  edtRG.Clear;
+  cbbUF.Clear;
+  cbbCidades.Clear;
+  edtNumero.Clear;
+  edtComplemento.Clear;
+  edtCEP.Clear;
+  edtDataNascimento.Clear;
+  edtConjuge.Clear;
+  cbbEstadoCivil.Clear;
+  edtNomePai.Clear;
+  edtNomeMae.Clear;
+  edtTrabalho.Clear;
+  edtNaturalidade.Clear;
+  edtCepCobFis.Clear;
+  edtEnderecoCobFis.Clear;
+  edtNumeroCobFis.Clear;
+  edtComplementoCobFis.Clear;
+  edtBairroCobFis.Clear;
+  cbbUfCobFis.Clear;
+  cbbCidadeCobFis.Clear;
+  chkSimplesFis.Checked := False;
+  chkContIcmsFis.Checked := False;
+  edtDddCelFis.Clear;
+  edtCelularFis.Clear;
+  edtDddCelFis.Clear;
+  edtDddFoneFis.Clear;
+end;
+
+
+procedure TfClientes.limparJuridica;
+begin
+  edtCNPJ.Clear;
+  edtRazaoSocial.Clear;
+  edtEndereco.Clear;
+  edtBairro.Clear;
+  edtNumeroJur.Clear;
+  edtCepCobJur.Clear;
+  edtComplementoJur.Clear;
+  edtIeJur.Clear;
+  edtDddTelJur.Clear;
+  edtTelefoneJur.Clear;
+  edtImJur.Clear;
+  edtBairroJur.Clear;
+  edtEnderecoJur.Clear;
+  edtFantasia.Clear;
+  edtNumeroJur.Clear;
+  cbbCidadeJur.Clear;
+  cbbUFJur.Clear;
+  chkContIcmsJur.Checked := False;
+  edtEmailJur.Clear;
+  chkSimplesJur.Checked := False;
+  edtCepCobJur.Clear;
+  edtEnderecoCobJur.Clear;
+  edtNumeroCobJur.Clear;
+  edtComplementoCobJur.Clear;
+  edtBairroCobJur.Clear;
+  cbbUFCobJur.Clear;
+  cbbCidadeCobJur.Clear;
+  edtContato.Clear;
+  edtDddCelJur.Clear;
+  edtCelularJur.Clear;
+end;
+
+procedure TfClientes.habilitaCamposFisica;
+begin
+  edtCpf.Enabled := True;
+  edtNome.Enabled := True;
+  edtEndereco.Enabled := True;
+  edtBairro.Enabled := True;
+  edtRG.Enabled := True;
+  cbbUF.Enabled := True;
+  cbbCidades.Enabled := True;
+  edtNumero.Enabled := True;
+  edtComplemento.Enabled := True;
+  edtCEP.Enabled := True;
+  edtDataNascimento.Enabled := True;
+  edtConjuge.Enabled := True;
+  cbbEstadoCivil.Enabled := True;
+  edtNomePai.Enabled := True;
+  edtNomeMae.Enabled := True;
+  edtTrabalho.Enabled := True;
+  edtNaturalidade.Enabled := True;
+  edtCepCobFis.Enabled := True;
+  edtEnderecoCobFis.Enabled := True;
+  edtNumeroCobFis.Enabled := True;
+  edtComplementoCobFis.Enabled := True;
+  edtBairroCobFis.Enabled := True;
+  cbbUfCobFis.Enabled := True;
+  cbbCidadeCobFis.Enabled := True;
+  chkSimplesFis.Enabled := True;
+  chkContIcmsFis.Enabled := True;
+  edtDddCelFis.Enabled := True;
+  edtCelularFis.Enabled := True;
+  edtDddCelFis.Enabled := True;
+  edtDddFoneFis.Enabled := True;
+end;
+
+procedure TfClientes.btnNovoClick(Sender: TObject);
+begin
+  if (tsFisica.Showing = True) then
+  begin
+    habilitaCamposFisica;
+    desabilitaCamposJuridica;
+    edtCpf.SetFocus;
+    limparFisica;
+    limparJuridica;
+  end;
+
+  if (tsJuridica.Showing = True) then
+  begin
+    habilitaCamposJuridica;
+    desabilitaCamposFisica;
+    edtCNPJ.SetFocus;
+    limparFisica;
+    limparJuridica;
+  end;
+
+
+end;
+
+procedure TfClientes.cbbUfCobFisExit(Sender: TObject);
+begin
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where uf = :uf');
+  qrAux.ParamByName('uf').AsString := cbbUF.Text;
+  qrAux.Open;
+
+  qrCidades.Close;
+  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
+  qrCidades.Open;
+
+  while not qrCidades.eof do
+  begin
+    cbbCidades.Items.Add(qrCidadesnome.AsString);
+    qrCidades.Next;
+  end;
+end;
+
+procedure TfClientes.cbbUFCobJurExit(Sender: TObject);
+begin
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where uf = :uf');
+  qrAux.ParamByName('uf').AsString := cbbUF.Text;
+  qrAux.Open;
+
+  qrCidades.Close;
+  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
+  qrCidades.Open;
+
+  while not qrCidades.eof do
+  begin
+    cbbCidades.Items.Add(qrCidadesnome.AsString);
+    qrCidades.Next;
+  end;
+end;
+
+procedure TfClientes.cbbUFExit(Sender: TObject);
+begin
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where uf = :uf');
+  qrAux.ParamByName('uf').AsString := cbbUF.Text;
+  qrAux.Open;
+
+  qrCidades.Close;
+  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
+  qrCidades.Open;
+
+  while not qrCidades.eof do
+  begin
+    cbbCidades.Items.Add(qrCidadesnome.AsString);
+    qrCidades.Next;
+  end;
+end;
+
+procedure TfClientes.cbbUFJurExit(Sender: TObject);
+begin
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where uf = :uf');
+  qrAux.ParamByName('uf').AsString := cbbUF.Text;
+  qrAux.Open;
+
+  qrCidades.Close;
+  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
+  qrCidades.Open;
+
+  while not qrCidades.eof do
+  begin
+    cbbCidades.Items.Add(qrCidadesnome.AsString);
+    qrCidades.Next;
+  end;
+end;
+
+procedure TfClientes.desabilitaCamposFisica;
+begin
+  edtCpf.Enabled := False;
+  edtNome.Enabled := False;
+  edtEndereco.Enabled := False;
+  edtBairro.Enabled := False;
+  edtRG.Enabled := False;
+  cbbUF.Enabled := False;
+  cbbCidades.Enabled := False;
+  edtNumero.Enabled := False;
+  edtComplemento.Enabled := False;
+  edtCEP.Enabled := False;
+  edtDataNascimento.Enabled := False;
+  edtConjuge.Enabled := False;
+  cbbEstadoCivil.Enabled := False;
+  edtNomePai.Enabled := False;
+  edtNomeMae.Enabled := False;
+  edtTrabalho.Enabled := False;
+  edtNaturalidade.Enabled := False;
+  edtCepCobFis.Enabled := False;
+  edtEnderecoCobFis.Enabled := False;
+  edtNumeroCobFis.Enabled := False;
+  edtComplementoCobFis.Enabled := False;
+  edtBairroCobFis.Enabled := False;
+  cbbUfCobFis.Enabled := False;
+  cbbCidadeCobFis.Enabled := False;
+  chkSimplesFis.Enabled := False;
+  chkContIcmsFis.Enabled := False;
+  edtDddCelFis.Enabled := False;
+  edtCelularFis.Enabled := False;
+  edtDddCelFis.Enabled := False;
+  edtDddFoneFis.Enabled := False;
+end;
+
+procedure TfClientes.habilitaCamposJuridica;
+begin
+  edtCNPJ.Enabled := True;
+  edtRazaoSocial.Enabled := True;
+  edtEndereco.Enabled := True;
+  edtBairro.Enabled := True;
+  edtNumeroJur.Enabled := True;
+  edtCepCobJur.Enabled := True;
+  edtComplementoJur.Enabled := True;
+  edtIeJur.Enabled := True;
+  edtDddTelJur.Enabled := True;
+  edtTelefoneJur.Enabled := True;
+  edtImJur.Enabled := True;
+  edtBairroJur.Enabled := True;
+  edtEnderecoJur.Enabled := True;
+  edtFantasia.Enabled := True;
+  edtNumeroJur.Enabled := True;
+  cbbCidadeJur.Enabled := True;
+  cbbUFJur.Enabled := True;
+  chkContIcmsJur.Enabled := True;
+  edtEmailJur.Enabled := True;
+  chkSimplesJur.Enabled := True;
+  edtCepCobJur.Enabled := True;
+  edtEnderecoCobJur.Enabled := True;
+  edtNumeroCobJur.Enabled := True;
+  edtComplementoCobJur.Enabled := True;
+  edtBairroCobJur.Enabled := True;
+  cbbUFCobJur.Enabled := True;
+  cbbCidadeCobJur.Enabled := True;
+  edtContato.Enabled := True;
+  edtDddCelJur.Enabled := True;
+  edtCelularJur.Enabled := True;
+end;
+
+procedure TfClientes.desabilitaCamposJuridica;
+begin
+  edtCNPJ.Enabled := False;
+  edtRazaoSocial.Enabled := False;
+  edtEndereco.Enabled := False;
+  edtBairro.Enabled := False;
+  edtNumeroJur.Enabled := False;
+  edtCepCobJur.Enabled := False;
+  edtComplementoJur.Enabled := False;
+  edtIeJur.Enabled := False;
+  edtDddTelJur.Enabled := False;
+  edtTelefoneJur.Enabled := False;
+  edtImJur.Enabled := False;
+  edtBairroJur.Enabled := False;
+  edtEnderecoJur.Enabled := False;
+  edtFantasia.Enabled := False;
+  edtNumeroJur.Enabled := False;
+  cbbCidadeJur.Enabled := False;
+  cbbUFJur.Enabled := False;
+  chkContIcmsJur.Enabled := False;
+  edtEmailJur.Enabled := False;
+  chkSimplesJur.Enabled := False;
+  edtCepCobJur.Enabled := False;
+  edtEnderecoCobJur.Enabled := False;
+  edtNumeroCobJur.Enabled := False;
+  edtComplementoCobJur.Enabled := False;
+  edtBairroCobJur.Enabled := False;
+  cbbUFCobJur.Enabled := False;
+  cbbCidadeCobJur.Enabled := False;
+  edtContato.Enabled := False;
+  edtDddCelJur.Enabled := False;
+  edtCelularJur.Enabled := False;
+  edtCepJur.Enabled := False;
 end;
 
 end.

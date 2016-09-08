@@ -113,6 +113,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure imgPesquisarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     { Private declarations }
     procedure limpar;
@@ -129,19 +131,30 @@ implementation
 
 {$R *.dfm}
 
+procedure TfEmpresa.btnExcluirClick(Sender: TObject);
+begin
+  cdsEmpresa.Delete;
+end;
+
 procedure TfEmpresa.btnNovoClick(Sender: TObject);
 begin
   habilitaCampos;
   edtCnpj.SetFocus;
 end;
 
+procedure TfEmpresa.btnSalvarClick(Sender: TObject);
+begin
+  cdsEmpresa.Post;
+  cdsEmpresa.ApplyUpdates(0);
+end;
+
 procedure TfEmpresa.cbbRamoAtividadeEnter(Sender: TObject);
 begin
-  cbbRamoAtividade.Items.Add('Indústria');
-  cbbRamoAtividade.Items.Add('Comércio');
-  cbbRamoAtividade.Items.Add('Transportadora');
-  cbbRamoAtividade.Items.Add('Prestação de serviços');
-  cbbRamoAtividade.Items.Add('Outros');
+//  cbbRamoAtividade.Items.Add('Indústria');
+//  cbbRamoAtividade.Items.Add('Comércio');
+//  cbbRamoAtividade.Items.Add('Transportadora');
+//  cbbRamoAtividade.Items.Add('Prestação de serviços');
+//  cbbRamoAtividade.Items.Add('Outros');
 end;
 
 procedure TfEmpresa.cbbUFExit(Sender: TObject);
