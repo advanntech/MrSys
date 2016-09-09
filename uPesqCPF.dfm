@@ -172,8 +172,7 @@ object fPesqCPF: TfPesqCPF
     BevelKind = bkSoft
     Color = clActiveCaption
     ParentBackground = False
-    TabOrder = 0
-    ExplicitWidth = 380
+    TabOrder = 2
     object imgSair: TImage
       Left = 407
       Top = 1
@@ -242,6 +241,7 @@ object fPesqCPF: TfPesqCPF
         39D734005232C79A0640D6C5FE4A0098A1DFF5AB1DCC520EADC6DD036CD77DF5
         17209F1FAFC4FF4AAC69007F035047D207B72DCA0A0000000049454E44AE4260
         82}
+      OnClick = imgSairClick
       ExplicitLeft = 1205
       ExplicitHeight = 48
     end
@@ -269,9 +269,7 @@ object fPesqCPF: TfPesqCPF
     BevelKind = bkSoft
     Color = clActiveCaption
     ParentBackground = False
-    TabOrder = 1
-    ExplicitTop = 330
-    ExplicitWidth = 380
+    TabOrder = 4
     object btnSalvar: TButton
       Left = 357
       Top = 1
@@ -292,7 +290,6 @@ object fPesqCPF: TfPesqCPF
       StylusHotImageIndex = 4
       TabOrder = 1
       OnClick = btnSalvarClick
-      ExplicitLeft = 277
     end
     object btnCancelar: TButton
       Left = 406
@@ -314,7 +311,6 @@ object fPesqCPF: TfPesqCPF
       StylusHotImageIndex = 1
       TabOrder = 0
       OnClick = btnCancelarClick
-      ExplicitLeft = 326
     end
   end
   object edtCPF: TMaskEdit
@@ -324,7 +320,7 @@ object fPesqCPF: TfPesqCPF
     Height = 21
     EditMask = '###.###.###-##'
     MaxLength = 14
-    TabOrder = 2
+    TabOrder = 0
     Text = '   .   .   -  '
   end
   object edtCaptcha: TMaskEdit
@@ -338,12 +334,13 @@ object fPesqCPF: TfPesqCPF
   end
   object edtDataNascimento: TMaskEdit
     Left = 144
-    Top = 82
-    Width = 128
+    Top = 81
+    Width = 124
     Height = 21
-    TabOrder = 4
-    Text = ''
-    OnKeyPress = edtCaptchaKeyPress
+    EditMask = '##/##/####'
+    MaxLength = 10
+    TabOrder = 1
+    Text = '  /  /    '
   end
   object tmr1: TTimer
     OnTimer = tmr1Timer

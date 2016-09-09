@@ -28,8 +28,8 @@ type
     Label4: TLabel;
     tmr1: TTimer;
     lbl2: TLabel;
-    edtDataNascimento: TMaskEdit;
     ACBrConsultaCPF1: TACBrConsultaCPF;
+    edtDataNascimento: TMaskEdit;
     procedure btnSalvarClick(Sender: TObject);
     procedure imgPesquisarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
@@ -37,6 +37,8 @@ type
     procedure edtCaptchaKeyPress(Sender: TObject; var Key: Char);
     procedure lblLabAtualizarCaptchaClick(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
+    procedure edtCaptchaExit(Sender: TObject);
+    procedure imgSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,6 +70,11 @@ begin
   Close;
 end;
 
+
+procedure TfPesqCPF.edtCaptchaExit(Sender: TObject);
+begin
+ imgPesquisarClick(imgPesquisar);
+end;
 
 procedure TfPesqCPF.edtCaptchaKeyPress(Sender: TObject; var Key: Char);
 begin
@@ -112,6 +119,11 @@ begin
     ShowMessage('É necessário digitar o captcha.');
     EdtCaptcha.SetFocus;
   end;
+end;
+
+procedure TfPesqCPF.imgSairClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TfPesqCPF.lblLabAtualizarCaptchaClick(Sender: TObject);

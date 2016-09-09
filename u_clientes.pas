@@ -78,8 +78,8 @@ type
     Label23: TLabel;
     edtNaturalidade: TDBEdit;
     grp1: TGroupBox;
-    img1: TImage;
-    img2: TImage;
+    imgFotoFis: TImage;
+    imgCaregaFotoFis: TImage;
     img3: TImage;
     lbl4: TLabel;
     edtCNPJ: TMaskEdit;
@@ -158,8 +158,8 @@ type
     DBGrid1: TDBGrid;
     chkSimplesFis: TDBCheckBox;
     ACBrCEP1: TACBrCEP;
-    imgPespCNPJ: TImage;
-    Image2: TImage;
+    imgPesqCNPJ: TImage;
+    imgPesqCPF: TImage;
     edtContato: TDBEdit;
     edtDddTelJur: TDBEdit;
     edtDddCelJur: TDBEdit;
@@ -204,23 +204,27 @@ type
     cdsClientescontrib_icms: TStringField;
     cdsClientessimples_nacional: TStringField;
     cdsClientesdependentes: TStringField;
-    grpDependentes: TDBRadioGroup;
+    rdgDependentes: TDBRadioGroup;
     cdsClientesbairro: TStringField;
+    dlgOpen1: TOpenDialog;
+    cdsClientesfoto: TMemoField;
     procedure imgSairClick(Sender: TObject);
     procedure imgPesqCepClick(Sender: TObject);
     procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
     procedure imgPesqCepCobClick(Sender: TObject);
     procedure imgPesqCep2Click(Sender: TObject);
     procedure imgPesqCepCob2Click(Sender: TObject);
-    procedure imgPespCNPJClick(Sender: TObject);
-    procedure Image2Click(Sender: TObject);
+    procedure imgPesqCNPJClick(Sender: TObject);
+    procedure imgPesqCPFClick(Sender: TObject);
     procedure edtCpfExit(Sender: TObject);
-    procedure edtCNPJChange(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure cbbUFJurExit(Sender: TObject);
     procedure cbbUFCobJurExit(Sender: TObject);
     procedure cbbUFExit(Sender: TObject);
     procedure cbbUfCobFisExit(Sender: TObject);
+    procedure edtCNPJExit(Sender: TObject);
+    procedure rdgDependentesClick(Sender: TObject);
+    procedure imgCaregaFotoFisClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -252,9 +256,9 @@ begin
   end;
 end;
 
-procedure TfClientes.edtCNPJChange(Sender: TObject);
+procedure TfClientes.edtCNPJExit(Sender: TObject);
 begin
-  if (edtCNPJ.Text <> EmptyStr) then
+ if (edtCNPJ.Text <> EmptyStr) then
   begin
     edtCpf.Text := EmptyStr;
 
@@ -274,6 +278,7 @@ begin
     if (cdsClientes.IsEmpty) then
     begin
       cdsClientes.Append;
+      imgPesqCNPJClick(imgPesqCNPJ);
       cdsClientescdg_cliente.AsString := edtCNPJ.Text;
     end
     else
@@ -305,6 +310,7 @@ begin
     if (cdsClientes.IsEmpty) then
     begin
       cdsClientes.Append;
+      imgPesqCPFClick(imgPesqCPF);
       cdsClientescdg_cliente.AsString := edtCpf.Text;
     end
     else
@@ -314,29 +320,54 @@ begin
   end;
 end;
 
-procedure TfClientes.Image2Click(Sender: TObject);
+procedure TfClientes.rdgDependentesClick(Sender: TObject);
 begin
-   if ActiveControl = edtCPF then
+  if rdgDependentes.ItemIndex = 1 then
+  begin
+    cdsClientesdependentes.AsString := '1';
+  end
+  else
+  begin
+    cdsClientesdependentes.AsString := '0';
+  end;
+end;
+
+procedure TfClientes.imgPesqCPFClick(Sender: TObject);
+begin
+  if (ActiveControl = edtCPF) or (edtCpf.Text <> EmptyStr) then
   begin
     Application.CreateForm(TfPesqCPF,fPesqCPF);
+    if (edtCpf.Text <> EmptyStr) then
+    begin
+      fPesqCPF.edtCPF.Text := edtCpf.Text;
+    end;
     fPesqCPF.ShowModal;
     if fPesqCPF.cpf <> '' then
     begin
        edtCpf.text := fPesqCPF.cpf;
-       edtRazaoSocial.Text := fPesqCPF.razaosocial;
+       edtNome.Text := fPesqCPF.razaosocial;
        edtDataNascimento.Text := fPesqCPF.nascimento;
-       edtNumeroJur.Text := fPesqCNPJ.numero;
+       if edtNome.Text <> EmptyStr then
+       begin
+        edtRG.SetFocus;
+       end;
+
+       edtRG.SetFocus
     end;
     fPesqCPF.release;
     fPesqCPF := nil;
    end;
 end;
 
-procedure TfClientes.imgPespCNPJClick(Sender: TObject);
+procedure TfClientes.imgPesqCNPJClick(Sender: TObject);
 begin
   if ActiveControl = edtCnpj then
   begin
     Application.CreateForm(TfPesqCNPJ,fPesqCNPJ);
+    if (edtCNPJ.Text <> EmptyStr) then
+    begin
+      fPesqCNPJ.edtCNPJ.Text := edtCNPJ.Text;
+    end;
     fPesqCNPJ.ShowModal;
     if fPesqCNPJ.cnpj <> '' then
     begin
@@ -352,10 +383,23 @@ begin
        edtTelefoneJur.Text := fPesqCNPJ.telefone;
        edtCepJur.Text := fPesqCNPJ.cep;
        edtEmailJur.Text := fPesqCNPJ.email;
+       if (edtRazaoSocial.Text <> EmptyStr) then
+       begin
+         edtContato.SetFocus;
+       end;
     end;
     fPesqCNPJ.release;
     fPesqCNPJ := nil;
    end;
+end;
+
+procedure TfClientes.imgCaregaFotoFisClick(Sender: TObject);
+begin
+  if dlgOpen1.Execute then
+  begin
+    cdsClientesfoto.LoadFromFile(dlgOpen1.FileName);
+    imgFotoFis.Picture.LoadFromFile(dlgOpen1.FileName);
+  end;
 end;
 
 procedure TfClientes.imgPesqCep2Click(Sender: TObject);

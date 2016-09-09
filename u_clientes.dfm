@@ -1,6 +1,6 @@
 object fClientes: TfClientes
   Left = 0
-  Top = 0
+  Top = -55
   Align = alCustom
   BorderStyle = bsNone
   ClientHeight = 743
@@ -209,7 +209,7 @@ object fClientes: TfClientes
     Top = 49
     Width = 1268
     Height = 640
-    ActivePage = tsJuridica
+    ActivePage = tsFisica
     Align = alClient
     TabOrder = 2
     object tsFisica: TTabSheet
@@ -461,7 +461,7 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object img2: TImage
+      object imgCaregaFotoFis: TImage
         Left = 1074
         Top = 238
         Width = 32
@@ -497,6 +497,7 @@ object fClientes: TfClientes
           8D9D54774093E996B1CBD76FD729B81DAE4193B1B960B9B1079E15C6FE134890
           3D96FB7E4C96C073EEFBC2BE177E8BA85EE3D31B61EFC1FE21A20F0D681E74FC
           FA31F92B7ECDFE69013F012C405983906353890000000049454E44AE426082}
+        OnClick = imgCaregaFotoFisClick
       end
       object img3: TImage
         Left = 1145
@@ -521,7 +522,7 @@ object fClientes: TfClientes
           D70B60B4A37D0CABB37802681C058473E460BC564BB9D99FBD00744248218EE3
           D8C89A3BE1B0B1216605D7410000000049454E44AE426082}
       end
-      object Image2: TImage
+      object imgPesqCPF: TImage
         Left = 312
         Top = 18
         Width = 32
@@ -559,7 +560,7 @@ object fClientes: TfClientes
           3A052E11E17B204F1794D7F197B17742AA12AB8DBC08BD36442E37F65D580BF2
           79850A945DA949B4F8A8058C459B1430E102FE02C2E281D0DB713AA400000000
           49454E44AE426082}
-        OnClick = Image2Click
+        OnClick = imgPesqCPFClick
       end
       object lbl18: TLabel
         Left = 313
@@ -650,7 +651,7 @@ object fClientes: TfClientes
         Top = 175
         Width = 138
         Height = 24
-        DataField = 'telefone'
+        DataField = 'fone'
         DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -972,7 +973,7 @@ object fClientes: TfClientes
           ParentFont = False
           TabOrder = 5
         end
-        object grpDependentes: TDBRadioGroup
+        object rdgDependentes: TDBRadioGroup
           Left = 956
           Top = 12
           Width = 185
@@ -983,6 +984,7 @@ object fClientes: TfClientes
             'Sim'
             'N'#227'o')
           TabOrder = 6
+          OnClick = rdgDependentesClick
         end
       end
       object grp1: TGroupBox
@@ -992,7 +994,7 @@ object fClientes: TfClientes
         Height = 230
         Caption = 'Fotografia'
         TabOrder = 17
-        object img1: TImage
+        object imgFotoFis: TImage
           Left = 16
           Top = 21
           Width = 153
@@ -1260,7 +1262,7 @@ object fClientes: TfClientes
         Top = 174
         Width = 50
         Height = 24
-        DataField = 'telefone'
+        DataField = 'dddcel'
         DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1275,7 +1277,7 @@ object fClientes: TfClientes
         Top = 175
         Width = 50
         Height = 24
-        DataField = 'telefone'
+        DataField = 'dddfone'
         DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1610,7 +1612,7 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object imgPespCNPJ: TImage
+      object imgPesqCNPJ: TImage
         Left = 321
         Top = 25
         Width = 32
@@ -1648,7 +1650,7 @@ object fClientes: TfClientes
           3A052E11E17B204F1794D7F197B17742AA12AB8DBC08BD36442E37F65D580BF2
           79850A945DA949B4F8A8058C459B1430E102FE02C2E281D0DB713AA400000000
           49454E44AE426082}
-        OnClick = imgPespCNPJClick
+        OnClick = imgPesqCNPJClick
       end
       object edtCNPJ: TMaskEdit
         Left = 126
@@ -1659,7 +1661,7 @@ object fClientes: TfClientes
         MaxLength = 18
         TabOrder = 0
         Text = '  .   .   /    -  '
-        OnChange = edtCNPJChange
+        OnExit = edtCNPJExit
       end
       object edtRazaoSocial: TDBEdit
         Left = 126
@@ -1726,7 +1728,7 @@ object fClientes: TfClientes
         Top = 217
         Width = 138
         Height = 24
-        DataField = 'telefone'
+        DataField = 'fone'
         DataSource = dsClientes
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2189,7 +2191,7 @@ object fClientes: TfClientes
     end
   end
   object qrClientes: TSQLQuery
-    MaxBlobSize = -1
+    MaxBlobSize = 1
     Params = <
       item
         DataType = ftString
@@ -2363,6 +2365,11 @@ object fClientes: TfClientes
       FieldName = 'bairro'
       Size = 60
     end
+    object cdsClientesfoto: TMemoField
+      FieldName = 'foto'
+      BlobType = ftMemo
+      Size = 1
+    end
   end
   object dspClientes: TDataSetProvider
     DataSet = qrClientes
@@ -2423,5 +2430,9 @@ object fClientes: TfClientes
     OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
     Left = 504
     Top = 176
+  end
+  object dlgOpen1: TOpenDialog
+    Left = 824
+    Top = 304
   end
 end
