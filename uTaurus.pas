@@ -19,8 +19,6 @@ type
     Label2: TLabel;
     Image3: TImage;
     Label3: TLabel;
-    img3: TImage;
-    lbl2: TLabel;
     procedure img1Click(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Image2Click(Sender: TObject);

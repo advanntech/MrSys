@@ -23,9 +23,6 @@ object fFormaPagRec: TfFormaPagRec
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -221
-    ExplicitTop = 432
-    ExplicitWidth = 1268
     object btnNovo: TButton
       Left = 436
       Top = 1
@@ -45,7 +42,6 @@ object fFormaPagRec: TfFormaPagRec
       SelectedImageIndex = 3
       StylusHotImageIndex = 3
       TabOrder = 0
-      ExplicitLeft = 1067
     end
     object btnSalvar: TButton
       Left = 485
@@ -66,7 +62,6 @@ object fFormaPagRec: TfFormaPagRec
       SelectedImageIndex = 4
       StylusHotImageIndex = 4
       TabOrder = 2
-      ExplicitLeft = 1116
     end
     object btnExcluir: TButton
       Left = 534
@@ -87,7 +82,6 @@ object fFormaPagRec: TfFormaPagRec
       SelectedImageIndex = 2
       StylusHotImageIndex = 2
       TabOrder = 3
-      ExplicitLeft = 1165
     end
     object btnCancelar: TButton
       Left = 583
@@ -108,7 +102,6 @@ object fFormaPagRec: TfFormaPagRec
       SelectedImageIndex = 1
       StylusHotImageIndex = 1
       TabOrder = 1
-      ExplicitLeft = 1214
     end
   end
   object pnl1: TPanel
@@ -121,7 +114,6 @@ object fFormaPagRec: TfFormaPagRec
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 621
     object imgSair: TImage
       Left = 584
       Top = 1
@@ -213,16 +205,11 @@ object fFormaPagRec: TfFormaPagRec
     Top = 49
     Width = 637
     Height = 308
-    ActivePage = tsRecebimento
+    ActivePage = tsPagamento
     Align = alClient
     TabOrder = 2
-    ExplicitTop = 68
-    ExplicitWidth = 937
-    ExplicitHeight = 364
     object tsPagamento: TTabSheet
       Caption = 'Pagamento'
-      ExplicitWidth = 281
-      ExplicitHeight = 165
       object Label3: TLabel
         Left = 18
         Top = 17
@@ -441,8 +428,6 @@ object fFormaPagRec: TfFormaPagRec
       Font.Style = [fsBold]
       ImageIndex = 1
       ParentFont = False
-      ExplicitWidth = 281
-      ExplicitHeight = 165
       object Label1: TLabel
         Left = 26
         Top = 25

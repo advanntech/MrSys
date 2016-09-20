@@ -9,8 +9,8 @@
     <Transaction>2016/08/27 17:45:44.000.688,C:\Users\Nanda\Documents\Projetos\PARCERIA\u_empresa.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.dfm</Transaction>
     <Transaction>2016/08/27 17:45:44.000.688,C:\Users\Nanda\Documents\Projetos\PARCERIA\u_empresa.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas</Transaction>
     <Transaction>2016/08/27 22:18:12.000.125,=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit1.pas</Transaction>
-    <Transaction>2016/08/27 22:53:09.000.195,C:\Users\Nanda\Documents\Projetos\PARCERIA\dmPrincipal.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit1.pas</Transaction>
     <Transaction>2016/08/27 22:53:09.000.195,C:\Users\Nanda\Documents\Projetos\PARCERIA\dmPrincipal.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit1.dfm</Transaction>
+    <Transaction>2016/08/27 22:53:09.000.195,C:\Users\Nanda\Documents\Projetos\PARCERIA\dmPrincipal.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit1.pas</Transaction>
     <Transaction>2016/08/28 09:57:47.000.737,=C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas</Transaction>
     <Transaction>2016/08/28 10:16:55.000.147,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\u_pesq_empresa.pas</Transaction>
     <Transaction>2016/08/28 10:16:55.000.147,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\u_pesq_empresa.dfm</Transaction>
@@ -18,8 +18,8 @@
     <Transaction>2016/08/28 13:40:11.000.304,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\u_clientes.pas</Transaction>
     <Transaction>2016/08/28 13:40:11.000.304,C:\Users\Nanda\Documents\Projetos\PARCERIA\Unit2.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\u_clientes.dfm</Transaction>
     <Transaction>2016/09/04 14:08:14.000.022,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\Unit2.pas</Transaction>
-    <Transaction>2016/09/04 17:01:35.000.629,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\Unit2.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uFormaPagRec.dfm</Transaction>
     <Transaction>2016/09/04 17:01:35.000.629,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\Unit2.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uFormaPagRec.pas</Transaction>
+    <Transaction>2016/09/04 17:01:35.000.629,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\Unit2.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uFormaPagRec.dfm</Transaction>
     <Transaction>2016/09/04 20:09:20.000.755,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\Unit2.pas</Transaction>
     <Transaction>2016/09/04 20:11:09.000.436,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\Unit2.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uPesqCPNJ.pas</Transaction>
     <Transaction>2016/09/04 20:11:09.000.436,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\Unit2.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uPesqCPNJ.dfm</Transaction>
@@ -30,8 +30,19 @@
     <Transaction>2016/09/07 22:38:26.000.601,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_clientes.pas</Transaction>
     <Transaction>2016/09/07 23:05:12.000.333,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_fornecedores.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_funcionarios.dfm</Transaction>
     <Transaction>2016/09/07 23:05:12.000.333,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_fornecedores.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_funcionarios.pas</Transaction>
-    <Transaction>2016/09/09 06:34:04.693,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqClientes.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_pesq_empresa.dfm</Transaction>
-    <Transaction>2016/09/09 06:34:04.693,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqClientes.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_pesq_empresa.pas</Transaction>
-    <Transaction>2016/09/09 06:34:25.834,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_pesq_empresa.pas</Transaction>
+    <Transaction>2016/09/09 06:34:04.000.693,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqClientes.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_pesq_empresa.pas</Transaction>
+    <Transaction>2016/09/09 06:34:04.000.693,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqClientes.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_pesq_empresa.dfm</Transaction>
+    <Transaction>2016/09/09 06:34:25.000.834,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_pesq_empresa.pas</Transaction>
+    <Transaction>2016/09/15 19:56:00.000.714,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqClientes.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqForncedores.pas</Transaction>
+    <Transaction>2016/09/15 19:56:00.000.714,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqClientes.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqForncedores.dfm</Transaction>
+    <Transaction>2016/09/15 20:01:50.000.979,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\u_PesqClientes.pas</Transaction>
+    <Transaction>2016/09/19 21:01:26.000.135,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uConvenio.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uFormaPagRec.pas</Transaction>
+    <Transaction>2016/09/19 21:01:26.000.135,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uConvenio.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uFormaPagRec.dfm</Transaction>
+    <Transaction>2016/09/19 22:47:00.000.596,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uSetor.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uConvenio.dfm</Transaction>
+    <Transaction>2016/09/19 22:47:00.000.596,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uSetor.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uConvenio.pas</Transaction>
+    <Transaction>2016/09/19 22:47:53.000.345,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uCargo.pas=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uSetor.pas</Transaction>
+    <Transaction>2016/09/19 22:47:53.000.345,C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uCargo.dfm=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uSetor.dfm</Transaction>
+    <Transaction>2016/09/19 22:51:32.000.793,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uConvenio.pas</Transaction>
+    <Transaction>2016/09/19 22:51:38.000.666,=C:\Users\Nanda\Documents\Projetos\PARCERIA\MrSys\uSetor.pas</Transaction>
   </Transactions>
 </BorlandProject>

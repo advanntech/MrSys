@@ -38,7 +38,7 @@ type
     lbl50: TLabel;
     img2: TImage;
     img3: TImage;
-    img4: TImage;
+    imgPesqCPF: TImage;
     lbl18: TLabel;
     edtCpf: TMaskEdit;
     edtNome: TDBEdit;
@@ -53,16 +53,6 @@ type
     edtComplemento: TDBEdit;
     edtCEP: TDBEdit;
     edtDataNascimento: TDBEdit;
-    grpDadosPessoais: TGroupBox;
-    lbl51: TLabel;
-    lbl52: TLabel;
-    lbl6: TLabel;
-    lbl8: TLabel;
-    edtConjuge: TDBEdit;
-    cbbEstadoCivil: TDBComboBox;
-    edtNomePai: TDBEdit;
-    edtNomeMae: TDBEdit;
-    grpDependentes: TDBRadioGroup;
     grp1: TGroupBox;
     img1: TImage;
     edtCelularFis: TDBEdit;
@@ -71,43 +61,6 @@ type
     qrFuncionarios: TSQLQuery;
     dsFuncionarios: TDataSource;
     cdsFuncionarios: TClientDataSet;
-    cdsFuncionariostipo: TStringField;
-    cdsFuncionariosnome: TStringField;
-    cdsFuncionariosfantasia: TStringField;
-    cdsFuncionarioscontato: TStringField;
-    cdsFuncionarioscep: TStringField;
-    cdsFuncionariosendereco: TStringField;
-    cdsFuncionariosnumero: TStringField;
-    cdsFuncionariosidUF: TIntegerField;
-    cdsFuncionariosidCidade: TIntegerField;
-    cdsFuncionariosdddfone: TStringField;
-    cdsFuncionariosfone: TStringField;
-    cdsFuncionariosdddcel: TStringField;
-    cdsFuncionarioscelular: TStringField;
-    cdsFuncionariosemail: TStringField;
-    cdsFuncionariosie: TStringField;
-    cdsFuncionariosim: TStringField;
-    cdsFuncionariosrg: TStringField;
-    cdsFuncionarioscep_cobranca: TStringField;
-    cdsFuncionariosendereco_cobranca: TStringField;
-    cdsFuncionariosbairro_cobranca: TStringField;
-    cdsFuncionariosidUf_cobranca: TIntegerField;
-    cdsFuncionariosidCidade_cobranca: TIntegerField;
-    cdsFuncionariosestado_civil: TStringField;
-    cdsFuncionariospai: TStringField;
-    cdsFuncionariosmae: TStringField;
-    cdsFuncionariosconjude: TStringField;
-    cdsFuncionariostrabalho: TStringField;
-    cdsFuncionariosnaturalidade: TStringField;
-    cdsFuncionariosdatanascimento: TDateField;
-    cdsFuncionariosnumero_cobranca: TStringField;
-    cdsFuncionarioscomplemento_cobranca: TStringField;
-    cdsFuncionarioscomplemento: TStringField;
-    cdsFuncionarioscdg_cliente: TStringField;
-    cdsFuncionarioscontrib_icms: TStringField;
-    cdsFuncionariossimples_nacional: TStringField;
-    cdsFuncionariosdependentes: TStringField;
-    cdsFuncionariosbairro: TStringField;
     dspFuncionarios: TDataSetProvider;
     qrEstados: TSQLQuery;
     qrEstadosuf: TStringField;
@@ -124,23 +77,60 @@ type
     edtim: TDBEdit;
     lblSetor: TLabel;
     lbl5: TLabel;
-    edtcep1: TDBEdit;
-    img5: TImage;
-    edtcep2: TDBEdit;
-    img6: TImage;
+    cdsFuncionariosidfuncionarios: TIntegerField;
+    cdsFuncionarioscpf: TStringField;
+    cdsFuncionariosrg: TStringField;
+    cdsFuncionariosdatanascimento: TDateField;
+    cdsFuncionariospis: TStringField;
+    cdsFuncionarioscep: TStringField;
+    cdsFuncionariosendereco: TStringField;
+    cdsFuncionariosnumero: TStringField;
+    cdsFuncionariosbairro: TStringField;
+    cdsFuncionarioscomplemento: TStringField;
+    cdsFuncionariosiduf: TIntegerField;
+    cdsFuncionariosidcidade: TIntegerField;
+    cdsFuncionariosdddfone: TStringField;
+    cdsFuncionariostelefone: TStringField;
+    cdsFuncionariosdddcelular: TStringField;
+    cdsFuncionarioscelular: TStringField;
+    cdsFuncionariosemail: TStringField;
+    cdsFuncionariosdataadmissao: TDateField;
+    cdsFuncionariosdatademissao: TDateField;
+    cdsFuncionariosapelido: TStringField;
+    cdsFuncionariosidSetor: TIntegerField;
+    cdsFuncionariosidcargo: TIntegerField;
+    cdsFuncionariossalario: TFloatField;
+    cdsFuncionariosextra: TFloatField;
+    cdsFuncionariosobs: TMemoField;
+    lbl7: TLabel;
+    edtPis: TDBEdit;
+    lbl14: TLabel;
+    edtcep3: TDBEdit;
+    lbl16: TLabel;
+    edtcep4: TDBEdit;
+    cbbLookupSetor: TDBLookupComboBox;
+    cbbLookupCargo: TDBLookupComboBox;
+    imgCadConvenio: TImage;
+    Image1: TImage;
+    qrSetor: TSQLQuery;
+    dspSetor: TDataSetProvider;
+    cdsSetor: TClientDataSet;
+    dsSetor: TDataSource;
+    qrCargo: TSQLQuery;
+    dspCargo: TDataSetProvider;
+    cdsCargo: TClientDataSet;
+    dsCargo: TDataSource;
+    cdsSetoridsetor: TIntegerField;
+    cdsSetornome: TStringField;
+    cdsCargoidcargo: TIntegerField;
+    cdsCargonome: TStringField;
     procedure imgSairClick(Sender: TObject);
     procedure imgPesqCepClick(Sender: TObject);
     procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
-    procedure imgPesqCepCobClick(Sender: TObject);
-    procedure imgPesqCep2Click(Sender: TObject);
-    procedure imgPesqCepCob2Click(Sender: TObject);
-    procedure imgPespCNPJClick(Sender: TObject);
-    procedure img4Click(Sender: TObject);
+    procedure imgPesqCPFClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
-    procedure cbbUFJurExit(Sender: TObject);
-    procedure cbbUFCobJurExit(Sender: TObject);
     procedure cbbUFExit(Sender: TObject);
-    procedure cbbUfCobFisExit(Sender: TObject);
+    procedure edtCpfExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -172,7 +162,7 @@ begin
   end;
 end;
 
-procedure TfFuncionarios.img4Click(Sender: TObject);
+procedure TfFuncionarios.imgPesqCPFClick(Sender: TObject);
 begin
    if ActiveControl = edtCPF then
   begin
@@ -181,57 +171,17 @@ begin
     if fPesqCPF.cpf <> '' then
     begin
        edtCpf.text := fPesqCPF.cpf;
-//       edtRazaoSocial.Text := fPesqCPF.razaosocial;
-//       edtDataNascimento.Text := fPesqCPF.nascimento;
-//       edtNumeroJur.Text := fPesqCNPJ.numero;
+       edtNome.Text := fPesqCPF.razaosocial;
+       edtDataNascimento.Text := fPesqCPF.nascimento;
+       edtNumero.Text := fPesqCNPJ.numero;
     end;
     fPesqCPF.release;
     fPesqCPF := nil;
    end;
 end;
 
-procedure TfFuncionarios.imgPespCNPJClick(Sender: TObject);
-begin
-  if ActiveControl = edtCpf then
-  begin
-    Application.CreateForm(TfPesqCNPJ,fPesqCNPJ);
-    fPesqCNPJ.ShowModal;
-    if fPesqCNPJ.cnpj <> '' then
-    begin
-//       edtCnpj.text := fPesqCNPJ.cnpj;
-//       edtRazaoSocial.Text := fPesqCNPJ.razaosocial;
-//       edtFantasia.Text := fPesqCNPJ.fantasia;
-//       edtEnderecoJur.Text := fPesqCNPJ.endereco;
-//       edtNumeroJur.Text := fPesqCNPJ.numero;
-//       edtBairroJur.Text := fPesqCNPJ.bairro;
-//       edtComplementoJur.Text := fPesqCNPJ.complemento;
-//       cbbUFJur.Text := fPesqCNPJ.uf;
-//       cbbCidadeJur.Text := fPesqCNPJ.cidade;
-//       edtTelefoneJur.Text := fPesqCNPJ.telefone;
-//       edtCepJur.Text := fPesqCNPJ.cep;
-//       edtEmailJur.Text := fPesqCNPJ.email;
-    end;
-    fPesqCNPJ.release;
-    fPesqCNPJ := nil;
-   end;
-end;
-
-procedure TfFuncionarios.imgPesqCep2Click(Sender: TObject);
-begin
-  ACBrCEP1.BuscarPorCEP(edtCEP.Text)
-end;
 
 procedure TfFuncionarios.imgPesqCepClick(Sender: TObject);
-begin
-  ACBrCEP1.BuscarPorCEP(edtCEP.Text)
-end;
-
-procedure TfFuncionarios.imgPesqCepCob2Click(Sender: TObject);
-begin
-  ACBrCEP1.BuscarPorCEP(edtCEP.Text)
-end;
-
-procedure TfFuncionarios.imgPesqCepCobClick(Sender: TObject);
 begin
   ACBrCEP1.BuscarPorCEP(edtCEP.Text)
 end;
@@ -254,10 +204,6 @@ begin
   edtComplemento.Clear;
   edtCEP.Clear;
   edtDataNascimento.Clear;
-  edtConjuge.Clear;
-  cbbEstadoCivil.Clear;
-  edtNomePai.Clear;
-  edtNomeMae.Clear;
   edtDddCelFis.Clear;
   edtCelularFis.Clear;
   edtDddCelFis.Clear;
@@ -267,36 +213,6 @@ end;
 
 procedure TfFuncionarios.limparJuridica;
 begin
-//  edtCNPJ.Clear;
-//  edtRazaoSocial.Clear;
-//  edtEndereco.Clear;
-//  edtBairro.Clear;
-//  edtNumeroJur.Clear;
-//  edtCepCobJur.Clear;
-//  edtComplementoJur.Clear;
-//  edtIeJur.Clear;
-//  edtDddTelJur.Clear;
-//  edtTelefoneJur.Clear;
-//  edtImJur.Clear;
-//  edtBairroJur.Clear;
-//  edtEnderecoJur.Clear;
-//  edtFantasia.Clear;
-//  edtNumeroJur.Clear;
-//  cbbCidadeJur.Clear;
-//  cbbUFJur.Clear;
-//  chkContIcmsJur.Checked := False;
-//  edtEmailJur.Clear;
-//  chkSimplesJur.Checked := False;
-//  edtCepCobJur.Clear;
-//  edtEnderecoCobJur.Clear;
-//  edtNumeroCobJur.Clear;
-//  edtComplementoCobJur.Clear;
-//  edtBairroCobJur.Clear;
-//  cbbUFCobJur.Clear;
-//  cbbCidadeCobJur.Clear;
-//  edtContato.Clear;
-//  edtDddCelJur.Clear;
-//  edtCelularJur.Clear;
 end;
 
 procedure TfFuncionarios.habilitaCamposFisica;
@@ -312,11 +228,6 @@ begin
   edtComplemento.Enabled := True;
   edtCEP.Enabled := True;
   edtDataNascimento.Enabled := True;
-  edtConjuge.Enabled := True;
-  cbbEstadoCivil.Enabled := True;
-  edtNomePai.Enabled := True;
-  edtNomeMae.Enabled := True;
-
   edtDddCelFis.Enabled := True;
   edtCelularFis.Enabled := True;
   edtDddCelFis.Enabled := True;
@@ -334,69 +245,9 @@ begin
     limparJuridica;
   end;
 
-
-
-
-end;
-
-procedure TfFuncionarios.cbbUfCobFisExit(Sender: TObject);
-begin
-  qrAux.Close;
-  qrAux.SQL.Clear;
-  qrAux.SQL.Add('select id from estados where uf = :uf');
-  qrAux.ParamByName('uf').AsString := cbbUF.Text;
-  qrAux.Open;
-
-  qrCidades.Close;
-  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
-  qrCidades.Open;
-
-  while not qrCidades.eof do
-  begin
-    cbbCidades.Items.Add(qrCidadesnome.AsString);
-    qrCidades.Next;
-  end;
-end;
-
-procedure TfFuncionarios.cbbUFCobJurExit(Sender: TObject);
-begin
-  qrAux.Close;
-  qrAux.SQL.Clear;
-  qrAux.SQL.Add('select id from estados where uf = :uf');
-  qrAux.ParamByName('uf').AsString := cbbUF.Text;
-  qrAux.Open;
-
-  qrCidades.Close;
-  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
-  qrCidades.Open;
-
-  while not qrCidades.eof do
-  begin
-    cbbCidades.Items.Add(qrCidadesnome.AsString);
-    qrCidades.Next;
-  end;
 end;
 
 procedure TfFuncionarios.cbbUFExit(Sender: TObject);
-begin
-  qrAux.Close;
-  qrAux.SQL.Clear;
-  qrAux.SQL.Add('select id from estados where uf = :uf');
-  qrAux.ParamByName('uf').AsString := cbbUF.Text;
-  qrAux.Open;
-
-  qrCidades.Close;
-  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
-  qrCidades.Open;
-
-  while not qrCidades.eof do
-  begin
-    cbbCidades.Items.Add(qrCidadesnome.AsString);
-    qrCidades.Next;
-  end;
-end;
-
-procedure TfFuncionarios.cbbUFJurExit(Sender: TObject);
 begin
   qrAux.Close;
   qrAux.SQL.Clear;
@@ -428,21 +279,6 @@ begin
   edtComplemento.Enabled := False;
   edtCEP.Enabled := False;
   edtDataNascimento.Enabled := False;
-  edtConjuge.Enabled := False;
-  cbbEstadoCivil.Enabled := False;
-  edtNomePai.Enabled := False;
-  edtNomeMae.Enabled := False;
-//  edtTrabalho.Enabled := False;
-//  edtNaturalidade.Enabled := False;
-//  edtCepCobFis.Enabled := False;
-//  edtEnderecoCobFis.Enabled := False;
-//  edtNumeroCobFis.Enabled := False;
-//  edtComplementoCobFis.Enabled := False;
-//  edtBairroCobFis.Enabled := False;
-//  cbbUfCobFis.Enabled := False;
-//  cbbCidadeCobFis.Enabled := False;
-//  chkSimplesFis.Enabled := False;
-//  chkContIcmsFis.Enabled := False;
   edtDddCelFis.Enabled := False;
   edtCelularFis.Enabled := False;
   edtDddCelFis.Enabled := False;
@@ -457,6 +293,20 @@ end;
 procedure TfFuncionarios.desabilitaCamposJuridica;
 begin
  
+end;
+
+procedure TfFuncionarios.edtCpfExit(Sender: TObject);
+begin
+  if (cdsFuncionarios.IsEmpty) then
+  begin
+    cdsFuncionarios.Append;
+    imgPesqCPFClick(imgPesqCPF);
+    cdsFuncionarioscpf.AsString := edtCpf.Text;
+  end
+  else
+  begin
+    cdsFuncionarios.Edit;
+  end;
 end;
 
 end.

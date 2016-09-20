@@ -15,6 +15,19 @@ object fClientes: TfClientes
   Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 17
+  object Label5: TLabel
+    Left = 502
+    Top = 98
+    Width = 67
+    Height = 21
+    Caption = 'Profiss'#227'o'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object pnl1: TPanel
     Left = 0
     Top = 0
@@ -162,6 +175,7 @@ object fClientes: TfClientes
       SelectedImageIndex = 4
       StylusHotImageIndex = 4
       TabOrder = 2
+      OnClick = btnSalvarClick
     end
     object btnExcluir: TButton
       Left = 1165
@@ -182,6 +196,7 @@ object fClientes: TfClientes
       SelectedImageIndex = 2
       StylusHotImageIndex = 2
       TabOrder = 3
+      OnClick = btnExcluirClick
     end
     object btnCancelar: TButton
       Left = 1214
@@ -202,6 +217,7 @@ object fClientes: TfClientes
       SelectedImageIndex = 1
       StylusHotImageIndex = 1
       TabOrder = 1
+      OnClick = btnCancelarClick
     end
   end
   object pgcCliente: TPageControl
@@ -396,6 +412,7 @@ object fClientes: TfClientes
           27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
           ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
           B11E802789EB4A21B25C2E890000000049454E44AE426082}
+        OnClick = imgPesqClienteClick
       end
       object Label27: TLabel
         Left = 91
@@ -521,6 +538,7 @@ object fClientes: TfClientes
           035ACD9303512C03E3064E9B5D5119CF43B0FA1FFC34B8D8E8D6AC088CE26F21
           D70B60B4A37D0CABB37802681C058473E460BC564BB9D99FBD00744248218EE3
           D8C89A3BE1B0B1216605D7410000000049454E44AE426082}
+        OnClick = img3Click
       end
       object imgPesqCPF: TImage
         Left = 312
@@ -575,6 +593,44 @@ object fClientes: TfClientes
         Font.Style = [fsBold]
         ParentFont = False
       end
+      object lbl61: TLabel
+        Left = 76
+        Top = 207
+        Width = 36
+        Height = 21
+        Caption = 'Fone'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object imgCadConvenio: TImage
+        Left = 268
+        Top = 205
+        Width = 26
+        Height = 26
+        AutoSize = True
+        Center = True
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D494844520000001A0000
+          001A0806000000A94A4CCE0000019B4944415478DACD963D4BC35014866F06C5
+          8F45FF80485D5C74899B3A891D8B931F83481D9CFC396E82C50F903A08EAA688
+          833AD92C7671D141DCB583B6D2213E37DC2BF19234E94DC01E7839C97BCF3D6F
+          4FCF496E1CD7758784103B600D0C887CAC058EC1B6E7795F927010DAC3977312
+          30AD82D0A6166AAA4A4AE036278179702E2B4368500BF9F202C2C9AB0C728EE0
+          DEC379FF4F88FB47DC14A8C34D2BEE0E379B42E39E3D7369857CBD2B8A4B32B9
+          274B45CFB8420A9D17F64C58F788983EDC700AA14FF2B47B6E1874E383C61A5C
+          92F5E630E8C6078D35B8286B835370A5F6DC102FDF3447A0C47D7F9C906E7CD0
+          58838BB26FE29A31BD1A63ED3552C8B2F90BB80D30A9A827B04FCE6B1D633B0C
+          67AC2DA923A60296637EC30928CBA3C26618E4DF5960ED0DBEDA41E4578CD815
+          9B61A8C2AFC22D727D69241D070DA1262E64459B6190674C0BEE80EB7523E128
+          6B1F118FC3A1F530B0EF01376354D2208FAF9E2311AAACF6E78425E8C25228A8
+          2422465756B3F966D822E9AECD5FD7ED5750A76188132A667A637735DE1985D2
+          3FB05984428289AFA01F2BC250242A082B1B0000000049454E44AE426082}
+        OnClick = imgCadConvenioClick
+      end
       object edtCpf: TMaskEdit
         Left = 118
         Top = 19
@@ -614,7 +670,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 5
       end
       object edtBairro: TDBEdit
         Left = 368
@@ -629,7 +685,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 8
       end
       object edtRG: TDBEdit
         Left = 600
@@ -644,7 +700,8 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 2
+        OnExit = edtRGExit
       end
       object edtFoneFis: TDBEdit
         Left = 170
@@ -659,14 +716,14 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 16
       end
       object cbbUF: TComboBox
         Left = 608
         Top = 112
         Width = 58
         Height = 25
-        TabOrder = 6
+        TabOrder = 9
         OnExit = cbbUFExit
       end
       object cbbCidades: TComboBox
@@ -674,7 +731,7 @@ object fClientes: TfClientes
         Top = 112
         Width = 203
         Height = 25
-        TabOrder = 7
+        TabOrder = 10
       end
       object edtNumero: TDBEdit
         Left = 888
@@ -689,7 +746,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 6
       end
       object edtEmailFis: TDBEdit
         Left = 608
@@ -704,7 +761,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 19
       end
       object edtComplemento: TDBEdit
         Left = 118
@@ -719,7 +776,8 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 7
+        OnExit = edtComplementoExit
       end
       object edtCEP: TDBEdit
         Left = 117
@@ -734,7 +792,8 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 4
+        OnExit = edtCEPExit
       end
       object edtImFis: TDBEdit
         Left = 369
@@ -764,7 +823,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 11
       end
       object chkContIcmsFis: TDBCheckBox
         Left = 577
@@ -780,7 +839,7 @@ object fClientes: TfClientes
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 13
         ValueChecked = '1'
         ValueUnchecked = '0'
       end
@@ -797,18 +856,18 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 3
       end
       object grpDadosPessoais: TGroupBox
-        Left = 12
-        Top = 276
+        Left = 16
+        Top = 272
         Width = 1219
-        Height = 128
+        Height = 151
         Caption = 'Dados Pessoais'
-        TabOrder = 16
+        TabOrder = 20
         object Label26: TLabel
           Left = 51
-          Top = 27
+          Top = 18
           Width = 81
           Height = 21
           Caption = 'Estado civil'
@@ -821,7 +880,7 @@ object fClientes: TfClientes
         end
         object Label29: TLabel
           Left = 429
-          Top = 29
+          Top = 20
           Width = 132
           Height = 21
           Caption = 'Nome do c'#244'njuge'
@@ -834,7 +893,7 @@ object fClientes: TfClientes
         end
         object lbl6: TLabel
           Left = 37
-          Top = 57
+          Top = 48
           Width = 95
           Height = 21
           Caption = 'Nome do pai'
@@ -860,7 +919,7 @@ object fClientes: TfClientes
         end
         object lbl7: TLabel
           Left = 4
-          Top = 90
+          Top = 81
           Width = 128
           Height = 21
           Caption = 'Local de Trabalho'
@@ -872,8 +931,8 @@ object fClientes: TfClientes
           ParentFont = False
         end
         object Label23: TLabel
-          Left = 467
-          Top = 86
+          Left = 37
+          Top = 111
           Width = 94
           Height = 21
           Caption = 'Naturalidade'
@@ -884,9 +943,62 @@ object fClientes: TfClientes
           Font.Style = [fsBold]
           ParentFont = False
         end
+        object Label1: TLabel
+          Left = 494
+          Top = 81
+          Width = 67
+          Height = 21
+          Caption = 'Profiss'#227'o'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lbl9: TLabel
+          Left = 771
+          Top = 81
+          Width = 46
+          Height = 21
+          Caption = 'Renda'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lbl46: TLabel
+          Left = 500
+          Top = 109
+          Width = 61
+          Height = 21
+          Caption = 'Moradia'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lblQtos: TLabel
+          Left = 1150
+          Top = 18
+          Width = 42
+          Height = 21
+          Caption = 'Qtos?'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Visible = False
+        end
         object edtConjuge: TDBEdit
           Left = 567
-          Top = 25
+          Top = 16
           Width = 282
           Height = 24
           DataField = 'conjude'
@@ -897,11 +1009,11 @@ object fClientes: TfClientes
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 0
+          TabOrder = 1
         end
         object cbbEstadoCivil: TDBComboBox
           Left = 138
-          Top = 27
+          Top = 18
           Width = 145
           Height = 25
           DataField = 'estado_civil'
@@ -911,11 +1023,11 @@ object fClientes: TfClientes
             'Casado(a)'
             'Divorciado(a)'
             'Separado(a)')
-          TabOrder = 1
+          TabOrder = 0
         end
         object edtNomePai: TDBEdit
           Left = 138
-          Top = 58
+          Top = 49
           Width = 282
           Height = 24
           DataField = 'pai'
@@ -930,7 +1042,7 @@ object fClientes: TfClientes
         end
         object edtNomeMae: TDBEdit
           Left = 567
-          Top = 55
+          Top = 46
           Width = 367
           Height = 24
           DataField = 'mae'
@@ -945,7 +1057,7 @@ object fClientes: TfClientes
         end
         object edtTrabalho: TDBEdit
           Left = 138
-          Top = 88
+          Top = 79
           Width = 282
           Height = 24
           DataField = 'trabalho'
@@ -959,9 +1071,9 @@ object fClientes: TfClientes
           TabOrder = 4
         end
         object edtNaturalidade: TDBEdit
-          Left = 567
-          Top = 85
-          Width = 367
+          Left = 138
+          Top = 109
+          Width = 158
           Height = 24
           DataField = 'naturalidade'
           DataSource = dsClientes
@@ -973,18 +1085,79 @@ object fClientes: TfClientes
           ParentFont = False
           TabOrder = 5
         end
-        object rdgDependentes: TDBRadioGroup
-          Left = 956
+        object grpdependentes: TDBRadioGroup
+          Left = 951
           Top = 12
           Width = 185
           Height = 61
           Caption = 'Dependentes ?'
           Columns = 2
+          DataField = 'dependentes'
+          DataSource = dsClientes
           Items.Strings = (
             'Sim'
             'N'#227'o')
           TabOrder = 6
-          OnClick = rdgDependentesClick
+          OnClick = grpdependentesClick
+        end
+        object edtProfissao: TDBEdit
+          Left = 567
+          Top = 79
+          Width = 184
+          Height = 24
+          DataField = 'profissao'
+          DataSource = dsClientes
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 7
+        end
+        object edtRenda: TDBEdit
+          Left = 825
+          Top = 79
+          Width = 109
+          Height = 24
+          DataField = 'renda'
+          DataSource = dsClientes
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 8
+        end
+        object cbbMoradia: TDBComboBox
+          Left = 567
+          Top = 109
+          Width = 145
+          Height = 25
+          DataField = 'moradia'
+          DataSource = dsClientes
+          Items.Strings = (
+            'Aluguel'
+            'Pr'#243'pria'
+            'Financiada')
+          TabOrder = 9
+        end
+        object edtQtdDependentes: TDBEdit
+          Left = 1150
+          Top = 43
+          Width = 43
+          Height = 24
+          DataField = 'qtdedependentes'
+          DataSource = dsClientes
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 10
+          Visible = False
         end
       end
       object grp1: TGroupBox
@@ -993,7 +1166,7 @@ object fClientes: TfClientes
         Width = 185
         Height = 230
         Caption = 'Fotografia'
-        TabOrder = 17
+        TabOrder = 21
         object imgFotoFis: TImage
           Left = 16
           Top = 21
@@ -1007,9 +1180,9 @@ object fClientes: TfClientes
         Top = 429
         Width = 1260
         Height = 179
-        ActivePage = ts4
+        ActivePage = tsEntrega
         Align = alBottom
-        TabOrder = 18
+        TabOrder = 22
         object ts3: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
@@ -1223,6 +1396,216 @@ object fClientes: TfClientes
             TabOrder = 6
           end
         end
+        object tsEntrega: TTabSheet
+          Caption = 'Dados para Entregra'
+          ImageIndex = 2
+          object lbl47: TLabel
+            Left = 96
+            Top = 27
+            Width = 27
+            Height = 21
+            Caption = 'CEP'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object imgPesqCepEntrega: TImage
+            Left = 250
+            Top = 24
+            Width = 32
+            Height = 32
+            AutoSize = True
+            Center = True
+            Picture.Data = {
+              0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+              0020080300000044A48AC600000057504C5445FFFFFF00000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000005C3DE7040000001C74524E5300FDEF0C2449ACD47A4A
+              01D3ADAB784779EE23D6F50B602AA1612CA013699B67000000CA4944415478DA
+              CD91690F82300C86C73D2F4023188FFFFFCB0824CE03F060E286E242704398F1
+              0BB1C9D2667DD6BD6D15F0C594BE804D6B2EF801B0BCB8B80AC9A1EAA2DB1BD0
+              8BD50E0B009C872AE1440E30D0EF5CDE2000664217F58B66C5BA4DD33F625AC5
+              1A9C6EF3E61C34DD4B4E553C7110A14DE055364D5964DBDC77DC244B6176527A
+              27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
+              ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
+              B11E802789EB4A21B25C2E890000000049454E44AE426082}
+            OnClick = imgPesqCepEntregaClick
+          end
+          object lbl48: TLabel
+            Left = 20
+            Top = 68
+            Width = 105
+            Height = 21
+            Align = alCustom
+            Caption = 'Complemento'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl49: TLabel
+            Left = 333
+            Top = 68
+            Width = 44
+            Height = 21
+            Caption = 'Bairro'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl50: TLabel
+            Left = 308
+            Top = 27
+            Width = 69
+            Height = 21
+            Caption = 'Endere'#231'o'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl51: TLabel
+            Left = 591
+            Top = 68
+            Width = 19
+            Height = 21
+            Align = alCustom
+            Caption = 'UF'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl52: TLabel
+            Left = 711
+            Top = 68
+            Width = 73
+            Height = 21
+            Caption = 'Munic'#237'pio'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl53: TLabel
+            Left = 845
+            Top = 27
+            Width = 60
+            Height = 21
+            Caption = 'N'#250'mero'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object edtCEPEntregaFis: TDBEdit
+            Left = 133
+            Top = 24
+            Width = 111
+            Height = 24
+            DataField = 'cep_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object edtComplEntregaFis: TDBEdit
+            Left = 132
+            Top = 68
+            Width = 165
+            Height = 24
+            DataField = 'complemento_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object edtBairroEntregaFis: TDBEdit
+            Left = 383
+            Top = 68
+            Width = 190
+            Height = 24
+            DataField = 'bairro_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+          end
+          object edtEndEntregaFis: TDBEdit
+            Left = 383
+            Top = 24
+            Width = 420
+            Height = 24
+            DataField = 'endereco_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+          end
+          object cbbUFEntregaFis: TComboBox
+            Left = 616
+            Top = 68
+            Width = 58
+            Height = 25
+            TabOrder = 4
+            OnExit = cbbUFEntregaFisExit
+          end
+          object cbbCIdadeEntregaFis: TComboBox
+            Left = 791
+            Top = 68
+            Width = 203
+            Height = 25
+            TabOrder = 5
+          end
+          object edtNumEntregaFis: TDBEdit
+            Left = 911
+            Top = 24
+            Width = 83
+            Height = 24
+            DataField = 'numero_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 6
+          end
+        end
       end
       object chkSimplesFis: TDBCheckBox
         Left = 782
@@ -1238,7 +1621,7 @@ object fClientes: TfClientes
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 19
+        TabOrder = 14
         ValueChecked = '1'
         ValueUnchecked = '0'
       end
@@ -1255,7 +1638,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 20
+        TabOrder = 18
       end
       object edtDddCelFis: TDBEdit
         Left = 368
@@ -1270,7 +1653,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 21
+        TabOrder = 17
       end
       object edtDddFoneFis: TDBEdit
         Left = 118
@@ -1285,7 +1668,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 22
+        TabOrder = 15
       end
     end
     object tsJuridica: TTabSheet
@@ -1326,6 +1709,7 @@ object fClientes: TfClientes
           27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
           ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
           B11E802789EB4A21B25C2E890000000049454E44AE426082}
+        OnClick = imgPesqCliente2Click
       end
       object lbl5: TLabel
         Left = 32
@@ -1551,6 +1935,7 @@ object fClientes: TfClientes
           8D9D54774093E996B1CBD76FD729B81DAE4193B1B960B9B1079E15C6FE134890
           3D96FB7E4C96C073EEFBC2BE177E8BA85EE3D31B61EFC1FE21A20F0D681E74FC
           FA31F92B7ECDFE69013F012C405983906353890000000049454E44AE426082}
+        OnClick = img6Click
       end
       object img7: TImage
         Left = 1153
@@ -1574,6 +1959,7 @@ object fClientes: TfClientes
           035ACD9303512C03E3064E9B5D5119CF43B0FA1FFC34B8D8E8D6AC088CE26F21
           D70B60B4A37D0CABB37802681C058473E460BC564BB9D99FBD00744248218EE3
           D8C89A3BE1B0B1216605D7410000000049454E44AE426082}
+        OnClick = img7Click
       end
       object imgPesqCep2: TImage
         Left = 243
@@ -1691,7 +2077,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 4
       end
       object edtComplementoJur: TDBEdit
         Left = 126
@@ -1706,7 +2092,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 7
       end
       object edtIeJur: TDBEdit
         Left = 123
@@ -1721,7 +2107,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 17
       end
       object edtTelefoneJur: TDBEdit
         Left = 178
@@ -1736,7 +2122,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 13
       end
       object edtImJur: TDBEdit
         Left = 374
@@ -1751,7 +2137,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 18
       end
       object edtBairroJur: TDBEdit
         Left = 376
@@ -1766,7 +2152,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 8
       end
       object edtEnderecoJur: TDBEdit
         Left = 365
@@ -1781,7 +2167,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 5
       end
       object edtFantasia: TDBEdit
         Left = 126
@@ -1796,7 +2182,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 2
       end
       object edtNumeroJur: TDBEdit
         Left = 899
@@ -1811,7 +2197,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 6
       end
       object cbbCidadeJur: TComboBox
         Left = 779
@@ -1825,7 +2211,7 @@ object fClientes: TfClientes
         Top = 187
         Width = 58
         Height = 25
-        TabOrder = 12
+        TabOrder = 9
         OnExit = cbbUFJurExit
       end
       object chkContIcmsJur: TDBCheckBox
@@ -1842,7 +2228,7 @@ object fClientes: TfClientes
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 19
         ValueChecked = '1'
         ValueUnchecked = '0'
       end
@@ -1859,7 +2245,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 16
       end
       object grp2: TGroupBox
         Left = 1040
@@ -1867,8 +2253,8 @@ object fClientes: TfClientes
         Width = 185
         Height = 230
         Caption = 'Fotografia'
-        TabOrder = 15
-        object img5: TImage
+        TabOrder = 20
+        object imgFotoJur: TImage
           Left = 16
           Top = 21
           Width = 153
@@ -1890,7 +2276,7 @@ object fClientes: TfClientes
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 10
         ValueChecked = '1'
         ValueUnchecked = '0'
       end
@@ -1907,7 +2293,8 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 3
+        OnExit = edtContatoExit
       end
       object pgcComplento: TPageControl
         Left = 0
@@ -1916,7 +2303,7 @@ object fClientes: TfClientes
         Height = 219
         ActivePage = ts1
         Align = alBottom
-        TabOrder = 18
+        TabOrder = 21
         object ts2: TTabSheet
           Caption = 'Dados Financeiros'
           ImageIndex = 1
@@ -2142,6 +2529,216 @@ object fClientes: TfClientes
             TabOrder = 6
           end
         end
+        object tsEndEntrega: TTabSheet
+          Caption = 'Dados para Entrega'
+          ImageIndex = 2
+          object lbl54: TLabel
+            Left = 104
+            Top = 35
+            Width = 27
+            Height = 21
+            Caption = 'CEP'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object imgPesqEntregaJur: TImage
+            Left = 258
+            Top = 32
+            Width = 32
+            Height = 32
+            AutoSize = True
+            Center = True
+            Picture.Data = {
+              0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+              0020080300000044A48AC600000057504C5445FFFFFF00000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000005C3DE7040000001C74524E5300FDEF0C2449ACD47A4A
+              01D3ADAB784779EE23D6F50B602AA1612CA013699B67000000CA4944415478DA
+              CD91690F82300C86C73D2F4023188FFFFFCB0824CE03F060E286E242704398F1
+              0BB1C9D2667DD6BD6D15F0C594BE804D6B2EF801B0BCB8B80AC9A1EAA2DB1BD0
+              8BD50E0B009C872AE1440E30D0EF5CDE2000664217F58B66C5BA4DD33F625AC5
+              1A9C6EF3E61C34DD4B4E553C7110A14DE055364D5964DBDC77DC244B6176527A
+              27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
+              ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
+              B11E802789EB4A21B25C2E890000000049454E44AE426082}
+            OnClick = imgPesqCepEntregaClick
+          end
+          object lbl55: TLabel
+            Left = 316
+            Top = 35
+            Width = 69
+            Height = 21
+            Caption = 'Endere'#231'o'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl56: TLabel
+            Left = 341
+            Top = 76
+            Width = 44
+            Height = 21
+            Caption = 'Bairro'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl57: TLabel
+            Left = 28
+            Top = 76
+            Width = 105
+            Height = 21
+            Align = alCustom
+            Caption = 'Complemento'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl58: TLabel
+            Left = 719
+            Top = 76
+            Width = 73
+            Height = 21
+            Caption = 'Munic'#237'pio'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl59: TLabel
+            Left = 853
+            Top = 35
+            Width = 60
+            Height = 21
+            Caption = 'N'#250'mero'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbl60: TLabel
+            Left = 599
+            Top = 76
+            Width = 19
+            Height = 21
+            Align = alCustom
+            Caption = 'UF'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object edtcepEntregaJur: TDBEdit
+            Left = 141
+            Top = 32
+            Width = 111
+            Height = 24
+            DataField = 'cep_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object edtEndEntregaJur: TDBEdit
+            Left = 391
+            Top = 32
+            Width = 420
+            Height = 24
+            DataField = 'endereco_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object edtBairroEntregaJur: TDBEdit
+            Left = 391
+            Top = 76
+            Width = 190
+            Height = 24
+            DataField = 'bairro_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+          end
+          object edtComplEntregaJur: TDBEdit
+            Left = 140
+            Top = 76
+            Width = 165
+            Height = 24
+            DataField = 'complemento_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+          end
+          object cbbUfEntregaJur: TComboBox
+            Left = 624
+            Top = 76
+            Width = 58
+            Height = 25
+            TabOrder = 4
+            OnExit = cbbUfEntregaJurExit
+          end
+          object cbbCidadeEntregaJur: TComboBox
+            Left = 799
+            Top = 76
+            Width = 203
+            Height = 25
+            TabOrder = 5
+          end
+          object edtNumEntregaJur: TDBEdit
+            Left = 919
+            Top = 32
+            Width = 83
+            Height = 24
+            DataField = 'numero_entrega'
+            DataSource = dsClientes
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 6
+          end
+        end
       end
       object edtDddTelJur: TDBEdit
         Left = 125
@@ -2156,7 +2753,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 19
+        TabOrder = 12
       end
       object edtDddCelJur: TDBEdit
         Left = 376
@@ -2171,7 +2768,7 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 20
+        TabOrder = 14
       end
       object edtCelularJur: TDBEdit
         Left = 428
@@ -2186,9 +2783,36 @@ object fClientes: TfClientes
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 21
+        TabOrder = 15
       end
     end
+  end
+  object DBEdit1: TDBEdit
+    Left = 575
+    Top = 96
+    Width = 158
+    Height = 24
+    DataField = 'naturalidade'
+    DataSource = dsClientes
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+  end
+  object cbbLookConvenio: TDBLookupComboBox
+    Left = 122
+    Top = 282
+    Width = 145
+    Height = 25
+    DataField = 'idconvenio'
+    DataSource = dsClientes
+    KeyField = 'idconvenio'
+    ListField = 'nome'
+    ListSource = dsConvenio
+    TabOrder = 4
   end
   object qrClientes: TSQLQuery
     MaxBlobSize = 1
@@ -2202,13 +2826,13 @@ object fClientes: TfClientes
       'Select * from clientes'
       'where cdg_cliente = :cdg_cliente')
     SQLConnection = dm_Principal.Taurus
-    Left = 395
-    Top = 79
+    Left = 227
+    Top = 383
   end
   object dsClientes: TDataSource
     DataSet = cdsClientes
-    Left = 593
-    Top = 80
+    Left = 409
+    Top = 384
   end
   object cdsClientes: TClientDataSet
     Aggregates = <>
@@ -2219,8 +2843,8 @@ object fClientes: TfClientes
         ParamType = ptInput
       end>
     ProviderName = 'dspClientes'
-    Left = 535
-    Top = 80
+    Left = 351
+    Top = 384
     object cdsClientestipo: TStringField
       FieldName = 'tipo'
       Size = 45
@@ -2370,11 +2994,53 @@ object fClientes: TfClientes
       BlobType = ftMemo
       Size = 1
     end
+    object cdsClientesrenda: TFloatField
+      FieldName = 'renda'
+    end
+    object cdsClientesprofissao: TStringField
+      FieldName = 'profissao'
+      Size = 50
+    end
+    object cdsClientesmoradia: TStringField
+      FieldName = 'moradia'
+    end
+    object cdsClientescep_entrega: TStringField
+      FieldName = 'cep_entrega'
+      Size = 11
+    end
+    object cdsClientesendereco_entrega: TStringField
+      FieldName = 'endereco_entrega'
+      Size = 70
+    end
+    object cdsClientesnumero_entrega: TStringField
+      FieldName = 'numero_entrega'
+      Size = 10
+    end
+    object cdsClientesbairro_entrega: TStringField
+      FieldName = 'bairro_entrega'
+      Size = 60
+    end
+    object cdsClientescomplemento_entrega: TStringField
+      FieldName = 'complemento_entrega'
+      Size = 60
+    end
+    object cdsClientesiduf_entrega: TIntegerField
+      FieldName = 'iduf_entrega'
+    end
+    object cdsClientesidcidade_entegra: TIntegerField
+      FieldName = 'idcidade_entegra'
+    end
+    object cdsClientesqtdedependentes: TIntegerField
+      FieldName = 'qtdedependentes'
+    end
+    object cdsClientesidconvenio: TIntegerField
+      FieldName = 'idconvenio'
+    end
   end
   object dspClientes: TDataSetProvider
     DataSet = qrClientes
-    Left = 467
-    Top = 80
+    Left = 283
+    Top = 384
   end
   object qrEstados: TSQLQuery
     MaxBlobSize = -1
@@ -2383,8 +3049,8 @@ object fClientes: TfClientes
       'Select uf from estados'
       'order by uf asc')
     SQLConnection = dm_Principal.Taurus
-    Left = 675
-    Top = 80
+    Left = 499
+    Top = 384
     object qrEstadosuf: TStringField
       FieldName = 'uf'
       Required = True
@@ -2405,8 +3071,8 @@ object fClientes: TfClientes
       'order by nome asc'
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 739
-    Top = 80
+    Left = 555
+    Top = 384
     object qrCidadesnome: TStringField
       FieldName = 'nome'
       Required = True
@@ -2420,8 +3086,8 @@ object fClientes: TfClientes
       ''
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 803
-    Top = 80
+    Left = 603
+    Top = 384
   end
   object ACBrCEP1: TACBrCEP
     ProxyPort = '8080'
@@ -2433,6 +3099,59 @@ object fClientes: TfClientes
   end
   object dlgOpen1: TOpenDialog
     Left = 824
+    Top = 304
+  end
+  object qrConvenio: TSQLQuery
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'cdg_cliente'
+        ParamType = ptInput
+      end>
+    SQL.Strings = (
+      'Select idconvenio, nome from convenios'
+      'order by nome asc')
+    SQLConnection = dm_Principal.Taurus
+    Left = 475
+    Top = 304
+    object qrConvenioidconvenio: TIntegerField
+      FieldName = 'idconvenio'
+      Required = True
+    end
+    object qrConvenionome: TStringField
+      FieldName = 'nome'
+      Size = 45
+    end
+  end
+  object cdsConvenio: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'cdg_cliente'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspConvenio'
+    Left = 631
+    Top = 304
+    object cdsConvenioidconvenio: TIntegerField
+      FieldName = 'idconvenio'
+      Required = True
+    end
+    object cdsConvenionome: TStringField
+      FieldName = 'nome'
+      Size = 45
+    end
+  end
+  object dspConvenio: TDataSetProvider
+    DataSet = qrConvenio
+    Left = 547
+    Top = 304
+  end
+  object dsConvenio: TDataSource
+    DataSet = cdsConvenio
+    Left = 705
     Top = 304
   end
 end

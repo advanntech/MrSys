@@ -30,7 +30,7 @@ object fPesqClientes: TfPesqClientes
       Left = 634
       Top = 1
       Width = 58
-      Height = 62
+      Height = 59
       Align = alRight
       AutoSize = True
       Center = True
@@ -102,15 +102,14 @@ object fPesqClientes: TfPesqClientes
       OnClick = imgSairClick
       ExplicitLeft = 822
       ExplicitTop = 3
-      ExplicitHeight = 59
     end
     object lbl1: TLabel
       Left = 14
       Top = 13
-      Width = 217
+      Width = 210
       Height = 37
       Align = alCustom
-      Caption = 'Pesquisa Empresa'
+      Caption = 'Pesquisa Clientes'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -27

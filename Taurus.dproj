@@ -96,16 +96,12 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="u_PesqClientes.pas">
-            <Form>fPesqClientes</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="u_funcionarios.pas">
             <Form>fFuncionarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uFormaPagRec.pas">
-            <Form>fFormaPagRec</Form>
+        <DCCReference Include="uCargo.pas">
+            <Form>fCargo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uPesqCPF.pas">
@@ -118,6 +114,22 @@
         </DCCReference>
         <DCCReference Include="u_pesq_empresa.pas">
             <Form>fPesqEmpresa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="u_PesqClientes.pas">
+            <Form>fPesqClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="u_PesqForncedores.pas">
+            <Form>fPesqFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uConvenio.pas">
+            <Form>fConvenio</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uSetor.pas">
+            <Form>fSetor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -524,13 +536,13 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>

@@ -4,7 +4,7 @@ object fFornecedores: TfFornecedores
   Align = alCustom
   BorderStyle = bsNone
   ClientHeight = 430
-  ClientWidth = 1006
+  ClientWidth = 1049
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,6 +13,7 @@ object fFornecedores: TfFornecedores
   Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 17
   object lbl4: TLabel
@@ -29,7 +30,7 @@ object fFornecedores: TfFornecedores
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object imgPespCNPJ: TImage
+  object imgPesqCNPJ: TImage
     Left = 313
     Top = 74
     Width = 32
@@ -67,7 +68,7 @@ object fFornecedores: TfFornecedores
       3A052E11E17B204F1794D7F197B17742AA12AB8DBC08BD36442E37F65D580BF2
       79850A945DA949B4F8A8058C459B1430E102FE02C2E281D0DB713AA400000000
       49454E44AE426082}
-    OnClick = imgPespCNPJClick
+    OnClick = imgPesqCNPJClick
   end
   object imgPesqCliente2: TImage
     Left = 351
@@ -90,6 +91,7 @@ object fFornecedores: TfFornecedores
       27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
       ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
       B11E802789EB4A21B25C2E890000000049454E44AE426082}
+    OnClick = imgPesqCliente2Click
   end
   object lbl5: TLabel
     Left = 24
@@ -167,7 +169,6 @@ object fFornecedores: TfFornecedores
       27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
       ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
       B11E802789EB4A21B25C2E890000000049454E44AE426082}
-    OnClick = imgPesqCep2Click
   end
   object lbl16: TLabel
     Left = 7
@@ -316,10 +317,24 @@ object fFornecedores: TfFornecedores
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label1: TLabel
+    Left = 45
+    Top = 328
+    Width = 60
+    Height = 21
+    Align = alCustom
+    Caption = 'Suframa'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 1006
+    Width = 1049
     Height = 49
     Align = alTop
     BevelKind = bkSoft
@@ -327,7 +342,7 @@ object fFornecedores: TfFornecedores
     ParentBackground = False
     TabOrder = 0
     object imgSair: TImage
-      Left = 953
+      Left = 996
       Top = 1
       Width = 48
       Height = 43
@@ -416,7 +431,7 @@ object fFornecedores: TfFornecedores
   object pnl2: TPanel
     Left = 0
     Top = 375
-    Width = 1006
+    Width = 1049
     Height = 55
     Align = alBottom
     BevelKind = bkSoft
@@ -424,7 +439,7 @@ object fFornecedores: TfFornecedores
     ParentBackground = False
     TabOrder = 1
     object btnNovo: TButton
-      Left = 805
+      Left = 848
       Top = 1
       Width = 49
       Height = 49
@@ -442,9 +457,10 @@ object fFornecedores: TfFornecedores
       SelectedImageIndex = 3
       StylusHotImageIndex = 3
       TabOrder = 0
+      OnClick = btnNovoClick
     end
     object btnSalvar: TButton
-      Left = 854
+      Left = 897
       Top = 1
       Width = 49
       Height = 49
@@ -462,9 +478,10 @@ object fFornecedores: TfFornecedores
       SelectedImageIndex = 4
       StylusHotImageIndex = 4
       TabOrder = 2
+      OnClick = btnSalvarClick
     end
     object btnExcluir: TButton
-      Left = 903
+      Left = 946
       Top = 1
       Width = 49
       Height = 49
@@ -482,9 +499,10 @@ object fFornecedores: TfFornecedores
       SelectedImageIndex = 2
       StylusHotImageIndex = 2
       TabOrder = 3
+      OnClick = btnExcluirClick
     end
     object btnCancelar: TButton
-      Left = 952
+      Left = 995
       Top = 1
       Width = 49
       Height = 49
@@ -502,6 +520,7 @@ object fFornecedores: TfFornecedores
       SelectedImageIndex = 1
       StylusHotImageIndex = 1
       TabOrder = 1
+      OnClick = btnCancelarClick
     end
   end
   object edtCNPJ: TMaskEdit
@@ -513,13 +532,14 @@ object fFornecedores: TfFornecedores
     MaxLength = 18
     TabOrder = 2
     Text = '  .   .   /    -  '
+    OnExit = edtCNPJExit
   end
   object edtRazaoSocial: TDBEdit
     Left = 118
     Top = 107
     Width = 421
     Height = 24
-    DataField = 'nome'
+    DataField = 'razaosocial'
     DataSource = dsFornecedores
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -594,7 +614,7 @@ object fFornecedores: TfFornecedores
     Top = 266
     Width = 51
     Height = 24
-    DataField = 'dddfone'
+    DataField = 'ddfone'
     DataSource = dsFornecedores
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -609,7 +629,7 @@ object fFornecedores: TfFornecedores
     Top = 266
     Width = 138
     Height = 24
-    DataField = 'telefone'
+    DataField = 'fone'
     DataSource = dsFornecedores
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -654,7 +674,7 @@ object fFornecedores: TfFornecedores
     Top = 266
     Width = 50
     Height = 24
-    DataField = 'dddcel'
+    DataField = 'ddcelular'
     DataSource = dsFornecedores
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -695,7 +715,7 @@ object fFornecedores: TfFornecedores
     TabOrder = 14
   end
   object edtEnderecoJur: TDBEdit
-    Left = 357
+    Left = 368
     Top = 202
     Width = 420
     Height = 24
@@ -759,7 +779,7 @@ object fFornecedores: TfFornecedores
     Width = 160
     Height = 17
     Caption = 'Contribuinte de ICMS'
-    DataField = 'contrib_icms'
+    DataField = 'contribuinte_icms'
     DataSource = dsFornecedores
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -789,24 +809,167 @@ object fFornecedores: TfFornecedores
     ValueChecked = '1'
     ValueUnchecked = '0'
   end
+  object grpFornecimento: TGroupBox
+    Left = 555
+    Top = 68
+    Width = 458
+    Height = 125
+    Caption = 'Fornecimento'
+    TabOrder = 22
+    object chkRevendaIndustria: TDBCheckBox
+      Left = 11
+      Top = 22
+      Width = 225
+      Height = 17
+      Caption = 'Mercadoria p/ revenda - Ind'#250'stria'
+      DataField = 'industria'
+      DataSource = dsFornecedores
+      TabOrder = 0
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object chkRevendaAtacado: TDBCheckBox
+      Left = 11
+      Top = 45
+      Width = 225
+      Height = 17
+      Caption = 'Mercadoria p/ revenda - Atacado'
+      DataField = 'atacado'
+      DataSource = dsFornecedores
+      TabOrder = 1
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object chkRevendaProdutor: TDBCheckBox
+      Left = 11
+      Top = 68
+      Width = 225
+      Height = 17
+      Caption = 'Mercadoria p/ revenda - Produtor'
+      DataField = 'produtor'
+      DataSource = dsFornecedores
+      TabOrder = 2
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object chkServicosConsumoImobilizado: TDBCheckBox
+      Left = 11
+      Top = 91
+      Width = 236
+      Height = 17
+      Caption = 'Servi'#231'os/Mat.Consumo/Imobilizado'
+      DataField = 'servicos'
+      DataSource = dsFornecedores
+      TabOrder = 3
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object chkImpostosTaxasContribuicoes: TDBCheckBox
+      Left = 250
+      Top = 22
+      Width = 205
+      Height = 17
+      Caption = 'Impostos/Taxas/Contrinui'#231#245'es'
+      DataField = 'impostos'
+      DataSource = dsFornecedores
+      TabOrder = 4
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object chkOutraOperacoes: TDBCheckBox
+      Left = 250
+      Top = 45
+      Width = 205
+      Height = 17
+      Caption = 'Outras atividades e Opera'#231#245'es'
+      DataField = 'outros'
+      DataSource = dsFornecedores
+      TabOrder = 5
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object chkExterior: TDBCheckBox
+      Left = 250
+      Top = 69
+      Width = 112
+      Height = 17
+      Caption = 'Exterior'
+      DataField = 'exterior'
+      DataSource = dsFornecedores
+      TabOrder = 6
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+  end
+  object chkMicroEmpresa: TDBCheckBox
+    Left = 574
+    Top = 333
+    Width = 160
+    Height = 17
+    Caption = 'Micro Empresa'
+    DataField = 'microempresa'
+    DataSource = dsFornecedores
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 23
+    ValueChecked = '1'
+    ValueUnchecked = '0'
+  end
+  object chkTransportador: TDBCheckBox
+    Left = 757
+    Top = 333
+    Width = 160
+    Height = 17
+    Caption = 'Transportador'
+    DataField = 'transportador'
+    DataSource = dsFornecedores
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 24
+    ValueChecked = '1'
+    ValueUnchecked = '0'
+  end
+  object edtSuframa: TDBEdit
+    Left = 115
+    Top = 329
+    Width = 193
+    Height = 24
+    DataField = 'suframa'
+    DataSource = dsFornecedores
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 25
+  end
   object qrFornecedores: TSQLQuery
     MaxBlobSize = -1
     Params = <
       item
         DataType = ftString
-        Name = 'cdg_cliente'
+        Name = 'cdg_fornecedor'
         ParamType = ptInput
       end>
     SQL.Strings = (
-      'Select * from clientes'
-      'where cdg_cliente = :cdg_cliente')
+      'Select * from fornecedores'
+      'where cdg_fornecedor = :cdg_fornecedor')
     SQLConnection = dm_Principal.Taurus
-    Left = 539
+    Left = 403
     Top = 63
   end
   object dsFornecedores: TDataSource
     DataSet = cdsFornecedores
-    Left = 737
+    Left = 593
     Top = 64
   end
   object cdsFornecedores: TClientDataSet
@@ -814,18 +977,19 @@ object fFornecedores: TfFornecedores
     Params = <
       item
         DataType = ftString
-        Name = 'cdg_cliente'
+        Name = 'cdg_fornecedor'
         ParamType = ptInput
       end>
     ProviderName = 'dspFornecedores'
-    Left = 679
+    Left = 527
     Top = 64
-    object cdsFornecedorestipo: TStringField
-      FieldName = 'tipo'
-      Size = 45
+    object cdsFornecedorescdg_fornecedor: TStringField
+      FieldName = 'cdg_fornecedor'
+      Required = True
+      Size = 18
     end
-    object cdsFornecedoresnome: TStringField
-      FieldName = 'nome'
+    object cdsFornecedoresrazaosocial: TStringField
+      FieldName = 'razaosocial'
       Size = 100
     end
     object cdsFornecedoresfantasia: TStringField
@@ -848,31 +1012,31 @@ object fFornecedores: TfFornecedores
       FieldName = 'numero'
       Size = 10
     end
-    object cdsFornecedoresidUF: TIntegerField
-      FieldName = 'idUF'
+    object cdsFornecedoresidUf: TIntegerField
+      FieldName = 'idUf'
     end
     object cdsFornecedoresidCidade: TIntegerField
       FieldName = 'idCidade'
     end
+    object cdsFornecedorescomplemento: TStringField
+      FieldName = 'complemento'
+      Size = 60
+    end
     object cdsFornecedoresdddfone: TStringField
       FieldName = 'dddfone'
-      Size = 2
+      Size = 4
     end
     object cdsFornecedoresfone: TStringField
       FieldName = 'fone'
       Size = 9
     end
-    object cdsFornecedoresdddcel: TStringField
-      FieldName = 'dddcel'
-      Size = 2
+    object cdsFornecedoresddcelular: TStringField
+      FieldName = 'ddcelular'
+      Size = 4
     end
     object cdsFornecedorescelular: TStringField
       FieldName = 'celular'
       Size = 11
-    end
-    object cdsFornecedoresemail: TStringField
-      FieldName = 'email'
-      Size = 70
     end
     object cdsFornecedoresie: TStringField
       FieldName = 'ie'
@@ -882,92 +1046,66 @@ object fFornecedores: TfFornecedores
       FieldName = 'im'
       Size = 12
     end
-    object cdsFornecedoresrg: TStringField
-      FieldName = 'rg'
-      Size = 11
+    object cdsFornecedoresbairro: TStringField
+      FieldName = 'bairro'
+      Size = 60
     end
-    object cdsFornecedorescep_cobranca: TStringField
-      FieldName = 'cep_cobranca'
-      Size = 10
-    end
-    object cdsFornecedoresendereco_cobranca: TStringField
-      FieldName = 'endereco_cobranca'
+    object cdsFornecedoresemail: TStringField
+      FieldName = 'email'
       Size = 70
     end
-    object cdsFornecedoresbairro_cobranca: TStringField
-      FieldName = 'bairro_cobranca'
-      Size = 60
-    end
-    object cdsFornecedoresidUf_cobranca: TIntegerField
-      FieldName = 'idUf_cobranca'
-    end
-    object cdsFornecedoresidCidade_cobranca: TIntegerField
-      FieldName = 'idCidade_cobranca'
-    end
-    object cdsFornecedoresestado_civil: TStringField
-      FieldName = 'estado_civil'
-      Size = 15
-    end
-    object cdsFornecedorespai: TStringField
-      FieldName = 'pai'
-      Size = 100
-    end
-    object cdsFornecedoresmae: TStringField
-      FieldName = 'mae'
-      Size = 100
-    end
-    object cdsFornecedoresconjude: TStringField
-      FieldName = 'conjude'
-      Size = 100
-    end
-    object cdsFornecedorestrabalho: TStringField
-      FieldName = 'trabalho'
-      Size = 100
-    end
-    object cdsFornecedoresnaturalidade: TStringField
-      FieldName = 'naturalidade'
-      Size = 70
-    end
-    object cdsFornecedoresdatanascimento: TDateField
-      FieldName = 'datanascimento'
-    end
-    object cdsFornecedoresnumero_cobranca: TStringField
-      FieldName = 'numero_cobranca'
-      Size = 10
-    end
-    object cdsFornecedorescomplemento_cobranca: TStringField
-      FieldName = 'complemento_cobranca'
-      Size = 60
-    end
-    object cdsFornecedorescomplemento: TStringField
-      FieldName = 'complemento'
-      Size = 60
-    end
-    object cdsFornecedorescdg_cliente: TStringField
-      FieldName = 'cdg_cliente'
-      Required = True
-      Size = 18
-    end
-    object cdsFornecedorescontrib_icms: TStringField
-      FieldName = 'contrib_icms'
+    object cdsFornecedorescontribuinte_icms: TStringField
+      FieldName = 'contribuinte_icms'
       Size = 1
     end
     object cdsFornecedoressimples_nacional: TStringField
       FieldName = 'simples_nacional'
       Size = 1
     end
-    object cdsFornecedoresdependentes: TStringField
-      FieldName = 'dependentes'
+    object cdsFornecedoresmicroempresa: TStringField
+      FieldName = 'microempresa'
       Size = 1
     end
-    object cdsFornecedoresbairro: TStringField
-      FieldName = 'bairro'
-      Size = 60
+    object cdsFornecedorestransportador: TStringField
+      FieldName = 'transportador'
+      Size = 1
+    end
+    object cdsFornecedoresindustria: TStringField
+      FieldName = 'industria'
+      Size = 1
+    end
+    object cdsFornecedoresatacado: TStringField
+      FieldName = 'atacado'
+      Size = 1
+    end
+    object cdsFornecedoresprodutor: TStringField
+      FieldName = 'produtor'
+      Size = 1
+    end
+    object cdsFornecedoresservicos: TStringField
+      FieldName = 'servicos'
+      Size = 1
+    end
+    object cdsFornecedoresimpostos: TStringField
+      FieldName = 'impostos'
+      Size = 1
+    end
+    object cdsFornecedoresoutros: TStringField
+      FieldName = 'outros'
+      Size = 1
+    end
+    object cdsFornecedoresexterior: TStringField
+      FieldName = 'exterior'
+      Size = 1
+    end
+    object cdsFornecedoressuframa: TStringField
+      FieldName = 'suframa'
+      Size = 9
     end
   end
   object dspFornecedores: TDataSetProvider
     DataSet = qrFornecedores
-    Left = 611
+    Left = 475
     Top = 64
   end
   object qrEstados: TSQLQuery
@@ -977,8 +1115,8 @@ object fFornecedores: TfFornecedores
       'Select uf from estados'
       'order by uf asc')
     SQLConnection = dm_Principal.Taurus
-    Left = 819
-    Top = 64
+    Left = 347
+    Top = 328
     object qrEstadosuf: TStringField
       FieldName = 'uf'
       Required = True
@@ -999,8 +1137,8 @@ object fFornecedores: TfFornecedores
       'order by nome asc'
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 883
-    Top = 64
+    Left = 411
+    Top = 328
     object qrCidadesnome: TStringField
       FieldName = 'nome'
       Required = True
@@ -1014,15 +1152,15 @@ object fFornecedores: TfFornecedores
       ''
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 947
-    Top = 64
+    Left = 467
+    Top = 328
   end
   object ACBrCEP1: TACBrCEP
     ProxyPort = '8080'
     WebService = wsRepublicaVirtual
     PesquisarIBGE = True
     OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
-    Left = 584
-    Top = 152
+    Left = 528
+    Top = 328
   end
 end

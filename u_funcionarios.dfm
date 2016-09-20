@@ -3,8 +3,8 @@ object fFuncionarios: TfFuncionarios
   Top = 0
   Align = alCustom
   BorderStyle = bsNone
-  ClientHeight = 626
-  ClientWidth = 1245
+  ClientHeight = 471
+  ClientWidth = 1247
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,16 +18,16 @@ object fFuncionarios: TfFuncionarios
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 1245
+    Width = 1247
     Height = 49
     Align = alTop
     BevelKind = bkSoft
     Color = 16711808
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1268
+    ExplicitWidth = 1245
     object imgSair: TImage
-      Left = 1192
+      Left = 1194
       Top = 1
       Width = 48
       Height = 43
@@ -94,16 +94,17 @@ object fFuncionarios: TfFuncionarios
         39D734005232C79A0640D6C5FE4A0098A1DFF5AB1DCC520EADC6DD036CD77DF5
         17209F1FAFC4FF4AAC69007F035047D207B72DCA0A0000000049454E44AE4260
         82}
+      OnClick = imgSairClick
       ExplicitLeft = 1205
       ExplicitHeight = 48
     end
     object lbl1: TLabel
       Left = 14
       Top = 3
-      Width = 213
+      Width = 257
       Height = 37
       Align = alCustom
-      Caption = 'Cadastro Clientes'
+      Caption = 'Cadastro Funcin'#225'rios'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -27
@@ -114,18 +115,18 @@ object fFuncionarios: TfFuncionarios
   end
   object pnl2: TPanel
     Left = 0
-    Top = 572
-    Width = 1245
+    Top = 417
+    Width = 1247
     Height = 54
     Align = alBottom
     BevelKind = bkSoft
     Color = 16711808
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 512
-    ExplicitWidth = 1268
+    ExplicitTop = 572
+    ExplicitWidth = 1245
     object btnNovo: TButton
-      Left = 1044
+      Left = 1046
       Top = 1
       Width = 49
       Height = 48
@@ -143,10 +144,11 @@ object fFuncionarios: TfFuncionarios
       SelectedImageIndex = 3
       StylusHotImageIndex = 3
       TabOrder = 0
-      ExplicitLeft = 1067
+      OnClick = btnNovoClick
+      ExplicitLeft = 1044
     end
     object btnSalvar: TButton
-      Left = 1093
+      Left = 1095
       Top = 1
       Width = 49
       Height = 48
@@ -164,10 +166,10 @@ object fFuncionarios: TfFuncionarios
       SelectedImageIndex = 4
       StylusHotImageIndex = 4
       TabOrder = 2
-      ExplicitLeft = 1116
+      ExplicitLeft = 1093
     end
     object btnExcluir: TButton
-      Left = 1142
+      Left = 1144
       Top = 1
       Width = 49
       Height = 48
@@ -185,10 +187,10 @@ object fFuncionarios: TfFuncionarios
       SelectedImageIndex = 2
       StylusHotImageIndex = 2
       TabOrder = 3
-      ExplicitLeft = 1165
+      ExplicitLeft = 1142
     end
     object btnCancelar: TButton
-      Left = 1191
+      Left = 1193
       Top = 1
       Width = 49
       Height = 48
@@ -206,25 +208,23 @@ object fFuncionarios: TfFuncionarios
       SelectedImageIndex = 1
       StylusHotImageIndex = 1
       TabOrder = 1
-      ExplicitLeft = 1214
+      ExplicitLeft = 1191
     end
   end
   object pgcCliente: TPageControl
     Left = 0
     Top = 49
-    Width = 1245
-    Height = 523
+    Width = 1247
+    Height = 368
     ActivePage = tsFisica
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 1279
-    ExplicitHeight = 453
+    ExplicitWidth = 1245
+    ExplicitHeight = 523
     object tsFisica: TTabSheet
       Caption = 'Pessoa F'#237'sica'
-      ExplicitLeft = 5
-      ExplicitTop = 76
-      ExplicitWidth = 1271
-      ExplicitHeight = 526
+      ExplicitWidth = 1237
+      ExplicitHeight = 491
       object lbl2: TLabel
         Left = 85
         Top = 20
@@ -503,7 +503,7 @@ object fFuncionarios: TfFuncionarios
           D70B60B4A37D0CABB37802681C058473E460BC564BB9D99FBD00744248218EE3
           D8C89A3BE1B0B1216605D7410000000049454E44AE426082}
       end
-      object img4: TImage
+      object imgPesqCPF: TImage
         Left = 312
         Top = 18
         Width = 32
@@ -541,6 +541,7 @@ object fFuncionarios: TfFuncionarios
           3A052E11E17B204F1794D7F197B17742AA12AB8DBC08BD36442E37F65D580BF2
           79850A945DA949B4F8A8058C459B1430E102FE02C2E281D0DB713AA400000000
           49454E44AE426082}
+        OnClick = imgPesqCPFClick
       end
       object lbl18: TLabel
         Left = 313
@@ -564,6 +565,7 @@ object fFuncionarios: TfFuncionarios
         MaxLength = 14
         TabOrder = 0
         Text = '   .   .   -  '
+        OnExit = edtCpfExit
       end
       object edtNome: TDBEdit
         Left = 118
@@ -729,144 +731,13 @@ object fFuncionarios: TfFuncionarios
         ParentFont = False
         TabOrder = 12
       end
-      object grpDadosPessoais: TGroupBox
-        Left = 12
-        Top = 317
-        Width = 1205
-        Height = 150
-        Caption = 'Dados Pessoais'
-        TabOrder = 13
-        object lbl51: TLabel
-          Left = 51
-          Top = 27
-          Width = 81
-          Height = 21
-          Caption = 'Estado civil'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object lbl52: TLabel
-          Left = 429
-          Top = 29
-          Width = 132
-          Height = 21
-          Caption = 'Nome do c'#244'njuge'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object lbl6: TLabel
-          Left = 37
-          Top = 57
-          Width = 95
-          Height = 21
-          Caption = 'Nome do pai'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object lbl8: TLabel
-          Left = 457
-          Top = 56
-          Width = 104
-          Height = 21
-          Caption = 'Nome do m'#227'e'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object edtConjuge: TDBEdit
-          Left = 567
-          Top = 25
-          Width = 282
-          Height = 24
-          DataField = 'conjude'
-          DataSource = dsFuncionarios
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-        object cbbEstadoCivil: TDBComboBox
-          Left = 138
-          Top = 27
-          Width = 145
-          Height = 25
-          DataField = 'estado_civil'
-          DataSource = dsFuncionarios
-          Items.Strings = (
-            'Solteiro(a)'
-            'Casado(a)'
-            'Divorciado(a)'
-            'Separado(a)')
-          TabOrder = 1
-        end
-        object edtNomePai: TDBEdit
-          Left = 138
-          Top = 58
-          Width = 282
-          Height = 24
-          DataField = 'pai'
-          DataSource = dsFuncionarios
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 2
-        end
-        object edtNomeMae: TDBEdit
-          Left = 567
-          Top = 55
-          Width = 367
-          Height = 24
-          DataField = 'mae'
-          DataSource = dsFuncionarios
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 3
-        end
-        object grpDependentes: TDBRadioGroup
-          Left = 28
-          Top = 84
-          Width = 185
-          Height = 53
-          Caption = 'Dependentes ?'
-          Columns = 2
-          Items.Strings = (
-            'Sim'
-            'N'#227'o')
-          TabOrder = 4
-        end
-      end
       object grp1: TGroupBox
         Left = 1032
         Top = 2
         Width = 185
         Height = 230
         Caption = 'Fotografia'
-        TabOrder = 14
+        TabOrder = 13
         object img1: TImage
           Left = 16
           Top = 21
@@ -888,14 +759,29 @@ object fFuncionarios: TfFuncionarios
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 14
       end
       object edtDddCelFis: TDBEdit
         Left = 368
         Top = 142
         Width = 50
         Height = 24
-        DataField = 'telefone'
+        DataField = 'dddcelular'
+        DataSource = dsFuncionarios
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 15
+      end
+      object edtDddFoneFis: TDBEdit
+        Left = 118
+        Top = 143
+        Width = 50
+        Height = 24
+        DataField = 'dddfone'
         DataSource = dsFuncionarios
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -905,28 +791,13 @@ object fFuncionarios: TfFuncionarios
         ParentFont = False
         TabOrder = 16
       end
-      object edtDddFoneFis: TDBEdit
-        Left = 118
-        Top = 143
-        Width = 50
-        Height = 24
-        DataField = 'telefone'
-        DataSource = dsFuncionarios
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 17
-      end
       object grp2: TGroupBox
         Left = 12
-        Top = 182
+        Top = 183
         Width = 959
-        Height = 115
+        Height = 138
         Caption = 'Dados Empregatic'#237'os'
-        TabOrder = 18
+        TabOrder = 17
         object lbl48: TLabel
           Left = 25
           Top = 33
@@ -997,56 +868,102 @@ object fFuncionarios: TfFuncionarios
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object img5: TImage
-          Left = 255
+        object lbl7: TLabel
+          Left = 654
           Top = 63
-          Width = 32
-          Height = 32
-          AutoSize = True
-          Center = True
-          Picture.Data = {
-            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
-            0020080300000044A48AC600000057504C5445FFFFFF00000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            000000000000000000005C3DE7040000001C74524E5300FDEF0C2449ACD47A4A
-            01D3ADAB784779EE23D6F50B602AA1612CA013699B67000000CA4944415478DA
-            CD91690F82300C86C73D2F4023188FFFFFCB0824CE03F060E286E242704398F1
-            0BB1C9D2667DD6BD6D15F0C594BE804D6B2EF801B0BCB8B80AC9A1EAA2DB1BD0
-            8BD50E0B009C872AE1440E30D0EF5CDE2000664217F58B66C5BA4DD33F625AC5
-            1A9C6EF3E61C34DD4B4E553C7110A14DE055364D5964DBDC77DC244B6176527A
-            27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
-            ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
-            B11E802789EB4A21B25C2E890000000049454E44AE426082}
+          Width = 23
+          Height = 21
+          Align = alCustom
+          Caption = 'PIS'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
         end
-        object img6: TImage
-          Left = 528
+        object lbl14: TLabel
+          Left = 81
+          Top = 101
+          Width = 49
+          Height = 42
+          Align = alCustom
+          Caption = 'Sal'#225'rio'#13#10
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lbl16: TLabel
+          Left = 363
+          Top = 98
+          Width = 36
+          Height = 21
+          Align = alCustom
+          Caption = 'Extra'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object imgCadConvenio: TImage
+          Left = 291
           Top = 63
-          Width = 32
-          Height = 32
+          Width = 26
+          Height = 26
           AutoSize = True
           Center = True
           Picture.Data = {
-            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
-            0020080300000044A48AC600000057504C5445FFFFFF00000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            000000000000000000005C3DE7040000001C74524E5300FDEF0C2449ACD47A4A
-            01D3ADAB784779EE23D6F50B602AA1612CA013699B67000000CA4944415478DA
-            CD91690F82300C86C73D2F4023188FFFFFCB0824CE03F060E286E242704398F1
-            0BB1C9D2667DD6BD6D15F0C594BE804D6B2EF801B0BCB8B80AC9A1EAA2DB1BD0
-            8BD50E0B009C872AE1440E30D0EF5CDE2000664217F58B66C5BA4DD33F625AC5
-            1A9C6EF3E61C34DD4B4E553C7110A14DE055364D5964DBDC77DC244B6176527A
-            27E505F3A376C717E500668FD139EED885E933570BFC00B4257311ED02CA9D04
-            ECFC3BB030E4405EC06C2F03002014C9006C44C24D13C8AC10C880758E801468
-            B11E802789EB4A21B25C2E890000000049454E44AE426082}
+            0954506E67496D61676589504E470D0A1A0A0000000D494844520000001A0000
+            001A0806000000A94A4CCE0000019B4944415478DACD963D4BC35014866F06C5
+            8F45FF80485D5C74899B3A891D8B931F83481D9CFC396E82C50F903A08EAA688
+            833AD92C7671D141DCB583B6D2213E37DC2BF19234E94DC01E7839C97BCF3D6F
+            4FCF496E1CD7758784103B600D0C887CAC058EC1B6E7795F927010DAC3977312
+            30AD82D0A6166AAA4A4AE036278179702E2B4368500BF9F202C2C9AB0C728EE0
+            DEC379FF4F88FB47DC14A8C34D2BEE0E379B42E39E3D7369857CBD2B8A4B32B9
+            274B45CFB8420A9D17F64C58F788983EDC700AA14FF2B47B6E1874E383C61A5C
+            92F5E630E8C6078D35B8286B835370A5F6DC102FDF3447A0C47D7F9C906E7CD0
+            58838BB26FE29A31BD1A63ED3552C8B2F90BB80D30A9A827B04FCE6B1D633B0C
+            67AC2DA923A60296637EC30928CBA3C26618E4DF5960ED0DBEDA41E4578CD815
+            9B61A8C2AFC22D727D69241D070DA1262E64459B6190674C0BEE80EB7523E128
+            6B1F118FC3A1F530B0EF01376354D2208FAF9E2311AAACF6E78425E8C25228A8
+            2422465756B3F966D822E9AECD5FD7ED5750A76188132A667A637735DE1985D2
+            3FB05984428289AFA01F2BC250242A082B1B0000000049454E44AE426082}
+        end
+        object Image1: TImage
+          Left = 564
+          Top = 60
+          Width = 26
+          Height = 26
+          AutoSize = True
+          Center = True
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D494844520000001A0000
+            001A0806000000A94A4CCE0000019B4944415478DACD963D4BC35014866F06C5
+            8F45FF80485D5C74899B3A891D8B931F83481D9CFC396E82C50F903A08EAA688
+            833AD92C7671D141DCB583B6D2213E37DC2BF19234E94DC01E7839C97BCF3D6F
+            4FCF496E1CD7758784103B600D0C887CAC058EC1B6E7795F927010DAC3977312
+            30AD82D0A6166AAA4A4AE036278179702E2B4368500BF9F202C2C9AB0C728EE0
+            DEC379FF4F88FB47DC14A8C34D2BEE0E379B42E39E3D7369857CBD2B8A4B32B9
+            274B45CFB8420A9D17F64C58F788983EDC700AA14FF2B47B6E1874E383C61A5C
+            92F5E630E8C6078D35B8286B835370A5F6DC102FDF3447A0C47D7F9C906E7CD0
+            58838BB26FE29A31BD1A63ED3552C8B2F90BB80D30A9A827B04FCE6B1D633B0C
+            67AC2DA923A60296637EC30928CBA3C26618E4DF5960ED0DBEDA41E4578CD815
+            9B61A8C2AFC22D727D69241D070DA1262E64459B6190674C0BEE80EB7523E128
+            6B1F118FC3A1F530B0EF01376354D2208FAF9E2311AAACF6E78425E8C25228A8
+            2422465756B3F966D822E9AECD5FD7ED5750A76188132A667A637735DE1985D2
+            3FB05984428289AFA01F2BC250242A082B1B0000000049454E44AE426082}
         end
         object edtIeFis: TDBEdit
           Left = 140
           Top = 30
           Width = 131
           Height = 24
-          DataField = 'ie'
+          DataField = 'dataadmissao'
           DataSource = dsFuncionarios
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1061,7 +978,7 @@ object fFuncionarios: TfFuncionarios
           Top = 30
           Width = 171
           Height = 24
-          DataField = 'im'
+          DataField = 'datademissao'
           DataSource = dsFuncionarios
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1076,7 +993,7 @@ object fFuncionarios: TfFuncionarios
           Top = 30
           Width = 230
           Height = 24
-          DataField = 'im'
+          DataField = 'apelido'
           DataSource = dsFuncionarios
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1086,12 +1003,12 @@ object fFuncionarios: TfFuncionarios
           ParentFont = False
           TabOrder = 2
         end
-        object edtcep1: TDBEdit
-          Left = 140
-          Top = 63
-          Width = 111
+        object edtPis: TDBEdit
+          Left = 683
+          Top = 60
+          Width = 230
           Height = 24
-          DataField = 'cep'
+          DataField = 'apelido'
           DataSource = dsFuncionarios
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1101,9 +1018,9 @@ object fFuncionarios: TfFuncionarios
           ParentFont = False
           TabOrder = 3
         end
-        object edtcep2: TDBEdit
-          Left = 413
-          Top = 63
+        object edtcep3: TDBEdit
+          Left = 140
+          Top = 101
           Width = 111
           Height = 24
           DataField = 'cep'
@@ -1116,11 +1033,50 @@ object fFuncionarios: TfFuncionarios
           ParentFont = False
           TabOrder = 4
         end
+        object edtcep4: TDBEdit
+          Left = 413
+          Top = 101
+          Width = 111
+          Height = 24
+          DataField = 'cep'
+          DataSource = dsFuncionarios
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
+        end
+        object cbbLookupSetor: TDBLookupComboBox
+          Left = 140
+          Top = 63
+          Width = 145
+          Height = 25
+          DataField = 'idSetor'
+          DataSource = dsFuncionarios
+          KeyField = 'idsetor'
+          ListField = 'nome'
+          ListSource = dsSetor
+          TabOrder = 6
+        end
+        object cbbLookupCargo: TDBLookupComboBox
+          Left = 413
+          Top = 60
+          Width = 145
+          Height = 25
+          DataField = 'idcargo'
+          DataSource = dsFuncionarios
+          KeyField = 'idcargo'
+          ListField = 'nome'
+          ListSource = dsCargo
+          TabOrder = 7
+        end
       end
     end
   end
   object qrFuncionarios: TSQLQuery
-    MaxBlobSize = -1
+    MaxBlobSize = 1
     Params = <
       item
         DataType = ftString
@@ -1128,8 +1084,8 @@ object fFuncionarios: TfFuncionarios
         ParamType = ptInput
       end>
     SQL.Strings = (
-      'Select * from clientes'
-      'where cdg_cliente = :cdg_cliente')
+      'Select * from funcionarios'
+      'where cpf = :cpf')
     SQLConnection = dm_Principal.Taurus
     Left = 395
     Top = 79
@@ -1150,21 +1106,24 @@ object fFuncionarios: TfFuncionarios
     ProviderName = 'dspFuncionarios'
     Left = 543
     Top = 80
-    object cdsFuncionariostipo: TStringField
-      FieldName = 'tipo'
-      Size = 45
+    object cdsFuncionariosidfuncionarios: TIntegerField
+      FieldName = 'idfuncionarios'
+      Required = True
     end
-    object cdsFuncionariosnome: TStringField
-      FieldName = 'nome'
-      Size = 100
+    object cdsFuncionarioscpf: TStringField
+      FieldName = 'cpf'
+      Size = 14
     end
-    object cdsFuncionariosfantasia: TStringField
-      FieldName = 'fantasia'
-      Size = 100
+    object cdsFuncionariosrg: TStringField
+      FieldName = 'rg'
+      Size = 11
     end
-    object cdsFuncionarioscontato: TStringField
-      FieldName = 'contato'
-      Size = 45
+    object cdsFuncionariosdatanascimento: TDateField
+      FieldName = 'datanascimento'
+    end
+    object cdsFuncionariospis: TStringField
+      FieldName = 'pis'
+      Size = 11
     end
     object cdsFuncionarioscep: TStringField
       FieldName = 'cep'
@@ -1178,23 +1137,31 @@ object fFuncionarios: TfFuncionarios
       FieldName = 'numero'
       Size = 10
     end
-    object cdsFuncionariosidUF: TIntegerField
-      FieldName = 'idUF'
+    object cdsFuncionariosbairro: TStringField
+      FieldName = 'bairro'
+      Size = 60
     end
-    object cdsFuncionariosidCidade: TIntegerField
-      FieldName = 'idCidade'
+    object cdsFuncionarioscomplemento: TStringField
+      FieldName = 'complemento'
+      Size = 60
+    end
+    object cdsFuncionariosiduf: TIntegerField
+      FieldName = 'iduf'
+    end
+    object cdsFuncionariosidcidade: TIntegerField
+      FieldName = 'idcidade'
     end
     object cdsFuncionariosdddfone: TStringField
       FieldName = 'dddfone'
-      Size = 2
+      Size = 4
     end
-    object cdsFuncionariosfone: TStringField
-      FieldName = 'fone'
-      Size = 9
+    object cdsFuncionariostelefone: TStringField
+      FieldName = 'telefone'
+      Size = 10
     end
-    object cdsFuncionariosdddcel: TStringField
-      FieldName = 'dddcel'
-      Size = 2
+    object cdsFuncionariosdddcelular: TStringField
+      FieldName = 'dddcelular'
+      Size = 4
     end
     object cdsFuncionarioscelular: TStringField
       FieldName = 'celular'
@@ -1204,95 +1171,32 @@ object fFuncionarios: TfFuncionarios
       FieldName = 'email'
       Size = 70
     end
-    object cdsFuncionariosie: TStringField
-      FieldName = 'ie'
-      Size = 12
+    object cdsFuncionariosdataadmissao: TDateField
+      FieldName = 'dataadmissao'
     end
-    object cdsFuncionariosim: TStringField
-      FieldName = 'im'
-      Size = 12
+    object cdsFuncionariosdatademissao: TDateField
+      FieldName = 'datademissao'
     end
-    object cdsFuncionariosrg: TStringField
-      FieldName = 'rg'
-      Size = 11
+    object cdsFuncionariosapelido: TStringField
+      FieldName = 'apelido'
+      Size = 50
     end
-    object cdsFuncionarioscep_cobranca: TStringField
-      FieldName = 'cep_cobranca'
-      Size = 10
+    object cdsFuncionariosidSetor: TIntegerField
+      FieldName = 'idSetor'
     end
-    object cdsFuncionariosendereco_cobranca: TStringField
-      FieldName = 'endereco_cobranca'
-      Size = 70
+    object cdsFuncionariosidcargo: TIntegerField
+      FieldName = 'idcargo'
     end
-    object cdsFuncionariosbairro_cobranca: TStringField
-      FieldName = 'bairro_cobranca'
-      Size = 60
+    object cdsFuncionariossalario: TFloatField
+      FieldName = 'salario'
     end
-    object cdsFuncionariosidUf_cobranca: TIntegerField
-      FieldName = 'idUf_cobranca'
+    object cdsFuncionariosextra: TFloatField
+      FieldName = 'extra'
     end
-    object cdsFuncionariosidCidade_cobranca: TIntegerField
-      FieldName = 'idCidade_cobranca'
-    end
-    object cdsFuncionariosestado_civil: TStringField
-      FieldName = 'estado_civil'
-      Size = 15
-    end
-    object cdsFuncionariospai: TStringField
-      FieldName = 'pai'
-      Size = 100
-    end
-    object cdsFuncionariosmae: TStringField
-      FieldName = 'mae'
-      Size = 100
-    end
-    object cdsFuncionariosconjude: TStringField
-      FieldName = 'conjude'
-      Size = 100
-    end
-    object cdsFuncionariostrabalho: TStringField
-      FieldName = 'trabalho'
-      Size = 100
-    end
-    object cdsFuncionariosnaturalidade: TStringField
-      FieldName = 'naturalidade'
-      Size = 70
-    end
-    object cdsFuncionariosdatanascimento: TDateField
-      FieldName = 'datanascimento'
-    end
-    object cdsFuncionariosnumero_cobranca: TStringField
-      FieldName = 'numero_cobranca'
-      Size = 10
-    end
-    object cdsFuncionarioscomplemento_cobranca: TStringField
-      FieldName = 'complemento_cobranca'
-      Size = 60
-    end
-    object cdsFuncionarioscomplemento: TStringField
-      FieldName = 'complemento'
-      Size = 60
-    end
-    object cdsFuncionarioscdg_cliente: TStringField
-      FieldName = 'cdg_cliente'
-      Required = True
-      Size = 18
-    end
-    object cdsFuncionarioscontrib_icms: TStringField
-      FieldName = 'contrib_icms'
+    object cdsFuncionariosobs: TMemoField
+      FieldName = 'obs'
+      BlobType = ftMemo
       Size = 1
-    end
-    object cdsFuncionariossimples_nacional: TStringField
-      FieldName = 'simples_nacional'
-      Size = 1
-    end
-    object cdsFuncionariosdependentes: TStringField
-      FieldName = 'dependentes'
-      Size = 1
-    end
-    object cdsFuncionariosbairro: TStringField
-      FieldName = 'bairro'
-      Size = 60
     end
   end
   object dspFuncionarios: TDataSetProvider
@@ -1353,5 +1257,94 @@ object fFuncionarios: TfFuncionarios
     PesquisarIBGE = True
     Left = 504
     Top = 176
+  end
+  object qrSetor: TSQLQuery
+    MaxBlobSize = 1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'cdg_cliente'
+        ParamType = ptInput
+      end>
+    SQL.Strings = (
+      'Select * from setores')
+    SQLConnection = dm_Principal.Taurus
+    Left = 579
+    Top = 351
+  end
+  object dspSetor: TDataSetProvider
+    DataSet = qrSetor
+    Left = 651
+    Top = 352
+  end
+  object cdsSetor: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'cdg_cliente'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspSetor'
+    Left = 727
+    Top = 352
+    object cdsSetoridsetor: TIntegerField
+      FieldName = 'idsetor'
+      Required = True
+    end
+    object cdsSetornome: TStringField
+      FieldName = 'nome'
+      Size = 45
+    end
+  end
+  object dsSetor: TDataSource
+    DataSet = cdsSetor
+    Left = 793
+    Top = 352
+  end
+  object qrCargo: TSQLQuery
+    MaxBlobSize = 1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'cdg_cliente'
+        ParamType = ptInput
+      end>
+    SQL.Strings = (
+      'Select * from cargos'
+      '')
+    SQLConnection = dm_Principal.Taurus
+    Left = 611
+    Top = 247
+  end
+  object dspCargo: TDataSetProvider
+    DataSet = qrCargo
+    Left = 683
+    Top = 248
+  end
+  object cdsCargo: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'cdg_cliente'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspCargo'
+    Left = 759
+    Top = 248
+    object cdsCargoidcargo: TIntegerField
+      FieldName = 'idcargo'
+      Required = True
+    end
+    object cdsCargonome: TStringField
+      FieldName = 'nome'
+      Size = 45
+    end
+  end
+  object dsCargo: TDataSource
+    DataSet = cdsCargo
+    Left = 825
+    Top = 248
   end
 end

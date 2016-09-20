@@ -90,13 +90,13 @@ begin
   // CNPJ/CPF
   if ordem.ItemIndex = 0 then
   begin
-     qrPesq.sql.add('upper(e.cdg_cliente) like upper(' + '''' + '%' + procura.text + '%' + '''' + ') order by e.cnpj');
+     qrPesq.sql.add('upper(e.cdg_cliente) like upper(' + '''' + '%' + procura.text + '%' + '''' + ') order by e.cdg_clientes');
   end;
 
   // Razão Social/Nome
   if ordem.ItemIndex = 1 then
   begin
-     qrPesq.sql.add('upper(e.nome) like upper(' + '''' + '%' + procura.text + '%' + '''' + ') order by e.razao_social');
+     qrPesq.sql.add('upper(e.nome) like upper(' + '''' + '%' + procura.text + '%' + '''' + ') order by e.nome');
   end;
 
   cdsPesq.open;

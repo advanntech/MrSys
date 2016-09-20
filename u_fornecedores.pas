@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.FMTBcd, Vcl.StdCtrls, Vcl.DBCtrls,
   Vcl.Mask, Vcl.ComCtrls, Datasnap.Provider, Data.DB, Datasnap.DBClient,
   Data.SqlExpr, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
-  ACBrBase, ACBrSocket, ACBrCEP, uPesqCPNJ, uPesqCPF;
+  ACBrBase, ACBrSocket, ACBrCEP, uPesqCPNJ, uPesqCPF, u_PesqForncedores;
 
 type
   TfFornecedores = class(TForm)
@@ -29,46 +29,9 @@ type
     qrCidadesnome: TStringField;
     qrAux: TSQLQuery;
     ACBrCEP1: TACBrCEP;
-    cdsFornecedorestipo: TStringField;
-    cdsFornecedoresnome: TStringField;
-    cdsFornecedoresfantasia: TStringField;
-    cdsFornecedorescontato: TStringField;
-    cdsFornecedorescep: TStringField;
-    cdsFornecedoresendereco: TStringField;
-    cdsFornecedoresnumero: TStringField;
-    cdsFornecedoresidUF: TIntegerField;
-    cdsFornecedoresidCidade: TIntegerField;
-    cdsFornecedoresdddfone: TStringField;
-    cdsFornecedoresfone: TStringField;
-    cdsFornecedoresdddcel: TStringField;
-    cdsFornecedorescelular: TStringField;
-    cdsFornecedoresemail: TStringField;
-    cdsFornecedoresie: TStringField;
-    cdsFornecedoresim: TStringField;
-    cdsFornecedoresrg: TStringField;
-    cdsFornecedorescep_cobranca: TStringField;
-    cdsFornecedoresendereco_cobranca: TStringField;
-    cdsFornecedoresbairro_cobranca: TStringField;
-    cdsFornecedoresidUf_cobranca: TIntegerField;
-    cdsFornecedoresidCidade_cobranca: TIntegerField;
-    cdsFornecedoresestado_civil: TStringField;
-    cdsFornecedorespai: TStringField;
-    cdsFornecedoresmae: TStringField;
-    cdsFornecedoresconjude: TStringField;
-    cdsFornecedorestrabalho: TStringField;
-    cdsFornecedoresnaturalidade: TStringField;
-    cdsFornecedoresdatanascimento: TDateField;
-    cdsFornecedoresnumero_cobranca: TStringField;
-    cdsFornecedorescomplemento_cobranca: TStringField;
-    cdsFornecedorescomplemento: TStringField;
-    cdsFornecedorescdg_cliente: TStringField;
-    cdsFornecedorescontrib_icms: TStringField;
-    cdsFornecedoressimples_nacional: TStringField;
-    cdsFornecedoresdependentes: TStringField;
-    cdsFornecedoresbairro: TStringField;
     edtCNPJ: TMaskEdit;
     lbl4: TLabel;
-    imgPespCNPJ: TImage;
+    imgPesqCNPJ: TImage;
     imgPesqCliente2: TImage;
     edtRazaoSocial: TDBEdit;
     lbl5: TLabel;
@@ -105,19 +68,64 @@ type
     edtEmailJur: TDBEdit;
     chkContIcmsJur: TDBCheckBox;
     chkSimplesJur: TDBCheckBox;
+    grpFornecimento: TGroupBox;
+    chkRevendaIndustria: TDBCheckBox;
+    chkRevendaAtacado: TDBCheckBox;
+    chkRevendaProdutor: TDBCheckBox;
+    chkServicosConsumoImobilizado: TDBCheckBox;
+    chkImpostosTaxasContribuicoes: TDBCheckBox;
+    chkOutraOperacoes: TDBCheckBox;
+    chkExterior: TDBCheckBox;
+    chkMicroEmpresa: TDBCheckBox;
+    chkTransportador: TDBCheckBox;
+    Label1: TLabel;
+    edtSuframa: TDBEdit;
+    cdsFornecedorescdg_fornecedor: TStringField;
+    cdsFornecedoresrazaosocial: TStringField;
+    cdsFornecedoresfantasia: TStringField;
+    cdsFornecedorescontato: TStringField;
+    cdsFornecedorescep: TStringField;
+    cdsFornecedoresendereco: TStringField;
+    cdsFornecedoresnumero: TStringField;
+    cdsFornecedoresidUf: TIntegerField;
+    cdsFornecedoresidCidade: TIntegerField;
+    cdsFornecedorescomplemento: TStringField;
+    cdsFornecedoresdddfone: TStringField;
+    cdsFornecedoresfone: TStringField;
+    cdsFornecedoresddcelular: TStringField;
+    cdsFornecedorescelular: TStringField;
+    cdsFornecedoresie: TStringField;
+    cdsFornecedoresim: TStringField;
+    cdsFornecedoresbairro: TStringField;
+    cdsFornecedoresemail: TStringField;
+    cdsFornecedorescontribuinte_icms: TStringField;
+    cdsFornecedoressimples_nacional: TStringField;
+    cdsFornecedoresmicroempresa: TStringField;
+    cdsFornecedorestransportador: TStringField;
+    cdsFornecedoresindustria: TStringField;
+    cdsFornecedoresatacado: TStringField;
+    cdsFornecedoresprodutor: TStringField;
+    cdsFornecedoresservicos: TStringField;
+    cdsFornecedoresimpostos: TStringField;
+    cdsFornecedoresoutros: TStringField;
+    cdsFornecedoresexterior: TStringField;
+    cdsFornecedoressuframa: TStringField;
     procedure imgSairClick(Sender: TObject);
-    procedure imgPesqCepClick(Sender: TObject);
     procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
-    procedure imgPesqCepCobClick(Sender: TObject);
-    procedure imgPesqCep2Click(Sender: TObject);
-    procedure imgPesqCepCob2Click(Sender: TObject);
-    procedure imgPespCNPJClick(Sender: TObject);
+    procedure imgPesqCNPJClick(Sender: TObject);
     procedure img4Click(Sender: TObject);
+    procedure edtCNPJExit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure imgPesqCliente2Click(Sender: TObject);
   private
     { Private declarations }
   public
     procedure limparJuridica;
-    procedure limparFisica;
+
     procedure habilitaCamposJuridica;
     procedure desabilitaCamposJuridica;
     procedure habilitaCamposFisica;
@@ -162,13 +170,32 @@ begin
    end;
 end;
 
-procedure TfFornecedores.imgPespCNPJClick(Sender: TObject);
+procedure TfFornecedores.imgPesqCliente2Click(Sender: TObject);
 begin
-  if ActiveControl = edtCnpj then
+  if ActiveControl = edtCNPJ then
+  begin
+    Application.CreateForm(TfPesqFornecedores,fPesqFornecedores);
+    fPesqFornecedores.ShowModal;
+    if fPesqFornecedores.cnpj_retorno <> '' then
+       edtCNPJ.text := fPesqFornecedores.cnpj_retorno;
+    fPesqFornecedores.release;
+    fPesqFornecedores := nil;
+
+    edtCNPJExit(edtCNPJ);
+   end;
+end;
+
+procedure TfFornecedores.imgPesqCNPJClick(Sender: TObject);
+begin
+  if (ActiveControl = edtCnpj) or (edtCNPJ.Text <> EmptyStr) then
   begin
     Application.CreateForm(TfPesqCNPJ,fPesqCNPJ);
+    if (edtCNPJ.Text <> EmptyStr) then
+    begin
+      fPesqCNPJ.edtCNPJ.Text := edtCNPJ.Text;
+    end;
     fPesqCNPJ.ShowModal;
-    if fPesqCNPJ.cnpj <> '' then
+    if fPesqCNPJ.cnpj <> EmptyStr then
     begin
        edtCnpj.text := fPesqCNPJ.cnpj;
        edtRazaoSocial.Text := fPesqCNPJ.razaosocial;
@@ -179,43 +206,25 @@ begin
        edtComplementoJur.Text := fPesqCNPJ.complemento;
        cbbUFJur.Text := fPesqCNPJ.uf;
        cbbCidadeJur.Text := fPesqCNPJ.cidade;
-       edtTelefoneJur.Text := fPesqCNPJ.telefone;
+       edtDddTelJur.Text := copy(fPesqCNPJ.telefone,1,4);
+       edtTelefoneJur.Text := copy(fPesqCNPJ.telefone,6,9);
        edtCepJur.Text := fPesqCNPJ.cep;
        edtEmailJur.Text := fPesqCNPJ.email;
+       if (edtRazaoSocial.Text <> EmptyStr) then
+       begin
+         edtContato.SetFocus;
+       end;
+
+       edtContato.SetFocus;
     end;
     fPesqCNPJ.release;
     fPesqCNPJ := nil;
    end;
 end;
 
-procedure TfFornecedores.imgPesqCep2Click(Sender: TObject);
-begin
-  ACBrCEP1.BuscarPorCEP(edtCepJur.Text)
-end;
-
-procedure TfFornecedores.imgPesqCepClick(Sender: TObject);
-begin
-  ACBrCEP1.BuscarPorCEP(edtCepJur.Text)
-end;
-
-procedure TfFornecedores.imgPesqCepCob2Click(Sender: TObject);
-begin
-  ACBrCEP1.BuscarPorCEP(edtCepJur.Text)
-end;
-
-procedure TfFornecedores.imgPesqCepCobClick(Sender: TObject);
-begin
-  ACBrCEP1.BuscarPorCEP(edtCepJur.Text)
-end;
-
 procedure TfFornecedores.imgSairClick(Sender: TObject);
 begin
   Close;
-end;
-
-procedure TfFornecedores.limparFisica;
-begin
-
 end;
 
 
@@ -249,6 +258,50 @@ end;
 procedure TfFornecedores.habilitaCamposFisica;
 begin
 
+end;
+
+procedure TfFornecedores.btnCancelarClick(Sender: TObject);
+begin
+  cdsFornecedores.Cancel;
+  limparJuridica;
+end;
+
+procedure TfFornecedores.btnExcluirClick(Sender: TObject);
+begin
+  // busca id uf de estados
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id_uf from estados where uf = :uf');
+  qrAux.Params.ParamByName('uf').AsString := cbbUFJur.Text;
+  qrAux.Open;
+
+  cdsFornecedoresidUf.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id uf de cidade
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+  qrAux.Params.ParamByName('id_estado').AsInteger := cdsFornecedoresidUF.AsInteger;
+  qrAux.Params.ParamByName('nome').AsString := cbbCidadeJur.Text;
+  qrAux.Open;
+
+  cdsFornecedoresidCidade.AsInteger := qrAux.FieldByName('id').AsInteger;
+
+  cdsFornecedores.Post;
+  cdsFornecedores.ApplyUpdates(0);
+end;
+
+procedure TfFornecedores.btnNovoClick(Sender: TObject);
+begin
+  habilitaCamposJuridica;
+  desabilitaCamposFisica;
+  edtCNPJ.SetFocus;
+  limparJuridica;
+end;
+
+procedure TfFornecedores.btnSalvarClick(Sender: TObject);
+begin
+  cdsFornecedores.Delete;
 end;
 
 procedure TfFornecedores.desabilitaCamposFisica;
@@ -309,6 +362,42 @@ begin
   edtDddCelJur.Enabled := False;
   edtCelularJur.Enabled := False;
   edtCepJur.Enabled := False;
+end;
+
+procedure TfFornecedores.edtCNPJExit(Sender: TObject);
+begin
+  if (edtCNPJ.Text <> EmptyStr) then
+  begin
+
+    cdsFornecedores.Close;
+    cdsFornecedores.Params.ParamByName('cdg_fornecedor').AsString := edtCNPJ.Text;
+    cdsFornecedores.Open;
+
+    qrEstados.open;
+
+    while not qrEstados.Eof do
+    begin
+      cbbUFJur.Items.Add(qrEstadosuf.AsString);
+      qrEstados.Next;
+    end;
+
+    if (cdsFornecedores.IsEmpty) then
+    begin
+      cdsFornecedores.Append;
+      imgPesqCNPJClick(imgPesqCNPJ);
+      cdsFornecedorescdg_fornecedor.AsString := edtCNPJ.Text;
+    end
+    else
+    begin
+      cdsFornecedores.Edit;
+    end;
+  end;
+end;
+
+procedure TfFornecedores.FormCreate(Sender: TObject);
+begin
+  desabilitaCamposJuridica;
+  limparJuridica;
 end;
 
 end.

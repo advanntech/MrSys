@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.FMTBcd, Vcl.StdCtrls, Vcl.DBCtrls,
   Vcl.Mask, Vcl.ComCtrls, Datasnap.Provider, Data.DB, Datasnap.DBClient,
   Data.SqlExpr, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
-  ACBrBase, ACBrSocket, ACBrCEP, uPesqCPNJ, uPesqCPF;
+  ACBrBase, ACBrSocket, ACBrCEP, uPesqCPNJ, uPesqCPF, u_PesqClientes, uConvenio;
 
 type
   TfClientes = class(TForm)
@@ -113,7 +113,7 @@ type
     lbl31: TLabel;
     edtEmailJur: TDBEdit;
     grp2: TGroupBox;
-    img5: TImage;
+    imgFotoJur: TImage;
     img6: TImage;
     img7: TImage;
     imgPesqCep2: TImage;
@@ -204,10 +204,75 @@ type
     cdsClientescontrib_icms: TStringField;
     cdsClientessimples_nacional: TStringField;
     cdsClientesdependentes: TStringField;
-    rdgDependentes: TDBRadioGroup;
+    grpdependentes: TDBRadioGroup;
     cdsClientesbairro: TStringField;
     dlgOpen1: TOpenDialog;
     cdsClientesfoto: TMemoField;
+    Label1: TLabel;
+    edtProfissao: TDBEdit;
+    Label5: TLabel;
+    DBEdit1: TDBEdit;
+    lbl9: TLabel;
+    edtRenda: TDBEdit;
+    cdsClientesrenda: TFloatField;
+    cdsClientesprofissao: TStringField;
+    cdsClientesmoradia: TStringField;
+    cdsClientescep_entrega: TStringField;
+    cdsClientesendereco_entrega: TStringField;
+    cdsClientesnumero_entrega: TStringField;
+    cdsClientesbairro_entrega: TStringField;
+    cdsClientescomplemento_entrega: TStringField;
+    cdsClientesiduf_entrega: TIntegerField;
+    cdsClientesidcidade_entegra: TIntegerField;
+    lbl46: TLabel;
+    cbbMoradia: TDBComboBox;
+    lblQtos: TLabel;
+    edtQtdDependentes: TDBEdit;
+    cdsClientesqtdedependentes: TIntegerField;
+    tsEntrega: TTabSheet;
+    lbl47: TLabel;
+    edtCEPEntregaFis: TDBEdit;
+    imgPesqCepEntrega: TImage;
+    edtComplEntregaFis: TDBEdit;
+    lbl48: TLabel;
+    lbl49: TLabel;
+    edtBairroEntregaFis: TDBEdit;
+    edtEndEntregaFis: TDBEdit;
+    lbl50: TLabel;
+    lbl51: TLabel;
+    cbbUFEntregaFis: TComboBox;
+    lbl52: TLabel;
+    cbbCIdadeEntregaFis: TComboBox;
+    lbl53: TLabel;
+    edtNumEntregaFis: TDBEdit;
+    tsEndEntrega: TTabSheet;
+    lbl54: TLabel;
+    edtcepEntregaJur: TDBEdit;
+    imgPesqEntregaJur: TImage;
+    lbl55: TLabel;
+    edtEndEntregaJur: TDBEdit;
+    edtBairroEntregaJur: TDBEdit;
+    edtComplEntregaJur: TDBEdit;
+    lbl56: TLabel;
+    lbl57: TLabel;
+    cbbUfEntregaJur: TComboBox;
+    lbl58: TLabel;
+    cbbCidadeEntregaJur: TComboBox;
+    lbl59: TLabel;
+    edtNumEntregaJur: TDBEdit;
+    lbl60: TLabel;
+    qrConvenio: TSQLQuery;
+    qrConvenioidconvenio: TIntegerField;
+    qrConvenionome: TStringField;
+    lbl61: TLabel;
+    cbbLookConvenio: TDBLookupComboBox;
+    cdsConvenio: TClientDataSet;
+    dspConvenio: TDataSetProvider;
+    dsConvenio: TDataSource;
+    cdsClientesidconvenio: TIntegerField;
+    cdsConvenioidconvenio: TIntegerField;
+    cdsConvenionome: TStringField;
+    imgCadConvenio: TImage;
     procedure imgSairClick(Sender: TObject);
     procedure imgPesqCepClick(Sender: TObject);
     procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
@@ -223,8 +288,24 @@ type
     procedure cbbUFExit(Sender: TObject);
     procedure cbbUfCobFisExit(Sender: TObject);
     procedure edtCNPJExit(Sender: TObject);
-    procedure rdgDependentesClick(Sender: TObject);
+    procedure grpdependentesClick(Sender: TObject);
     procedure imgCaregaFotoFisClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure edtRGExit(Sender: TObject);
+    procedure edtCEPExit(Sender: TObject);
+    procedure edtComplementoExit(Sender: TObject);
+    procedure imgPesqClienteClick(Sender: TObject);
+    procedure imgPesqCliente2Click(Sender: TObject);
+    procedure edtContatoExit(Sender: TObject);
+    procedure img6Click(Sender: TObject);
+    procedure img7Click(Sender: TObject);
+    procedure img3Click(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure imgPesqCepEntregaClick(Sender: TObject);
+    procedure cbbUfEntregaJurExit(Sender: TObject);
+    procedure cbbUFEntregaFisExit(Sender: TObject);
+    procedure imgCadConvenioClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -248,12 +329,61 @@ var i : Integer;
 begin
   for i := 0 to ACBrCEP1.Enderecos.Count -1 do
   begin
-    edtCEP.Text := ACBrCEP1.Enderecos[i].CEP;
-    edtEndereco.Text := ACBrCEP1.Enderecos[i].Tipo_Logradouro + ' ' + ACBrCEP1.Enderecos[i].Logradouro;
-    cbbUF.Text := ACBrCEP1.Enderecos[i].UF;
-    cbbCidades.Text := ACBrCEP1.Enderecos[i].Municipio;
-    edtBairro.Text := ACBrCEP1.Enderecos[i].Bairro;
+    if (ActiveControl = edtCEP) or (ActiveControl = edtCepJur)  then
+    begin
+      edtCEP.Text := ACBrCEP1.Enderecos[i].CEP;
+      edtEndereco.Text := ACBrCEP1.Enderecos[i].Tipo_Logradouro + ' ' + ACBrCEP1.Enderecos[i].Logradouro;
+      cbbUF.Text := ACBrCEP1.Enderecos[i].UF;
+      cbbCidades.Text := ACBrCEP1.Enderecos[i].Municipio;
+      edtBairro.Text := ACBrCEP1.Enderecos[i].Bairro;
+    end;
+
+    if (ActiveControl = edtCepCobFis) then
+    begin
+      edtCepCobFis.Text := ACBrCEP1.Enderecos[i].CEP;
+      edtEnderecoCobFis.Text := ACBrCEP1.Enderecos[i].Tipo_Logradouro + ' ' + ACBrCEP1.Enderecos[i].Logradouro;
+      cbbUfCobFis.Text := ACBrCEP1.Enderecos[i].UF;
+      cbbCidadeCobFis.Text := ACBrCEP1.Enderecos[i].Municipio;
+      edtBairroCobFis.Text := ACBrCEP1.Enderecos[i].Bairro;
+    end;
+
+    if (ActiveControl = edtCepCobJur) then
+    begin
+      edtCepCobJur.Text := ACBrCEP1.Enderecos[i].CEP;
+      edtEnderecoCobJur.Text := ACBrCEP1.Enderecos[i].Tipo_Logradouro + ' ' + ACBrCEP1.Enderecos[i].Logradouro;
+      cbbUFCobJur.Text := ACBrCEP1.Enderecos[i].UF;
+      cbbCidadeCobJur.Text := ACBrCEP1.Enderecos[i].Municipio;
+      edtBairroCobJur.Text := ACBrCEP1.Enderecos[i].Bairro;
+    end;
+
+
+    if (ActiveControl = edtCEPEntregaFis) then
+    begin
+      edtCEPEntregaFis.Text := ACBrCEP1.Enderecos[i].CEP;
+      edtEndEntregaFis.Text := ACBrCEP1.Enderecos[i].Tipo_Logradouro + ' ' + ACBrCEP1.Enderecos[i].Logradouro;
+      cbbUFEntregaFis.Text := ACBrCEP1.Enderecos[i].UF;
+      cbbCIdadeEntregaFis.Text := ACBrCEP1.Enderecos[i].Municipio;
+      edtBairroEntregaFis.Text := ACBrCEP1.Enderecos[i].Bairro;
+    end;
+
+    if (ActiveControl = edtCEPEntregaFis) then
+    begin
+      edtcepEntregaJur.Text := ACBrCEP1.Enderecos[i].CEP;
+      edtEndEntregaJur.Text := ACBrCEP1.Enderecos[i].Tipo_Logradouro + ' ' + ACBrCEP1.Enderecos[i].Logradouro;
+      cbbUfEntregaJur.Text := ACBrCEP1.Enderecos[i].UF;
+      cbbCidadeEntregaJur.Text := ACBrCEP1.Enderecos[i].Municipio;
+      edtBairroEntregaJur.Text := ACBrCEP1.Enderecos[i].Bairro;
+    end;
   end;
+end;
+
+procedure TfClientes.edtCEPExit(Sender: TObject);
+begin
+  if (edtEndereco.Text <> EmptyStr) then
+  begin
+    edtNumero.SetFocus;
+  end;
+
 end;
 
 procedure TfClientes.edtCNPJExit(Sender: TObject);
@@ -288,6 +418,23 @@ begin
   end;
 end;
 
+procedure TfClientes.edtComplementoExit(Sender: TObject);
+begin
+  if (edtBairro.Text <> EmptyStr) then
+  begin
+    edtIeFis.SetFocus;
+  end;
+
+end;
+
+procedure TfClientes.edtContatoExit(Sender: TObject);
+begin
+  if (edtCepJur.Text <> EmptyStr) then
+  begin
+    edtIeJur.SetFocus;
+  end;
+end;
+
 procedure TfClientes.edtCpfExit(Sender: TObject);
 begin
   if (edtCpf.Text <> EmptyStr) then
@@ -304,6 +451,7 @@ begin
     begin
       cbbUF.Items.Add(qrEstadosuf.AsString);
       cbbUfCobFis.Items.Add(qrEstadosuf.AsString);
+      cbbUFEntregaFis.Items.Add(qrEstadosuf.AsString);
       qrEstados.Next;
     end;
 
@@ -315,20 +463,41 @@ begin
     end
     else
     begin
+      if cdsClientesdependentes.AsString = '1' then
+      begin
+         grpdependentes.ItemIndex := 0;
+      end
+      else
+      begin
+        grpdependentes.ItemIndex := 1;
+      end;
+
       cdsClientes.Edit;
     end;
   end;
 end;
 
-procedure TfClientes.rdgDependentesClick(Sender: TObject);
+procedure TfClientes.edtRGExit(Sender: TObject);
 begin
-  if rdgDependentes.ItemIndex = 1 then
+  if (edtDataNascimento.Text <> EmptyStr) then
+  begin
+    edtCEP.SetFocus;
+  end;
+end;
+
+procedure TfClientes.grpdependentesClick(Sender: TObject);
+begin
+  if grpdependentes.ItemIndex = 1 then
   begin
     cdsClientesdependentes.AsString := '1';
+    lblQtos.Visible := True;
+    edtQtdDependentes.Visible := True;
   end
   else
   begin
     cdsClientesdependentes.AsString := '0';
+    lblQtos.Visible := False;
+    edtQtdDependentes.Visible := False;
   end;
 end;
 
@@ -342,7 +511,7 @@ begin
       fPesqCPF.edtCPF.Text := edtCpf.Text;
     end;
     fPesqCPF.ShowModal;
-    if fPesqCPF.cpf <> '' then
+    if fPesqCPF.cpf <> EmptyStr then
     begin
        edtCpf.text := fPesqCPF.cpf;
        edtNome.Text := fPesqCPF.razaosocial;
@@ -361,7 +530,7 @@ end;
 
 procedure TfClientes.imgPesqCNPJClick(Sender: TObject);
 begin
-  if ActiveControl = edtCnpj then
+  if (ActiveControl = edtCnpj) or (edtCNPJ.Text <> EmptyStr) then
   begin
     Application.CreateForm(TfPesqCNPJ,fPesqCNPJ);
     if (edtCNPJ.Text <> EmptyStr) then
@@ -369,7 +538,7 @@ begin
       fPesqCNPJ.edtCNPJ.Text := edtCNPJ.Text;
     end;
     fPesqCNPJ.ShowModal;
-    if fPesqCNPJ.cnpj <> '' then
+    if fPesqCNPJ.cnpj <> EmptyStr then
     begin
        edtCnpj.text := fPesqCNPJ.cnpj;
        edtRazaoSocial.Text := fPesqCNPJ.razaosocial;
@@ -380,17 +549,49 @@ begin
        edtComplementoJur.Text := fPesqCNPJ.complemento;
        cbbUFJur.Text := fPesqCNPJ.uf;
        cbbCidadeJur.Text := fPesqCNPJ.cidade;
-       edtTelefoneJur.Text := fPesqCNPJ.telefone;
+       edtDddTelJur.Text := copy(fPesqCNPJ.telefone,1,4);
+       edtTelefoneJur.Text := copy(fPesqCNPJ.telefone,6,9);
        edtCepJur.Text := fPesqCNPJ.cep;
        edtEmailJur.Text := fPesqCNPJ.email;
        if (edtRazaoSocial.Text <> EmptyStr) then
        begin
          edtContato.SetFocus;
        end;
+
+       edtContato.SetFocus;
     end;
     fPesqCNPJ.release;
     fPesqCNPJ := nil;
    end;
+end;
+
+procedure TfClientes.img3Click(Sender: TObject);
+begin
+  imgFotoFis.Picture.Destroy;
+  cdsClientesfoto.Clear;
+end;
+
+procedure TfClientes.img6Click(Sender: TObject);
+begin
+  if dlgOpen1.Execute then
+  begin
+    cdsClientesfoto.LoadFromFile(dlgOpen1.FileName);
+    imgFotoJur.Picture.LoadFromFile(dlgOpen1.FileName);
+  end;
+end;
+
+procedure TfClientes.img7Click(Sender: TObject);
+begin
+  imgFotoJur.Picture.Destroy;
+  cdsClientesfoto.Clear;
+end;
+
+procedure TfClientes.imgCadConvenioClick(Sender: TObject);
+begin
+  Application.Initialize;
+  Application.CreateForm(TfConvenio, fConvenio);
+  fConvenio.ShowModal;
+  cdsConvenio.Refresh;
 end;
 
 procedure TfClientes.imgCaregaFotoFisClick(Sender: TObject);
@@ -420,6 +621,42 @@ end;
 procedure TfClientes.imgPesqCepCobClick(Sender: TObject);
 begin
   ACBrCEP1.BuscarPorCEP(edtCepCobFis.Text)
+end;
+
+procedure TfClientes.imgPesqCepEntregaClick(Sender: TObject);
+begin
+  ACBrCEP1.BuscarPorCEP(edtCepCobFis.Text)
+end;
+
+procedure TfClientes.imgPesqCliente2Click(Sender: TObject);
+begin
+  if ActiveControl = edtCNPJ then
+  begin
+    Application.CreateForm(TfPesqClientes,fPesqClientes);
+    fPesqClientes.ShowModal;
+    if fPesqClientes.cnpj_retorno <> '' then
+       edtCNPJ.text := fPesqClientes.cnpj_retorno;
+    fPesqClientes.release;
+    fPesqClientes := nil;
+
+    edtCNPJExit(edtCNPJ);
+   end;
+end;
+
+procedure TfClientes.imgPesqClienteClick(Sender: TObject);
+begin
+  if ActiveControl = edtCpf then
+  begin
+    Application.CreateForm(TfPesqClientes,fPesqClientes);
+    fPesqClientes.ShowModal;
+    if fPesqClientes.cnpj_retorno <> '' then
+       edtCpf.text := fPesqClientes.cnpj_retorno;
+    fPesqClientes.release;
+    fPesqClientes := nil;
+
+    edtCpfExit(edtCpf);
+   end;
+
 end;
 
 procedure TfClientes.imgSairClick(Sender: TObject);
@@ -494,6 +731,13 @@ begin
   edtContato.Clear;
   edtDddCelJur.Clear;
   edtCelularJur.Clear;
+  edtcepEntregaJur.Clear;
+  edtEndEntregaJur.Clear;
+  edtNumEntregaJur.Clear;
+  edtBairroEntregaJur.Clear;
+  edtComplEntregaJur.Clear;
+  cbbUfEntregaJur.Clear;
+  cbbCidadeEntregaJur.Clear;
 end;
 
 procedure TfClientes.habilitaCamposFisica;
@@ -528,10 +772,31 @@ begin
   edtCelularFis.Enabled := True;
   edtDddCelFis.Enabled := True;
   edtDddFoneFis.Enabled := True;
+  edtCEPEntregaFis.Clear;
+  edtEndEntregaFis.Clear;
+  edtNumEntregaFis.Clear;
+  edtBairroEntregaFis.Clear;
+  edtComplEntregaFis.Clear;
+  cbbUFEntregaFis.Clear;
+  cbbCIdadeEntregaFis.Clear;
+end;
+
+procedure TfClientes.btnCancelarClick(Sender: TObject);
+begin
+  cdsClientes.Cancel;
+  limparJuridica;
+  limparFisica;
+end;
+
+procedure TfClientes.btnExcluirClick(Sender: TObject);
+begin
+  cdsClientes.Delete;
 end;
 
 procedure TfClientes.btnNovoClick(Sender: TObject);
 begin
+  cdsConvenio.Open;
+
   if (tsFisica.Showing = True) then
   begin
     habilitaCamposFisica;
@@ -550,7 +815,135 @@ begin
     limparJuridica;
   end;
 
+end;
 
+procedure TfClientes.btnSalvarClick(Sender: TObject);
+begin
+
+  if (edtCpf.Text <> EmptyStr) then
+  begin
+    // busca id uf de estados
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id_uf from estados where uf = :uf');
+    qrAux.Params.ParamByName('uf').AsString := cbbUF.Text;
+    qrAux.Open;
+
+    cdsClientesidUF.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id uf de cidade
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+    qrAux.Params.ParamByName('id_estado').AsInteger := cdsClientesidUF.AsInteger;
+    qrAux.Params.ParamByName('nome').AsString := cbbCidades.Text;
+    qrAux.Open;
+
+    cdsClientesidCidade.AsInteger := qrAux.FieldByName('id').AsInteger;
+
+    // busca id uf de estado cobrança
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id_uf from estados where uf = :uf');
+    qrAux.Params.ParamByName('uf').AsString := cbbUfCobFis.Text;
+    qrAux.Open;
+
+    cdsClientesidUf_cobranca.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id da cidade cobrança
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+    qrAux.Params.ParamByName('id_estado').AsInteger := cdsClientesidUf_cobranca.AsInteger;
+    qrAux.Params.ParamByName('nome').AsString := cbbCidadeCobFis.Text;
+    qrAux.Open;
+
+    cdsClientesidCidade_cobranca.AsInteger := qrAux.FieldByName('id').AsInteger;
+
+
+    // busca id uf de estado de entrega
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id_uf from estados where uf = :uf');
+    qrAux.Params.ParamByName('uf').AsString := cbbUFEntregaFis.Text;
+    qrAux.Open;
+
+    cdsClientesiduf_entrega.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id da cidade entrega
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+    qrAux.Params.ParamByName('id_estado').AsInteger := cdsClientesiduf_entrega.AsInteger;
+    qrAux.Params.ParamByName('nome').AsString := cbbCIdadeEntregaFis.Text;
+    qrAux.Open;
+
+    cdsClientesidcidade_entegra.AsInteger := qrAux.FieldByName('id').AsInteger;
+  end;
+
+  if (edtCNPJ.Text <> EmptyStr) then
+  begin
+    // busca id uf de estados
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id_uf from estados where uf = :uf');
+    qrAux.Params.ParamByName('uf').AsString := cbbUFJur.Text;
+    qrAux.Open;
+
+    cdsClientesidUF.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id uf de cidade
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+    qrAux.Params.ParamByName('id_estado').AsInteger := cdsClientesidUF.AsInteger;
+    qrAux.Params.ParamByName('nome').AsString := cbbCidadeJur.Text;
+    qrAux.Open;
+
+    cdsClientesidCidade.AsInteger := qrAux.FieldByName('id').AsInteger;
+
+    // busca id uf de estados cobranca
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id_uf from estados where uf = :uf');
+    qrAux.Params.ParamByName('uf').AsString := cbbUFCobJur.Text;
+    qrAux.Open;
+
+    cdsClientesidUf_cobranca.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id uf de cidade cobranca
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+    qrAux.Params.ParamByName('id_estado').AsInteger := cdsClientesidUf_cobranca.AsInteger;
+    qrAux.Params.ParamByName('nome').AsString := cbbCidadeCobJur.Text;
+    qrAux.Open;
+
+    cdsClientesidCidade_cobranca.AsInteger := qrAux.FieldByName('id').AsInteger;
+
+
+    // busca id uf de estados entrega
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id_uf from estados where uf = :uf');
+    qrAux.Params.ParamByName('uf').AsString := cbbUfEntregaJur.Text;
+    qrAux.Open;
+
+    cdsClientesiduf_entrega.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id uf de cidade entrega
+    qrAux.Close;
+    qrAux.SQL.Clear;
+    qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+    qrAux.Params.ParamByName('id_estado').AsInteger := cdsClientesiduf_entrega.AsInteger;
+    qrAux.Params.ParamByName('nome').AsString := cbbCidadeEntregaJur.Text;
+    qrAux.Open;
+
+    cdsClientesidcidade_entegra.AsInteger := qrAux.FieldByName('id').AsInteger;
+  end;
+
+  cdsClientes.Post;
+  cdsClientes.ApplyUpdates(0);
 end;
 
 procedure TfClientes.cbbUfCobFisExit(Sender: TObject);
@@ -587,6 +980,44 @@ begin
   while not qrCidades.eof do
   begin
     cbbCidades.Items.Add(qrCidadesnome.AsString);
+    qrCidades.Next;
+  end;
+end;
+
+procedure TfClientes.cbbUFEntregaFisExit(Sender: TObject);
+begin
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where uf = :uf');
+  qrAux.ParamByName('uf').AsString := cbbUF.Text;
+  qrAux.Open;
+
+  qrCidades.Close;
+  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
+  qrCidades.Open;
+
+  while not qrCidades.eof do
+  begin
+    cbbCIdadeEntregaFis.Items.Add(qrCidadesnome.AsString);
+    qrCidades.Next;
+  end;
+end;
+
+procedure TfClientes.cbbUfEntregaJurExit(Sender: TObject);
+begin
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where uf = :uf');
+  qrAux.ParamByName('uf').AsString := cbbUF.Text;
+  qrAux.Open;
+
+  qrCidades.Close;
+  qrCidades.Params.ParamByName('id_estado').AsInteger := qrAux.FieldByName('id').AsInteger;
+  qrCidades.Open;
+
+  while not qrCidades.eof do
+  begin
+    cbbCidadeEntregaJur.Items.Add(qrCidadesnome.AsString);
     qrCidades.Next;
   end;
 end;
