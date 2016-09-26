@@ -25,7 +25,6 @@ object fFuncionarios: TfFuncionarios
     Color = 16711808
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1245
     object imgSair: TImage
       Left = 1194
       Top = 1
@@ -123,8 +122,6 @@ object fFuncionarios: TfFuncionarios
     Color = 16711808
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 572
-    ExplicitWidth = 1245
     object btnNovo: TButton
       Left = 1046
       Top = 1
@@ -145,7 +142,6 @@ object fFuncionarios: TfFuncionarios
       StylusHotImageIndex = 3
       TabOrder = 0
       OnClick = btnNovoClick
-      ExplicitLeft = 1044
     end
     object btnSalvar: TButton
       Left = 1095
@@ -166,7 +162,7 @@ object fFuncionarios: TfFuncionarios
       SelectedImageIndex = 4
       StylusHotImageIndex = 4
       TabOrder = 2
-      ExplicitLeft = 1093
+      OnClick = btnSalvarClick
     end
     object btnExcluir: TButton
       Left = 1144
@@ -187,7 +183,6 @@ object fFuncionarios: TfFuncionarios
       SelectedImageIndex = 2
       StylusHotImageIndex = 2
       TabOrder = 3
-      ExplicitLeft = 1142
     end
     object btnCancelar: TButton
       Left = 1193
@@ -208,7 +203,7 @@ object fFuncionarios: TfFuncionarios
       SelectedImageIndex = 1
       StylusHotImageIndex = 1
       TabOrder = 1
-      ExplicitLeft = 1191
+      OnClick = btnCancelarClick
     end
   end
   object pgcCliente: TPageControl
@@ -216,15 +211,11 @@ object fFuncionarios: TfFuncionarios
     Top = 49
     Width = 1247
     Height = 368
-    ActivePage = tsFisica
+    ActivePage = tsFuncionario
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 1245
-    ExplicitHeight = 523
-    object tsFisica: TTabSheet
-      Caption = 'Pessoa F'#237'sica'
-      ExplicitWidth = 1237
-      ExplicitHeight = 491
+    object tsFuncionario: TTabSheet
+      Caption = 'Funcionario'
       object lbl2: TLabel
         Left = 85
         Top = 20
@@ -479,6 +470,7 @@ object fFuncionarios: TfFuncionarios
           8D9D54774093E996B1CBD76FD729B81DAE4193B1B960B9B1079E15C6FE134890
           3D96FB7E4C96C073EEFBC2BE177E8BA85EE3D31B61EFC1FE21A20F0D681E74FC
           FA31F92B7ECDFE69013F012C405983906353890000000049454E44AE426082}
+        OnClick = img2Click
       end
       object img3: TImage
         Left = 1145
@@ -738,7 +730,7 @@ object fFuncionarios: TfFuncionarios
         Height = 230
         Caption = 'Fotografia'
         TabOrder = 13
-        object img1: TImage
+        object imgFoto: TImage
           Left = 16
           Top = 21
           Width = 153
@@ -1087,13 +1079,13 @@ object fFuncionarios: TfFuncionarios
       'Select * from funcionarios'
       'where cpf = :cpf')
     SQLConnection = dm_Principal.Taurus
-    Left = 395
-    Top = 79
+    Left = 561
+    Top = 90
   end
   object dsFuncionarios: TDataSource
     DataSet = cdsFuncionarios
-    Left = 609
-    Top = 80
+    Left = 775
+    Top = 91
   end
   object cdsFuncionarios: TClientDataSet
     Aggregates = <>
@@ -1104,8 +1096,8 @@ object fFuncionarios: TfFuncionarios
         ParamType = ptInput
       end>
     ProviderName = 'dspFuncionarios'
-    Left = 543
-    Top = 80
+    Left = 709
+    Top = 91
     object cdsFuncionariosidfuncionarios: TIntegerField
       FieldName = 'idfuncionarios'
       Required = True
@@ -1201,8 +1193,8 @@ object fFuncionarios: TfFuncionarios
   end
   object dspFuncionarios: TDataSetProvider
     DataSet = qrFuncionarios
-    Left = 467
-    Top = 80
+    Left = 633
+    Top = 91
   end
   object qrEstados: TSQLQuery
     MaxBlobSize = -1
@@ -1211,8 +1203,8 @@ object fFuncionarios: TfFuncionarios
       'Select uf from estados'
       'order by uf asc')
     SQLConnection = dm_Principal.Taurus
-    Left = 675
-    Top = 80
+    Left = 841
+    Top = 91
     object qrEstadosuf: TStringField
       FieldName = 'uf'
       Required = True
@@ -1233,8 +1225,8 @@ object fFuncionarios: TfFuncionarios
       'order by nome asc'
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 739
-    Top = 80
+    Left = 905
+    Top = 91
     object qrCidadesnome: TStringField
       FieldName = 'nome'
       Required = True
@@ -1248,8 +1240,8 @@ object fFuncionarios: TfFuncionarios
       ''
       '')
     SQLConnection = dm_Principal.Taurus
-    Left = 803
-    Top = 80
+    Left = 969
+    Top = 91
   end
   object ACBrCEP1: TACBrCEP
     ProxyPort = '8080'
@@ -1346,5 +1338,9 @@ object fFuncionarios: TfFuncionarios
     DataSet = cdsCargo
     Left = 825
     Top = 248
+  end
+  object dlgOpen1: TOpenDialog
+    Left = 824
+    Top = 304
   end
 end

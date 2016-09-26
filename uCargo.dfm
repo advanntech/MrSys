@@ -152,7 +152,7 @@ object fCargo: TfCargo
       Left = 307
       Top = 1
       Width = 48
-      Height = 43
+      Height = 48
       Align = alRight
       AutoSize = True
       Center = True
@@ -218,7 +218,6 @@ object fCargo: TfCargo
         82}
       OnClick = imgSairClick
       ExplicitLeft = 568
-      ExplicitHeight = 48
     end
     object lbl1: TLabel
       Left = 12

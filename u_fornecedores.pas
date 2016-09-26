@@ -129,7 +129,6 @@ type
     procedure habilitaCamposJuridica;
     procedure desabilitaCamposJuridica;
     procedure habilitaCamposFisica;
-    procedure desabilitaCamposFisica;
   end;
 
 var
@@ -244,11 +243,20 @@ begin
   edtEnderecoJur.Clear;
   edtFantasia.Clear;
   edtNumeroJur.Clear;
-  cbbCidadeJur.Clear;
-  cbbUFJur.Clear;
-  chkContIcmsJur.Checked := False;
+  cbbCidadeJur.ItemIndex := 1;
+  cbbUFJur.ItemIndex := 1;
   edtEmailJur.Clear;
+  chkContIcmsJur.Checked := False;
   chkSimplesJur.Checked := False;
+  chkRevendaIndustria.Checked := False;
+  chkRevendaAtacado.Checked := False;
+  chkRevendaProdutor.Checked := False;
+  chkServicosConsumoImobilizado.Checked := False;
+  chkImpostosTaxasContribuicoes.Checked := False;
+  chkOutraOperacoes.Checked := False;
+  chkExterior.Checked := False;
+  chkMicroEmpresa.Checked := False;
+  chkTransportador.Checked := False;
 
   edtContato.Clear;
   edtDddCelJur.Clear;
@@ -268,7 +276,19 @@ end;
 
 procedure TfFornecedores.btnExcluirClick(Sender: TObject);
 begin
-  // busca id uf de estados
+  cdsFornecedores.Delete;
+end;
+
+procedure TfFornecedores.btnNovoClick(Sender: TObject);
+begin
+  habilitaCamposJuridica;
+  edtCNPJ.SetFocus;
+  limparJuridica;
+end;
+
+procedure TfFornecedores.btnSalvarClick(Sender: TObject);
+begin
+ // busca id uf de estados
   qrAux.Close;
   qrAux.SQL.Clear;
   qrAux.SQL.Add('select id_uf from estados where uf = :uf');
@@ -291,23 +311,6 @@ begin
   cdsFornecedores.ApplyUpdates(0);
 end;
 
-procedure TfFornecedores.btnNovoClick(Sender: TObject);
-begin
-  habilitaCamposJuridica;
-  desabilitaCamposFisica;
-  edtCNPJ.SetFocus;
-  limparJuridica;
-end;
-
-procedure TfFornecedores.btnSalvarClick(Sender: TObject);
-begin
-  cdsFornecedores.Delete;
-end;
-
-procedure TfFornecedores.desabilitaCamposFisica;
-begin
-
-end;
 
 procedure TfFornecedores.habilitaCamposJuridica;
 begin
@@ -334,6 +337,9 @@ begin
   edtContato.Enabled := True;
   edtDddCelJur.Enabled := True;
   edtCelularJur.Enabled := True;
+  chkMicroEmpresa.Enabled := True;
+  chkTransportador.Enabled := True;
+  grpFornecimento.Enabled := True;
 end;
 
 procedure TfFornecedores.desabilitaCamposJuridica;
@@ -362,6 +368,9 @@ begin
   edtDddCelJur.Enabled := False;
   edtCelularJur.Enabled := False;
   edtCepJur.Enabled := False;
+  chkMicroEmpresa.Enabled := False;
+  chkTransportador.Enabled := False;
+  grpFornecimento.Enabled := False;
 end;
 
 procedure TfFornecedores.edtCNPJExit(Sender: TObject);

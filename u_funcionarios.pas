@@ -20,7 +20,7 @@ type
     btnExcluir: TButton;
     btnCancelar: TButton;
     pgcCliente: TPageControl;
-    tsFisica: TTabSheet;
+    tsFuncionario: TTabSheet;
     lbl2: TLabel;
     lbl3: TLabel;
     lbl10: TLabel;
@@ -54,7 +54,7 @@ type
     edtCEP: TDBEdit;
     edtDataNascimento: TDBEdit;
     grp1: TGroupBox;
-    img1: TImage;
+    imgFoto: TImage;
     edtCelularFis: TDBEdit;
     edtDddCelFis: TDBEdit;
     edtDddFoneFis: TDBEdit;
@@ -124,6 +124,7 @@ type
     cdsSetornome: TStringField;
     cdsCargoidcargo: TIntegerField;
     cdsCargonome: TStringField;
+    dlgOpen1: TOpenDialog;
     procedure imgSairClick(Sender: TObject);
     procedure imgPesqCepClick(Sender: TObject);
     procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
@@ -131,6 +132,9 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure cbbUFExit(Sender: TObject);
     procedure edtCpfExit(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure img2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -180,6 +184,15 @@ begin
    end;
 end;
 
+
+procedure TfFuncionarios.img2Click(Sender: TObject);
+begin
+  if dlgOpen1.Execute then
+  begin
+//    cdsFuncionariosfoto.LoadFromFile(dlgOpen1.FileName);
+    imgFoto.Picture.LoadFromFile(dlgOpen1.FileName);
+  end;
+end;
 
 procedure TfFuncionarios.imgPesqCepClick(Sender: TObject);
 begin
@@ -234,9 +247,14 @@ begin
   edtDddFoneFis.Enabled := True;
 end;
 
+procedure TfFuncionarios.btnCancelarClick(Sender: TObject);
+begin
+ Close;
+end;
+
 procedure TfFuncionarios.btnNovoClick(Sender: TObject);
 begin
-  if (tsFisica.Showing = True) then
+  if (tsFuncionario.Showing = True) then
   begin
     habilitaCamposFisica;
     desabilitaCamposJuridica;
@@ -245,6 +263,31 @@ begin
     limparJuridica;
   end;
 
+end;
+
+procedure TfFuncionarios.btnSalvarClick(Sender: TObject);
+begin
+  // busca id uf de estados
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where uf = :uf');
+  qrAux.Params.ParamByName('uf').AsString := cbbUF.Text;
+  qrAux.Open;
+
+  cdsFuncionariosiduf.AsInteger := qrAux.FieldByName('id_uf').AsInteger;
+
+    // busca id uf de cidade
+  qrAux.Close;
+  qrAux.SQL.Clear;
+  qrAux.SQL.Add('select id from estados where id_estado = :id_estado and nome = :nome');
+  qrAux.Params.ParamByName('id_estado').AsInteger := cdsFuncionariosiduf.AsInteger;
+  qrAux.Params.ParamByName('nome').AsString := cbbCidades.Text;
+  qrAux.Open;
+
+  cdsFuncionariosidcidade.AsInteger := qrAux.FieldByName('id').AsInteger;
+
+  cdsFuncionarios.Post;
+  cdsFuncionarios.ApplyUpdates(0);
 end;
 
 procedure TfFuncionarios.cbbUFExit(Sender: TObject);
